@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Paulovich.NET</title>
-    <link>https://example.com/posts/</link>
+    <link>https://paulovich.net/posts/</link>
     <description>Recent content in Posts on Paulovich.NET</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 16 Aug 2018 06:12:52 +0200</lastBuildDate>
     
-	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://paulovich.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</title>
-      <link>https://example.com/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</link>
+      <link>https://paulovich.net/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</link>
       <pubDate>Thu, 16 Aug 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</guid>
+      <guid>https://paulovich.net/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</guid>
       <description>Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details.</description>
     </item>
     
     <item>
       <title>Rich Domain Model with DDD/TDD (Reviewed)</title>
-      <link>https://example.com/posts/rich-domain-model-with-ddd-tdd-reviewed/</link>
+      <link>https://paulovich.net/posts/rich-domain-model-with-ddd-tdd-reviewed/</link>
       <pubDate>Sun, 29 Jul 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/rich-domain-model-with-ddd-tdd-reviewed/</guid>
+      <guid>https://paulovich.net/posts/rich-domain-model-with-ddd-tdd-reviewed/</guid>
       <description>Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules.</description>
     </item>
     
     <item>
       <title>Hexagonal Architectural in 2 minutes</title>
-      <link>https://example.com/posts/hexagonal-architectural-in-2-minutes/</link>
+      <link>https://paulovich.net/posts/hexagonal-architectural-in-2-minutes/</link>
       <pubDate>Wed, 18 Jul 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/hexagonal-architectural-in-2-minutes/</guid>
+      <guid>https://paulovich.net/posts/hexagonal-architectural-in-2-minutes/</guid>
       <description>Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!
   </description>
     </item>
     
     <item>
       <title>Guidelines to Enrich Anemic Domain Models with TDD/DDD</title>
-      <link>https://example.com/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</link>
+      <link>https://paulovich.net/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</link>
       <pubDate>Sun, 24 Jun 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</guid>
+      <guid>https://paulovich.net/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</guid>
       <description>In my previous blog posts you could see Clean Architecture and Hexagonal implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually.</description>
     </item>
     
     <item>
       <title>Hexagonal Architecture with .NET</title>
-      <link>https://example.com/posts/hexagonal-architecture-dot-net/</link>
+      <link>https://paulovich.net/posts/hexagonal-architecture-dot-net/</link>
       <pubDate>Sat, 26 May 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/hexagonal-architecture-dot-net/</guid>
+      <guid>https://paulovich.net/posts/hexagonal-architecture-dot-net/</guid>
       <description>The feedback of the Clean Architecture for .NET Applications made me feel like I needed to take a step back and introduce some concepts first, so I will present my implementation of Hexagonal Architecture to make easier to understand them completely. Unfortunately in my previous experiences in different companies, remain very common that applications are built on top of frameworks and databases. I see that many developers are used to implement software that mimics the data tables instead of design software driven by the business domain.</description>
     </item>
     
     <item>
       <title>Architecture Templates for dotnet new</title>
-      <link>https://example.com/posts/architecture-templates-for-dotnet-new/</link>
+      <link>https://paulovich.net/posts/architecture-templates-for-dotnet-new/</link>
       <pubDate>Tue, 22 May 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/architecture-templates-for-dotnet-new/</guid>
+      <guid>https://paulovich.net/posts/architecture-templates-for-dotnet-new/</guid>
       <description>I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
 Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
 dotnet new -i Paulovich.Caju
@@ -71,10 +71,10 @@ Then run dotnet new and check the templates list:</description>
     
     <item>
       <title>Clean Architecture for .NET Applications</title>
-      <link>https://example.com/posts/clean-architecture-for-net-applications/</link>
+      <link>https://paulovich.net/posts/clean-architecture-for-net-applications/</link>
       <pubDate>Tue, 15 May 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/clean-architecture-for-net-applications/</guid>
+      <guid>https://paulovich.net/posts/clean-architecture-for-net-applications/</guid>
       <description>I&amp;rsquo;d like to introduce my service template for .NET Applications based on the Clean Architecture style. You can download the full source code or you can play with the dotnet new caju tool using the following commands:
 $ dotnet new -i Paulovich.Caju::0.4.0 $ dotnet new clean &amp;ndash;data-access mongo &amp;ndash;use-cases full &amp;ndash;user-interface webapi
 As the SOLID principles and the Clean Architecture rules are worth to write about it, I am starting this blogging series explaining the decisions we have made through the development of the Manga Project.</description>
@@ -82,10 +82,10 @@ As the SOLID principles and the Clean Architecture rules are worth to write abou
     
     <item>
       <title>Check out these awesome Hexagonal and Clean Architectures implementations!</title>
-      <link>https://example.com/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</link>
+      <link>https://paulovich.net/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</link>
       <pubDate>Thu, 05 Apr 2018 06:12:52 +0200</pubDate>
       
-      <guid>https://example.com/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</guid>
+      <guid>https://paulovich.net/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</guid>
       <description>Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios. To illustrate, we published on GitHub three projects with architecture practices for highly testable, framework and database independent softwares. The first one is the Acerola Project, which follows the Hexagonal Architecture (in the center there’s a Domain plus the Application and externally Ports and Adapters).</description>
     </item>
     
