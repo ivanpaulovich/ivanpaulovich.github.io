@@ -22,16 +22,14 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architecture Templates for dotnet new"/>
-<meta name="twitter:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
-Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
-dotnet new -i Paulovich.Caju
-Then run dotnet new and check the templates list:"/>
+<meta name="twitter:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list:"/>
 
 <meta property="og:title" content="Architecture Templates for dotnet new" />
-<meta property="og:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
-Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
-dotnet new -i Paulovich.Caju
-Then run dotnet new and check the templates list:" />
+<meta property="og:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://paulovich.net/posts/architecture-templates-for-dotnet-new/" /><meta property="article:published_time" content="2018-05-22T06:12:52&#43;02:00"/>
 <meta property="article:modified_time" content="2018-05-22T06:12:52&#43;02:00"/><meta property="og:site_name" content="Paulovich.NET" />
@@ -178,12 +176,12 @@ Then run dotnet new and check the templates list:" />
   <div class="post">
     
 
-<p>I am releasing an new version of my <a href="https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju">Architecture Templates for dotnet new</a>. We are working on testing, compatibility and documentation.</p>
+<p>I am releasing an new version of my <a href="https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju">Architecture Templates for dotnet new</a>. We are working on testing, compatibility and documentation.</p>
 
 <h2 id="paulovich-caju-0-4-0-release-notes">Paulovich.Caju 0.4.0 Release notes</h2>
 
 <ul>
-<li>New architecture tips for each layer in Clean Architecture template. Check out the <a href="https://paulovich.net/clean-architecture-for-net-applications/">blog post</a>.</li>
+<li>New architecture tips for each layer in Clean Architecture template. Check out the <a href="https://paulovich.net/clean-architecture-for-net-applications/">blog post</a>.</li>
 <li>Command line breaking changes. See the topic below.</li>
 </ul>
 
@@ -191,57 +189,66 @@ Then run dotnet new and check the templates list:" />
 
 <p>To install the latest version use:</p>
 
-<p>dotnet new -i Paulovich.Caju</p>
+<pre><code>dotnet new -i Paulovich.Caju
+</code></pre>
 
-<p>Then run <strong>dotnet new</strong> and check the templates list:</p>
+<p>Then run <strong>dotnet new</strong> and check the templates list:</p>
 
-<p>Templates</p>
+<table>
+<thead>
+<tr>
+<th>Templates</th>
+<th>Short Name</th>
+<th>Language</th>
+<th>Tags</th>
+</tr>
+</thead>
 
-<p>Short Name</p>
+<tbody>
+<tr>
+<td>Hexagonal Architecture for .NET Applications!</td>
+<td>hexagonal</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
 
-<p>Language</p>
+<tr>
+<td>Event-Sourcing for .NET Applications!</td>
+<td>eventsourcing</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
 
-<p>Tags</p>
-
-<p>Hexagonal Architecture for .NET Applications!</p>
-
-<p>hexagonal</p>
-
-<p>[C#]</p>
-
-<p>Common/Library/Web API</p>
-
-<p>Event-Sourcing for .NET Applications!</p>
-
-<p>eventsourcing</p>
-
-<p>[C#]</p>
-
-<p>Common/Library/Web API</p>
-
-<p>Clean Architecture for .NET Applications!</p>
-
-<p>clean</p>
-
-<p>[C#]</p>
-
-<p>Common/Library/Web API</p>
+<tr>
+<td>Clean Architecture for .NET Applications!</td>
+<td>clean</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="command-line-changes">Command Line Changes</h2>
 
-<p>I changed the short name <strong>caju</strong> to three more specifics commands <strong>hexagonal</strong>, <strong>eventsourcing</strong> and <strong>clean</strong>. The old commands were:</p>
+<p>I changed the short name <strong>caju</strong> to three more specifics commands <strong>hexagonal</strong>, <strong>eventsourcing</strong>and <strong>clean</strong>.</p>
 
-<p>dotnet new caju &ndash;architecture-style hexagonal
-dotnet new caju &ndash;architecture-style eventsourcing
-dotnet new caju &ndash;architecture-style clean</p>
+<p>The old commands were:</p>
 
-<p>The <strong>new commands</strong> in Paulovich.Caju 0.4.0 package are:</p>
+<pre><code>dotnet new caju --architecture-style hexagonal
+dotnet new caju --architecture-style eventsourcing
+dotnet new caju --architecture-style clean
+</code></pre>
 
-<p>dotnet new hexagonal
+<p>The <strong>new commands</strong> in Paulovich.Caju 0.4.0 package are:</p>
+
+<pre><code>dotnet new hexagonal
 dotnet new eventsourcing
-dotnet new clean</p>
+dotnet new clean
+</code></pre>
 
-<p>Much more clear now! Remember that each template has slight differences, so add the <strong>--help</strong> for details. This templates segregation are required to speed up the updates.</p>
+<p>Much more clear now! Remember that each template has slight differences, so add the <strong>&ndash;help</strong> for details.</p>
+
+<p>This templates segregation are required to speed up the updates.</p>
 
   </div>
   

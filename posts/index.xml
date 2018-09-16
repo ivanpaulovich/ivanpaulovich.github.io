@@ -63,10 +63,9 @@
       <pubDate>Tue, 22 May 2018 06:12:52 +0200</pubDate>
       
       <guid>https://paulovich.net/posts/architecture-templates-for-dotnet-new/</guid>
-      <description>I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
-Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
-dotnet new -i Paulovich.Caju
-Then run dotnet new and check the templates list:</description>
+      <description>I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list:</description>
     </item>
     
     <item>
@@ -86,7 +85,8 @@ As the SOLID principles and the Clean Architecture rules are worth to write abou
       <pubDate>Thu, 05 Apr 2018 06:12:52 +0200</pubDate>
       
       <guid>https://paulovich.net/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</guid>
-      <description>Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios. To illustrate, we published on GitHub three projects with architecture practices for highly testable, framework and database independent softwares. The first one is the Acerola Project, which follows the Hexagonal Architecture (in the center there’s a Domain plus the Application and externally Ports and Adapters).</description>
+      <description>Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios.
+To illustrate, we published on GitHub three projects with architecture practices for highly testable, framework and database independent softwares.</description>
     </item>
     
   </channel>
