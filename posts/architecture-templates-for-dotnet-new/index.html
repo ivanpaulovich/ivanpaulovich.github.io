@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.48" />
+
+    
+    
+    
+
+<title>Architecture Templates for dotnet new • </title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Architecture Templates for dotnet new"/>
+<meta name="twitter:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju
+Then run dotnet new and check the templates list:"/>
+
+<meta property="og:title" content="Architecture Templates for dotnet new" />
+<meta property="og:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju
+Then run dotnet new and check the templates list:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/architecture-templates-for-dotnet-new/" /><meta property="article:published_time" content="2018-05-22T06:12:52&#43;02:00"/>
+<meta property="article:modified_time" content="2018-05-22T06:12:52&#43;02:00"/>
+
+    
+
+
+<link rel="stylesheet" href="/css/hyde-hyde.css">
+<link rel="stylesheet" href="/css/print.css" media="print">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href=""></a>
+      </span>
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div>
+	<ul class="sidebar-nav">
+		 
+		
+		</li>
+	</ul>
+</div>
+
+    <p>
+      <section class="social">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+
+    </p>
+    <p class="copyright">
+      &copy; 2018 .
+      <a href="https://creativecommons.org/licenses/by-sa/4.0">Some Rights Reserved</a>.
+      <br/>Built with
+      <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+      
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+
+        <div class="content container">
+            
+    <article>
+  <header>
+    <h1>Architecture Templates for dotnet new</h1>
+     
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> May 22, 2018
+    
+    
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 1 min read
+</div>
+
+
+  </header>
+  <div class="post">
+    
+
+<p>I am releasing an new version of my <a href="https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju">Architecture Templates for dotnet new</a>. We are working on testing, compatibility and documentation.</p>
+
+<h2 id="paulovich-caju-0-4-0-release-notes">Paulovich.Caju 0.4.0 Release notes</h2>
+
+<ul>
+<li>New architecture tips for each layer in Clean Architecture template. Check out the <a href="https://paulovich.net/clean-architecture-for-net-applications/">blog post</a>.</li>
+<li>Command line breaking changes. See the topic below.</li>
+</ul>
+
+<h2 id="how-to-install-the-latest-version">How to install the latest version</h2>
+
+<p>To install the latest version use:</p>
+
+<p>dotnet new -i Paulovich.Caju</p>
+
+<p>Then run <strong>dotnet new</strong> and check the templates list:</p>
+
+<p>Templates</p>
+
+<p>Short Name</p>
+
+<p>Language</p>
+
+<p>Tags</p>
+
+<p>Hexagonal Architecture for .NET Applications!</p>
+
+<p>hexagonal</p>
+
+<p>[C#]</p>
+
+<p>Common/Library/Web API</p>
+
+<p>Event-Sourcing for .NET Applications!</p>
+
+<p>eventsourcing</p>
+
+<p>[C#]</p>
+
+<p>Common/Library/Web API</p>
+
+<p>Clean Architecture for .NET Applications!</p>
+
+<p>clean</p>
+
+<p>[C#]</p>
+
+<p>Common/Library/Web API</p>
+
+<h2 id="command-line-changes">Command Line Changes</h2>
+
+<p>I changed the short name <strong>caju</strong> to three more specifics commands <strong>hexagonal</strong>, <strong>eventsourcing</strong> and <strong>clean</strong>. The old commands were:</p>
+
+<p>dotnet new caju &ndash;architecture-style hexagonal
+dotnet new caju &ndash;architecture-style eventsourcing
+dotnet new caju &ndash;architecture-style clean</p>
+
+<p>The <strong>new commands</strong> in Paulovich.Caju 0.4.0 package are:</p>
+
+<p>dotnet new hexagonal
+dotnet new eventsourcing
+dotnet new clean</p>
+
+<p>Much more clear now! Remember that each template has slight differences, so add the <strong>--help</strong> for details. This templates segregation are required to speed up the updates.</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/clean-architecture-for-net-applications/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Clean Architecture for .NET Applications</span>
+    </a>
+    
+    
+    <a href="/posts/hexagonal-architecture-dot-net/" class="navigation-next">
+      <span class="navigation-tittle">Hexagonal Architecture with .NET</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"
+  integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy"
+  crossorigin="anonymous">
+</script>
+
+
+
+
+    
+
+
+
+    </body>
+</html>

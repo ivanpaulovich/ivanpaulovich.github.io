@@ -3,13 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/my-first-post/</loc>
-    <lastmod>2018-09-16T08:23:15+02:00</lastmod>
+    <loc>/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</loc>
+    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/rich-domain-model-with-ddd-tdd-reviewed/</loc>
+    <lastmod>2018-07-29T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/hexagonal-architectural-in-2-minutes/</loc>
+    <lastmod>2018-07-18T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</loc>
+    <lastmod>2018-06-24T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/hexagonal-architecture-dot-net/</loc>
+    <lastmod>2018-05-26T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/architecture-templates-for-dotnet-new/</loc>
+    <lastmod>2018-05-22T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/clean-architecture-for-net-applications/</loc>
+    <lastmod>2018-05-15T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</loc>
+    <lastmod>2018-04-05T06:12:52+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-09-16T08:23:15+02:00</lastmod>
+    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -20,7 +55,7 @@
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2018-09-16T08:23:15+02:00</lastmod>
+    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
