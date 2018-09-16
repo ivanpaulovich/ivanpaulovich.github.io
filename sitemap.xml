@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>https://paulovich.net/portfolio/dera/</loc>
+    <lastmod>2018-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://paulovich.net/about/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
   </url>
@@ -48,6 +53,16 @@
   </url>
   
   <url>
+    <loc>https://paulovich.net/portfolio/hyde-hyde/</loc>
+    <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/laramod/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://paulovich.net/categories/</loc>
     <priority>0</priority>
   </url>
@@ -62,6 +77,11 @@
     <loc>https://paulovich.net/posts/</loc>
     <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/</loc>
+    <lastmod>2018-06-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
