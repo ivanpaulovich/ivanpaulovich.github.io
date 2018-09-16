@@ -234,7 +234,11 @@
 <li>The AccountSQLRepository is the <strong>low-level module</strong> that depends on IAccountRepository abstraction.</li>
 </ul>
 
-<p>The following listing of DepositUseCase with DIP: That is the main idea behind Hexagonal Architecture, whenever our application requires an external service we use the Port (a simple interface) and we implement the Adapter behind the abstraction.</p>
+<p>The following listing of DepositUseCase with DIP:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/d8050e2bc3d02a8fcca011d6d17f4831.js"></script>
+
+<p>That is the main idea behind Hexagonal Architecture, whenever our application requires an external service we use the Port (a simple interface) and we implement the Adapter behind the abstraction.</p>
 
 <h3 id="separation-of-concerns-soc"><strong>Separation of Concerns</strong> (SoC)</h3>
 
@@ -301,7 +305,13 @@
 <li><strong>Model</strong>: this is the return data structure for MVC applications.</li>
 </ul>
 
-<p>We must highlight that the Controller knows the Deposit Use Case and it is not interested about the Output, instead the Controller delegates the responsibility of generating a Model to the Presenter instance. An Presenter class is detailed bellow and it shows a conversion from the DepositOutput to two different ViewModels. One ViewModel for null Outputs and another ViewModel for successful deposits.</p>
+<p>We must highlight that the Controller knows the Deposit Use Case and it is not interested about the Output, instead the Controller delegates the responsibility of generating a Model to the Presenter instance.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/7bef3a9745f181757c8fbb1f009ac079.js"></script>
+
+<p>An Presenter class is detailed bellow and it shows a conversion from the DepositOutput to two different ViewModels. One ViewModel for null Outputs and another ViewModel for successful deposits.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/21c175748c960a844c6165167be267ff.js"></script>
 
 <h2 id="adapters-for-the-infrastructure">Adapters for the Infrastructure</h2>
 
@@ -309,11 +319,21 @@
 
 <h2 id="how-and-when-the-di-is-configured">How and When the DI is configured</h2>
 
-<p>We group the DI by Modules, so we have an module for the Entity Framework Data Access that requires a connection string like this: There is others modules in the same code base and we can run using them by changing the <strong>autofac.entityframework.json</strong>, an convenient way to setup desired modules. The autofac.json in set on the very beginning in the Program.cs. As it should be!</p>
+<p>We group the DI by Modules, so we have an module for the Entity Framework Data Access that requires a connection string like this:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/b2e66b47612faf1a95ea23b70e772394.js"></script>
+
+<p>There is others modules in the same code base and we can run using them by changing the <strong>autofac.entityframework.json</strong>, an convenient way to setup desired modules.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/0a0eb90cb0aefda9d5ab497159f5ac46.js"></script>
+
+<p>The autofac.json in set on the very beginning in the Program.cs. As it should be!</p>
 
 <h2 id="source-code">Source Code</h2>
 
 <p>You can download the source code on <a href="https://github.com/ivanpaulovich/clean-architecture-manga">Clean Architecture</a> github repository or through the following commands:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/3b5ca9b2b49991a5254f03ec1ffae70f.js"></script>
 
 <h2 id="conclusion">Conclusion</h2>
 

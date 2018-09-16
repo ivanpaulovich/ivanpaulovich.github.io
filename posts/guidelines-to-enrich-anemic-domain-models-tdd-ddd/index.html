@@ -243,9 +243,13 @@
 
 <p>We point out that the Customer and Account are aggregate roots and they must know each other by their IDs. The Customer.Register(..) method does not accept the Account instance, instead accepts only the AccountId.</p>
 
+<script src="https://gist.github.com/ivanpaulovich/79d405a602685bb2e8468aa6dd00f42b.js"></script>
+
 <h4 id="customer-cs">Customer.cs</h4>
 
 <p>All fields are private sets so all the state changes are made by the methods, the specific Accounts property return an IReadOnlyCollection to prevent unexpected changes from consumers. In this class the state consistency are ensured from the constructor that requires the customer details to the Register(..) method. Previously, I said that I would not corrupt the Model in order to persist the state. I made and exception for the factory method that receives the complete Customer fields as parameters and it creates a Customer instance. To persist the objects the repository can use the public properties to get the Customer state.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/5d3f702a55a4700dd23a272a2dca5617.js"></script>
 
 <h4 id="account-cs">Account.cs</h4>
 
@@ -259,17 +263,22 @@
 
 <p>The consistency is ensured by not allowing the client to make changes on the TransactionCollection property.</p>
 
+<script src="https://gist.github.com/ivanpaulovich/21ca4c7b445764adcfc676c503a13348.js"></script>
+
 <h4 id="ssn-cs">SSN.cs</h4>
 
 <p>This class is a value object for the Swedish Personnummer and it encapsulates the complexity of validating the string format. Whenever I am refer to a string personnummer I can use this class.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/6c7776aaff93e29e21ec3e037c9df2e9.js"></script>
 
 <h2 id="source-code">Source Code</h2>
 
 <p>There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. You can download the source code on <a href="https://github.com/ivanpaulovich/ddd-tdd-rich-domain">DDD/TDD Rich Domain</a>.</p>
 
-<p>git clone <a href="https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git">https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git</a>
+<pre><code>git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 cd ddd-tdd-rich-domain
-./build.sh</p>
+./build.sh
+</code></pre>
 
 <p><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce\_SELRES\_start">﻿</span></p>
 

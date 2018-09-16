@@ -243,13 +243,13 @@
 
 <p><img src="/static/DIP-Dependecy-Inversion-Principle-1.png" alt="" /> The following listing of DepositService shows an implementation. Suggestion: clone the <a href="https://github.com/ivanpaulovich/acerola-hexagonal-architecture">Acerola repo</a> for the full implementation.</p>
 
-<p>public class DepositService : IDepositService
+<pre><code>public class DepositService : IDepositService
 {
   private readonly IAccountReadOnlyRepository accountReadOnlyRepository;
   private readonly IAccountWriteOnlyRepository accountWriteOnlyRepository;
-  private readonly IResultConverter resultConverter;</p>
+  private readonly IResultConverter resultConverter;
 
-<p>public DepositService(
+  public DepositService(
     IAccountReadOnlyRepository accountReadOnlyRepository,
     IAccountWriteOnlyRepository accountWriteOnlyRepository,
     IResultConverter resultConverter)
@@ -257,30 +257,29 @@
     this.accountReadOnlyRepository = accountReadOnlyRepository;
     this.accountWriteOnlyRepository = accountWriteOnlyRepository;
     this.resultConverter = resultConverter;
-  }</p>
+  }
 
-<p>public async Task<DepositResult> Process(DepositCommand command)
+  public async Task&lt;DepositResult&gt; Process(DepositCommand command)
   {
     Account account = await accountReadOnlyRepository.Get(command.AccountId);
     if (account == null)
       throw new AccountNotFoundException(
-      $&ldquo;The account {command.AccountId} does not exists or is already closed.&rdquo;);</p>
+      $&quot;The account {command.AccountId} does not exists or is already closed.&quot;);
 
-<pre><code>Credit credit = new Credit(account.Id, command.Amount);
-account.Deposit(credit);
+    Credit credit = new Credit(account.Id, command.Amount);
+    account.Deposit(credit);
 
-await accountWriteOnlyRepository.Update(account, credit);
+    await accountWriteOnlyRepository.Update(account, credit);
 
-TransactionResult transactionResult = resultConverter.Map(credit);
-DepositResult result = new DepositResult(
-  transactionResult,
-  account.GetCurrentBalance().Value);
+    TransactionResult transactionResult = resultConverter.Map(credit);
+    DepositResult result = new DepositResult(
+      transactionResult,
+      account.GetCurrentBalance().Value);
 
-return result;
+    return result;
+  }
+}
 </code></pre>
-
-<p>}
-}</p>
 
 <p>That is the main idea behind Hexagonal Architecture, every time our application requires an external service we implement adapter behind an abstraction.</p>
 
@@ -354,10 +353,11 @@ return result;
 
 <p>For the Query side, in the Application Layer we have only an small interface. And in the Infrastructure Layer we have the Adapter implementation.</p>
 
-<p>public interface IAccountsQueries
+<pre><code>public interface IAccountsQueries
 {
-  Task<AccountResult> GetAccount(Guid id);
-}</p>
+  Task&lt;AccountResult&gt; GetAccount(Guid id);
+}
+</code></pre>
 
 <p>By having an guarantee that the query side does not make changes in state. We can take advantage of better solutions for reading. For instance we can use caching, segregated databases to boost performance and it could be done inside the Adapter.</p>
 
@@ -365,46 +365,45 @@ return result;
 
 <p>A Port is an way an Actor can interact with the Application Layer. The role of the Port is to translate the Actor&rsquo;s input into structures the Application Services can understand. For instance a Port could be an Web Form, an Console App or another system. For this article the Port supports the REST protocol and was implemented using WebApi framework.</p>
 
-<p>[Route(&ldquo;api/[controller]&rdquo;)]
+<pre><code>[Route(&quot;api/[controller]&quot;)]
 public class AccountsController : Controller
 {
-  private readonly IDepositService depositService;</p>
+  private readonly IDepositService depositService;
 
-<p>public AccountsController(
+  public AccountsController(
     IDepositService depositService)
   {
     this.depositService = depositService;
-  }</p>
+  }
 
-<p>/// <summary>
+  /// &lt;summary&gt;
   /// Deposit from an account
-  /// </summary>
-  [HttpPatch(&ldquo;Deposit&rdquo;)]
-  public async Task<IActionResult> Deposit([FromBody]DepositRequest request)
+  /// &lt;/summary&gt;
+  [HttpPatch(&quot;Deposit&quot;)]
+  public async Task&lt;IActionResult&gt; Deposit(\[FromBody\]DepositRequest request)
   {
     var command = new DepositCommand(
       request.AccountId,
-      request.Amount);</p>
+      request.Amount);
 
-<pre><code>DepositResult depositResult = await depositService.Process(command);
+    DepositResult depositResult = await depositService.Process(command);
 
-if (depositResult == null)
-{
-  return new NoContentResult();
+    if (depositResult == null)
+    {
+      return new NoContentResult();
+    }
+
+    Model model = new Model(
+      depositResult.Transaction.Amount,
+      depositResult.Transaction.Description,
+      depositResult.Transaction.TransactionDate,
+      depositResult.UpdatedBalance
+    );
+
+    return new ObjectResult(model);
+  }
 }
-
-Model model = new Model(
-  depositResult.Transaction.Amount,
-  depositResult.Transaction.Description,
-  depositResult.Transaction.TransactionDate,
-  depositResult.UpdatedBalance
-);
-
-return new ObjectResult(model);
 </code></pre>
-
-<p>}
-}</p>
 
 <p>The WebApi has Controllers that do not depends on Application Services implementation, its easy to mock this services.</p>
 
@@ -422,11 +421,12 @@ return new ObjectResult(model);
 
 <p>You can download the source code on <a href="https://github.com/ivanpaulovich/acerola-hexagonal-architecture">Acerola GitHub repository</a> or through the following commands:</p>
 
-<p>dotnet new -i Paulovich.Caju::0.5.0
-dotnet new hexagonal <br />
-  &ndash;data-access entityframework <br />
-  &ndash;use-cases full <br />
-  &ndash;user-interface webapi</p>
+<pre><code>dotnet new -i Paulovich.Caju::0.5.0
+dotnet new hexagonal \
+  --data-access entityframework \
+  --use-cases full \
+  --user-interface webapi
+</code></pre>
 
 <h2 id="conclusion">Conclusion</h2>
 

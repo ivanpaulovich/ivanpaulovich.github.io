@@ -75,8 +75,7 @@ dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list
       
       <guid>https://paulovich.net/posts/clean-architecture-for-net-applications/</guid>
       <description>I&amp;rsquo;d like to introduce my service template for .NET Applications based on the Clean Architecture style. You can download the full source code or you can play with the dotnet new caju tool using the following commands:
-$ dotnet new -i Paulovich.Caju::0.4.0 $ dotnet new clean &amp;ndash;data-access mongo &amp;ndash;use-cases full &amp;ndash;user-interface webapi
-As the SOLID principles and the Clean Architecture rules are worth to write about it, I am starting this blogging series explaining the decisions we have made through the development of the Manga Project.</description>
+$ dotnet new -i Paulovich.Caju::0.4.0 $ dotnet new clean \ --data-access mongo \ --use-cases full \ --user-interface webapi  As the SOLID principles and the Clean Architecture rules are worth to write about it, I am starting this blogging series explaining the decisions we have made through the development of the Manga Project.</description>
     </item>
     
     <item>
