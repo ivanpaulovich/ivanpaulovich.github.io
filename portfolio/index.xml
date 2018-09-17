@@ -12,30 +12,75 @@
     
     
     <item>
-      <title>DERA</title>
-      <link>https://paulovich.net/portfolio/dera/</link>
+      <title>dotnet new caju</title>
+      <link>https://paulovich.net/portfolio/dotnet-new-caju/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://paulovich.net/portfolio/dera/</guid>
-      <description>This is a Java reference implementation of dynamic event-driven actors runtime aiming at providing adequate abstraction levels and mechanisms for modelling and developing (distributed) event-based systems. DERA leverages the intrinsic loose coupling of event-driven communication styles to support various kinds of run-time evolution and adaptation (i.e., enabling run-time flexibility) while minimizing the non-deterministic nature of traditional event-based applications (i.e., supporting formal analysis).</description>
+      <guid>https://paulovich.net/portfolio/dotnet-new-caju/</guid>
+      <description>This dotnet-new template for .NET Back-ends increases productivity on building applications with the Hexagonal, Clean or Event Sourcing architectures styles. This tool generates a .NET back-end with built-in best practices in 15 seconds!</description>
     </item>
     
     <item>
-      <title>hyde-hyde</title>
+      <title>Clean Architecture</title>
       <link>https://paulovich.net/portfolio/hyde-hyde/</link>
       <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://paulovich.net/portfolio/hyde-hyde/</guid>
-      <description>Hyde-hyde is a responsive Hugo theme inspired by @spf13&amp;rsquo;s Hyde and its variant Nate Finch&amp;rsquo;s blog. It was heavily restructured with modularised page layouts for easier maintenance and modification. Hyde-hyde offers awesome features such as nice colour tone, code highlighting, Font-Awesome 5&amp;rsquo;s sidebar icons), a cool portfolio page, more choices for commenting (e.g. GraphComment, Disqus).</description>
+      <description>Clean Architecture service template for your Microservice with DDD, TDD and SOLID using .NET Core 2.0. The components are independent and testable, the architecture is evolutionary in multiple dimensions</description>
     </item>
     
     <item>
-      <title>LaraMod</title>
-      <link>https://paulovich.net/portfolio/laramod/</link>
+      <title>Clean Architecture Kata Dojo</title>
+      <link>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</link>
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://paulovich.net/portfolio/laramod/</guid>
-      <description>LaraMod is another modularisation effort to systematically organising a Laravel based project. The idea stems from my struggle to structure a Laravel-based project so that I can work effectively on individual modules whilst keeping Laravel codebase intact as much as possible and also keeping the project&amp;rsquo;s codebase separate from Laravel.</description>
+      <guid>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</guid>
+      <description>:star: Kata to learn Clean Architecture and Hexagonal Architecture styles, you start with two use cases already implemented and the final solution has six use cases. :star:</description>
+    </item>
+    
+    <item>
+      <title>Clean Architecture Manga</title>
+      <link>https://paulovich.net/portfolio/clean-architecture-manga/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/clean-architecture-manga/</guid>
+      <description>Clean Architecture service template for your Microservice with DDD, TDD and SOLID using .NET Core 2.0. The components are independent and testable, the architecture is evolutionary in multiple dimensions.</description>
+    </item>
+    
+    <item>
+      <title>DDD/TDD Kata</title>
+      <link>https://paulovich.net/portfolio/ddd-tdd-rich-domain-model-dojo-kata/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/ddd-tdd-rich-domain-model-dojo-kata/</guid>
+      <description>Rich Domain with DDD patterns and TDD (.NET Core / Standard)</description>
+    </item>
+    
+    <item>
+      <title>Event Sourcing Castanha</title>
+      <link>https://paulovich.net/portfolio/event-sourcing-castanha/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/event-sourcing-castanha/</guid>
+      <description>An Event Sourcing service template with DDD, TDD and SOLID. It has High Cohesion and Loose Coupling, it&amp;rsquo;s a good start for your next Microservice application.</description>
+    </item>
+    
+    <item>
+      <title>Event Sourcing Jambo</title>
+      <link>https://paulovich.net/portfolio/event-sourcing-jambo/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/event-sourcing-jambo/</guid>
+      <description>An Hexagonal Architecture with DDD + Aggregates + Event Sourcing using .NET Core, Kafka and MongoDB (Blog Engine).</description>
+    </item>
+    
+    <item>
+      <title>Hexagonal Architecture Acerola</title>
+      <link>https://paulovich.net/portfolio/hexagonal-architecture-acerola/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/hexagonal-architecture-acerola/</guid>
+      <description>An Hexagonal Architecture service template with DDD, CQRS, TDD and SOLID using .NET Core 2.0. All small features are testable and could be mocked. Adapters could be mocked or exchanged.</description>
     </item>
     
   </channel>

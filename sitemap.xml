@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/dera/</loc>
+    <loc>https://paulovich.net/portfolio/dotnet-new-caju/</loc>
     <lastmod>2018-06-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,7 +58,32 @@
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/laramod/</loc>
+    <loc>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/clean-architecture-manga/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/ddd-tdd-rich-domain-model-dojo-kata/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/event-sourcing-castanha/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/event-sourcing-jambo/</loc>
+    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paulovich.net/portfolio/hexagonal-architecture-acerola/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
