@@ -49,15 +49,6 @@
     </item>
     
     <item>
-      <title>dotnet new caju</title>
-      <link>https://paulovich.net/portfolio/dotnet-new-caju/</link>
-      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulovich.net/portfolio/dotnet-new-caju/</guid>
-      <description>This dotnet-new template for .NET Back-ends increases productivity on building applications with the Hexagonal, Clean or Event Sourcing architectures styles. This tool generates a .NET back-end with built-in best practices in 15 seconds!</description>
-    </item>
-    
-    <item>
       <title>About Ivan Paulovich</title>
       <link>https://paulovich.net/about/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
@@ -107,21 +98,12 @@ To illustrate, we published on GitHub three projects with architecture practices
     </item>
     
     <item>
-      <title>Clean Architecture</title>
-      <link>https://paulovich.net/portfolio/hyde-hyde/</link>
-      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulovich.net/portfolio/hyde-hyde/</guid>
-      <description>Clean Architecture service template for your Microservice with DDD, TDD and SOLID using .NET Core 2.0. The components are independent and testable, the architecture is evolutionary in multiple dimensions</description>
-    </item>
-    
-    <item>
       <title>Clean Architecture Kata Dojo</title>
       <link>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</link>
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</guid>
-      <description>:star: Kata to learn Clean Architecture and Hexagonal Architecture styles, you start with two use cases already implemented and the final solution has six use cases. :star:</description>
+      <description>Kata to learn Clean Architecture and Hexagonal Architecture styles, you start with two use cases already implemented and the final solution has six use cases.</description>
     </item>
     
     <item>
@@ -167,6 +149,15 @@ To illustrate, we published on GitHub three projects with architecture practices
       
       <guid>https://paulovich.net/portfolio/hexagonal-architecture-acerola/</guid>
       <description>An Hexagonal Architecture service template with DDD, CQRS, TDD and SOLID using .NET Core 2.0. All small features are testable and could be mocked. Adapters could be mocked or exchanged.</description>
+    </item>
+    
+    <item>
+      <title>dotnet new caju</title>
+      <link>https://paulovich.net/portfolio/dotnet-new-caju/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/portfolio/dotnet-new-caju/</guid>
+      <description>This dotnet-new template for .NET Back-ends increases productivity on building applications with the Hexagonal, Clean or Event Sourcing architectures styles. This tool generates a .NET back-end with built-in best practices in 15 seconds!</description>
     </item>
     
   </channel>
