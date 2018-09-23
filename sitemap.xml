@@ -3,87 +3,88 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://paulovich.net/posts/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</loc>
+    <loc>https://paulovich.net/2018/08/16/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</loc>
     <lastmod>2018-08-16T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/rich-domain-model-with-ddd-tdd-reviewed/</loc>
+    <loc>https://paulovich.net/2018/07/29/rich-domain-model-with-ddd-tdd-reviewed/</loc>
     <lastmod>2018-07-29T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/hexagonal-architectural-in-2-minutes/</loc>
+    <loc>https://paulovich.net/2018/07/18/hexagonal-architectural-in-2-minutes/</loc>
     <lastmod>2018-07-18T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</loc>
+    <loc>https://paulovich.net/2018/06/24/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</loc>
     <lastmod>2018-06-24T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/about/</loc>
+    <loc>https://paulovich.net/page/about/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/hexagonal-architecture-dot-net/</loc>
+    <loc>https://paulovich.net/2018/05/26/hexagonal-architecture-dot-net/</loc>
     <lastmod>2018-05-26T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/architecture-templates-for-dotnet-new/</loc>
+    <loc>https://paulovich.net/2018/05/22/architecture-templates-for-dotnet-new/</loc>
     <lastmod>2018-05-22T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/clean-architecture-for-net-applications/</loc>
+    <loc>https://paulovich.net/2018/05/15/clean-architecture-for-net-applications/</loc>
     <lastmod>2018-05-15T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</loc>
+    <loc>https://paulovich.net/2018/04/05/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</loc>
     <lastmod>2018-04-05T06:12:52+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/clean-architecture-kata-dojo/</loc>
+    <loc>https://paulovich.net/project/clean-architecture-kata-dojo/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/clean-architecture-manga/</loc>
+    <loc>https://paulovich.net/project/clean-architecture-manga/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/ddd-tdd-rich-domain-model-dojo-kata/</loc>
+    <loc>https://paulovich.net/project/ddd-tdd-rich-domain-model-dojo-kata/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/event-sourcing-castanha/</loc>
+    <loc>https://paulovich.net/project/event-sourcing-castanha/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/event-sourcing-jambo/</loc>
+    <loc>https://paulovich.net/project/event-sourcing-jambo/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/hexagonal-architecture-acerola/</loc>
+    <loc>https://paulovich.net/project/hexagonal-architecture-acerola/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/dotnet-new-caju/</loc>
+    <loc>https://paulovich.net/project/dotnet-new-caju/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://paulovich.net/categories/</loc>
+    <loc>https://paulovich.net/page/</loc>
+    <lastmod>2018-06-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -94,13 +95,13 @@
   </url>
   
   <url>
-    <loc>https://paulovich.net/posts/</loc>
+    <loc>https://paulovich.net/post/</loc>
     <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://paulovich.net/portfolio/</loc>
+    <loc>https://paulovich.net/project/</loc>
     <lastmod>2018-01-19T00:00:00+00:00</lastmod>
   </url>
   

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Paulovich.NET</title>
+    <link>https://paulovich.net/page/</link>
+    <description>Recent content in Pages on Paulovich.NET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Ivan Paulovich</copyright>
+    <lastBuildDate>Fri, 01 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://paulovich.net/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Ivan Paulovich</title>
+      <link>https://paulovich.net/page/about/</link>
+      <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulovich.net/page/about/</guid>
+      <description>Hi! I’m Ivan Paulovich and I am a .NET developer who recently moved to Stockholm. I have experience with different architecture styles like Event Sourcing, Hexagonal and Clean architectures. Also I have deep knowledge of .NET Framework and its newest frameworks like .NET Core. I am an evangelist of agile development by sharing the good practices of adaptable and evolutionary architectures. I like to design software following DDD and SOLID principles.</description>
+    </item>
+    
+  </channel>
+</rss>
