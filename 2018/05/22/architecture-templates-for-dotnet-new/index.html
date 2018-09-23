@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Architecture Templates for dotnet new &middot; Ivan Paulovich</title>
+        <meta name="description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list:">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.48" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Architecture Templates for dotnet new">
+<meta property="og:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+Paulovich.Caju 0.4.0 Release notes  New architecture tips for each layer in Clean Architecture template. Check out the blog post. Command line breaking changes. See the topic below.  How to install the latest version To install the latest version use:
+dotnet new -i Paulovich.Caju  Then run dotnet new and check the templates list:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://paulovich.net/2018/05/22/architecture-templates-for-dotnet-new/">
+        <link rel="stylesheet" href="https://paulovich.net/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-27176166-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Paulovich.NET" href="https://paulovich.net/">Paulovich.NET</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://paulovich.net/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/ivanpaulovich">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/ivanpaulovich">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/ivanpaulovich/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:ivan@paulovich.net">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Architecture Templates for dotnet new</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2018-05-22" itemprop="datePublished">Tue, May 22, 2018</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/ivanpaulovich" itemprop="url" rel="author">Ivan Paulovich</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>I am releasing an new version of my <a href="https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju">Architecture Templates for dotnet new</a>. We are working on testing, compatibility and documentation.</p>
+
+<h2 id="paulovich-caju-0-4-0-release-notes">Paulovich.Caju 0.4.0 Release notes</h2>
+
+<ul>
+<li>New architecture tips for each layer in Clean Architecture template. Check out the <a href="https://paulovich.net/clean-architecture-for-net-applications/">blog post</a>.</li>
+<li>Command line breaking changes. See the topic below.</li>
+</ul>
+
+<h2 id="how-to-install-the-latest-version">How to install the latest version</h2>
+
+<p>To install the latest version use:</p>
+
+<pre><code>dotnet new -i Paulovich.Caju
+</code></pre>
+
+<p>Then run <strong>dotnet new</strong> and check the templates list:</p>
+
+<table>
+<thead>
+<tr>
+<th>Templates</th>
+<th>Short Name</th>
+<th>Language</th>
+<th>Tags</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Hexagonal Architecture for .NET Applications!</td>
+<td>hexagonal</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
+
+<tr>
+<td>Event-Sourcing for .NET Applications!</td>
+<td>eventsourcing</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
+
+<tr>
+<td>Clean Architecture for .NET Applications!</td>
+<td>clean</td>
+<td>[C#]</td>
+<td>Common/Library/Web API</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="command-line-changes">Command Line Changes</h2>
+
+<p>I changed the short name <strong>caju</strong> to three more specifics commands <strong>hexagonal</strong>, <strong>eventsourcing</strong>and <strong>clean</strong>.</p>
+
+<p>The old commands were:</p>
+
+<pre><code>dotnet new caju --architecture-style hexagonal
+dotnet new caju --architecture-style eventsourcing
+dotnet new caju --architecture-style clean
+</code></pre>
+
+<p>The <strong>new commands</strong> in Paulovich.Caju 0.4.0 package are:</p>
+
+<pre><code>dotnet new hexagonal
+dotnet new eventsourcing
+dotnet new clean
+</code></pre>
+
+<p>Much more clear now! Remember that each template has slight differences, so add the <strong>&ndash;help</strong> for details.</p>
+
+<p>This templates segregation are required to speed up the updates.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Architecture%20Templates%20for%20dotnet%20new&url=https%3a%2f%2fpaulovich.net%2f2018%2f05%2f22%2farchitecture-templates-for-dotnet-new%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpaulovich.net%2f2018%2f05%2f22%2farchitecture-templates-for-dotnet-new%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fpaulovich.net%2f2018%2f05%2f22%2farchitecture-templates-for-dotnet-new%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Paulovich.NET" href="https://paulovich.net/">Paulovich.NET</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2018 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://paulovich.net/js/jquery-1.11.3.min.js"></script>
+        <script src="https://paulovich.net/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://paulovich.net/js/scripts.js"></script>
+    </body>
+</html>
+

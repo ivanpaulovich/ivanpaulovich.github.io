@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed) &middot; Ivan Paulovich</title>
+        <meta name="description" content="Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.48" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)">
+<meta property="og:description" content="Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://paulovich.net/2018/08/16/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/">
+        <link rel="stylesheet" href="https://paulovich.net/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-27176166-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Paulovich.NET" href="https://paulovich.net/">Paulovich.NET</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://paulovich.net/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/ivanpaulovich">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/ivanpaulovich">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://linkedin.com/in/ivanpaulovich/">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:ivan@paulovich.net">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Blog" href="/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/page/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</h1>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2018-08-16" itemprop="datePublished">Thu, Aug 16, 2018</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/ivanpaulovich" itemprop="url" rel="author">Ivan Paulovich</a>
+            </span>
+        </span>
+    </p>
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture&rsquo;s intent:</p>
+
+<blockquote>
+<p>Allow an application to equally be driven by users, programs or tests, and to be developed and tested in isolation from any of its eventual run-time devices and databases.</p>
+</blockquote>
+
+<p>I need to point out that <strong>Business Rules and Use Cases</strong> should be implemented inside the Application Layer and they need to be maintained for the project&rsquo;s life, in the other hand everything that give support for external capabilities are just <strong>external details</strong>, they can be replaced for different reasons, and we do not want the business rules to be coupled to them. It is important to distinguish between the business and the details.</p>
+
+<h3 id="business-rules-and-use-cases">Business Rules and Use Cases</h3>
+
+<p>The business rules are the fine grained rules, they encapsulate entity fields and constraints. Also the business rules are the use cases that interacts with multiple entities and services. They together creates a process in the application, they should be sustained for a long time. If the difference remain not clear, this Uncle Bob quote will clarify:</p>
+
+<blockquote>
+<p>Business Rules would make or save the business money, irrespective of whether they were implemented on a computer. They would make or save money even if they were executed manually.</p>
+</blockquote>
+
+<p>In the DDD age, we have patterns to describe the business rules with Entities, Value Objects, Aggregates, Domain Services and so on. They are a perfect match with Hexagonal Architecture.</p>
+
+<h3 id="external-details">External Details</h3>
+
+<p>In most scenarios we can defer the implementation of external details and still keep the development progress. If your answer is yes for any of the next questions, you are probably dealing with peripheral details:</p>
+
+<ul>
+<li>Does the application needs an database to persist state?</li>
+<li>Does the application requires an User Interface?</li>
+<li>Does the application consumes an external API?</li>
+</ul>
+
+<p>These are common external details which can be mocked, faked or their concrete implementation be replaced for different reasons. I suggest you to defer their implementation while you discover more of the domain. Keep in mind the Uncle Bob&rsquo;s quote:</p>
+
+<blockquote>
+<p>A good architecture allows major decisions to be deferred and a good architect maximize the number of decisions not made.</p>
+</blockquote>
+
+<p>Visual Studio makes it easy to add libraries for Reflection, Serialization, Security and many others Nuget packages in our projects.  The problem begin when we add these libraries to our Application and Domain. These libraries are just details and should be left out of the Application Layer. What we should do?</p>
+
+<ul>
+<li>Stop going for shinning frameworks.</li>
+<li>Stop writing classes with inheritance from frameworks.</li>
+<li>Focus on the business rules, make them clear on your Application and Domain Layers.</li>
+<li>Don&rsquo;t fall into tooling traps like scaffolding.</li>
+<li>Create the appropriate abstraction for these peripheral concerns.</li>
+</ul>
+
+<p>Moving on, there are design principles that you should understand before implementing the Hexagonal Architecture style.</p>
+
+<h3 id="dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</h3>
+
+<p>In the next example, the DIP was applied when decoupling our Use Cases from the Repositories. It is important to understand this priciple as it was applied to decouple other stuff in our source code. Let&rsquo;s remember the DIP then navigate through one example:  </p>
+
+<blockquote>
+<p>High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.</p>
+</blockquote>
+
+<p>Let&rsquo;s see how I applied this principle in the next example: <img src="/static/DIP-1-2.png" alt="" /> On the left side we found in red an Layered Application where the DepositUseCase depends on the AccountSQLRepository implementation. It is a coupled way to write code. On the right side in blue, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has its dependency pointing inwards.</p>
+
+<ul>
+<li>The DepositUseCase is the <strong>High-level module</strong> that do not depend on database details, instead it depends on IAccountRepository abstraction.</li>
+<li>The IAccountRepository is the <strong>abstraction</strong> that do not depend on database details.</li>
+<li>The AccountSQLRepository is the <strong>low-level module</strong> that depends on IAccountRepository abstraction.</li>
+</ul>
+
+<p>The following listing of DepositUseCase with DIP:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/d8050e2bc3d02a8fcca011d6d17f4831.js"></script>
+
+<p>That is the main idea behind Hexagonal Architecture, whenever our application requires an external service we use the Port (a simple interface) and we implement the Adapter behind the abstraction.</p>
+
+<h3 id="separation-of-concerns-soc"><strong>Separation of Concerns</strong> (SoC)</h3>
+
+<p>Our application requires some external capabilities but the application is not concerned about their implementation details, only their abstractions are visible to the application layer. We apply <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">SoC</a> by creating boundaries around the Adapters and by allowing them to be developed and tested in isolation. It&rsquo;s a good practice to have different packages for each Adapter implementation. We could have an specific Adapter for an SQL Database and an specific Adapter for Azure Storage both could be replaced with little effort. That is the idea behind the Hexagonal Architecture, <strong>keep the options open as long as possible and the ability to rollback if necessary</strong>. We can quote Uncle Bob&rsquo;s Plugin Architecture, about the relationship between Visual Studio and Resharper. Not a single line of VS knows about Resharper, but Resharper is developed based on the Visual Studio abstractions. They are developed by different companies one in Seattle and another in Moscow and still running well together.</p>
+
+<h2 id="hexagonal-architecture-style-characteristics">Hexagonal Architecture Style Characteristics</h2>
+
+<p>With this style we have:</p>
+
+<ul>
+<li>An independent Business Domain to embody the fine grained business rules.</li>
+<li>Use Cases interacting with the Domain and independent of external services.</li>
+<li>Interfaces providing ports.</li>
+<li>Adapters providing implementations of frameworks, data access and UI.</li>
+<li>Externally the user, other systems and services.</li>
+</ul>
+
+<p>One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture: <img src="/static/hexagonal-1.png" alt="" />  </p>
+
+<ul>
+<li>The blue potato shape at the center is the Domain Layer and there are reasons for it. Every business domain has its own rules, very specific business rules, that is the reason of its undefined shape. For example, I designed our Domain Layer with DDD Building Blocks.</li>
+<li>The application has an hexagonal shape because each of its sides has specifics protocols.</li>
+<li>The Ports and Adapters are implemented outside of the application as plugins.</li>
+<li>Externally we have other systems.</li>
+<li>The Hexagonal is splitted in left and right. On the left we implement the driving actors and on the right we implement the secondary actors.</li>
+</ul>
+
+<p>The direction of the dependencies goes inwards the center, so the Domain Layer does not know the Application Layer but the Application Layer depends on the Domain, the same rule applies to the outer layers.</p>
+
+<h3 id="layers">Layers</h3>
+
+<p>Let&rsquo;s describe the Dependency Diagram below:</p>
+
+<h2 id="static-untitled-diagram-1-png"><img src="/static/Untitled-Diagram-1.png" alt="" /></h2>
+
+<ul>
+<li>The Domain Layer is totally independent of other layers and frameworks.</li>
+<li>The Application Layer depends exclusively on the Domain Layer.</li>
+<li>The Application Layer is independent of frameworks, databases and UI.</li>
+<li>The UI Layer and the Infrastructure Layer provides implementations for the Application needs.</li>
+<li>The UI Layer depends on Application Layer and it loads the Infrastructure Layer by indirection.</li>
+</ul>
+
+<p>We should pay attention that the Infrastructure Layer can have many concerns. I recommend to design the infrastructure in a way you can split it when necessary, particularly when you have distinct adapters with overlapping concerns. It is important to highlight the dashed arrow from the UI Layer to the Infrastructure layer. That is the where <strong>Dependency Injection</strong> is implemented, the concretions are loaded closer to the Main function. And there is a single setting in a external file that decides all the dependencies to be loaded.</p>
+
+<h2 id="application-layer"><strong>Application Layer</strong></h2>
+
+<p>Let&rsquo;s dig into the Application Business Rules implemented by the Use Cases in our Bounded Context. As said by Uncle Bob in his book Clean Architecture:</p>
+
+<blockquote>
+<p>Just as the plans for a house or a library scream about the use cases of those buildings, so should the architecture of a software application scream about the use cases of the application.</p>
+</blockquote>
+
+<p>Use Cases implementations are first-class modules in the root of this layer. The shape of a Use Case is an <strong>Interactor</strong> object that receives an <strong>Input</strong>, do some work then pass the <strong>Output</strong> through the caller. That&rsquo;s the reason I am an advocate of feature folders describing the use cases and inside them the necessary classes: <img src="/static/Use-Cases.png" alt="" /> At your first look of the solution folders, you can build an idea of the purpose of this software. It seems like it can manage your Banck Account, for example you can Deposit or Withdraw money. Following we see the communication between the layers: <img src="/static/Clean-Architecture-Style.png" alt="" /> The Application exposes an interface (Port) to the UI Layer and another interface (another Port) to the Infrastructure Layer. What have you seen until here is <strong>Enterprise + Application Business Rules</strong> enforced without frameworks dependencies or without database coupling. Every details has abstractions protecting the Business Rules to be coupled to tech stuff.</p>
+
+<h2 id="adapters-for-the-user-interface">Adapters for the User Interface</h2>
+
+<p>Now we advance to the next layer, at the User Interface Layer we translate the input in a way that the Use Cases can understand, it is good practice to do not reuse entities in this layer because it could create coupling, the front-end has specific frameworks, other ways of creating its data structures, different presentation for each field and validation rules. In our implementation we have the following feature folders for every use case: <img src="/static/Web-Use-Cases.png" alt="" /></p>
+
+<ul>
+<li><strong>Request</strong>: a data structure for the user input (accountId and amount).</li>
+<li><strong>A Controller with an Action</strong>: this component receives the DepositRequest, calls the appropriate Deposit Use Case which do some processing then pass the output through the Presenter instance.</li>
+<li><strong>Presenter</strong>: it converters the Output to the Model.</li>
+<li><strong>Model</strong>: this is the return data structure for MVC applications.</li>
+</ul>
+
+<p>We must highlight that the Controller knows the Deposit Use Case and it is not interested about the Output, instead the Controller delegates the responsibility of generating a Model to the Presenter instance.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/7bef3a9745f181757c8fbb1f009ac079.js"></script>
+
+<p>An Presenter class is detailed bellow and it shows a conversion from the DepositOutput to two different ViewModels. One ViewModel for null Outputs and another ViewModel for successful deposits.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/21c175748c960a844c6165167be267ff.js"></script>
+
+<h2 id="adapters-for-the-infrastructure">Adapters for the Infrastructure</h2>
+
+<p>Another external layer is the Infrastructure Layer that implements Data Access, Dependency Injection Framework (DI) and other frameworks specifics. In this example we have multiple data access implementations. <img src="/static/Infrastructure.png" alt="" /></p>
+
+<h2 id="how-and-when-the-di-is-configured">How and When the DI is configured</h2>
+
+<p>We group the DI by Modules, so we have an module for the Entity Framework Data Access that requires a connection string like this:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/b2e66b47612faf1a95ea23b70e772394.js"></script>
+
+<p>There is others modules in the same code base and we can run using them by changing the <strong>autofac.entityframework.json</strong>, an convenient way to setup desired modules.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/0a0eb90cb0aefda9d5ab497159f5ac46.js"></script>
+
+<p>The autofac.json in set on the very beginning in the Program.cs. As it should be!</p>
+
+<h2 id="source-code">Source Code</h2>
+
+<p>You can download the source code on <a href="https://github.com/ivanpaulovich/clean-architecture-manga">Clean Architecture</a> github repository or through the following commands:</p>
+
+<script src="https://gist.github.com/ivanpaulovich/3b5ca9b2b49991a5254f03ec1ffae70f.js"></script>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>With Hexagonal Architecture you design a decoupled software that allows major decisions to be deferred, all business rules will be isolated from peripheral concerns. And you have the option to try different adapters with less effort. Have your experience when the code base gets coupled to an specific framework? What are your experience with Hexagonal Architecture? Leave your comment.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Hexagonal%20and%20Clean%20Architecture%20Styles%20with%20.NET%20Core%20%28Reviewed%29&url=https%3a%2f%2fpaulovich.net%2f2018%2f08%2f16%2fhexagonal-and-clean-architecture-styles-with-net-core-reviewed%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpaulovich.net%2f2018%2f08%2f16%2fhexagonal-and-clean-architecture-styles-with-net-core-reviewed%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fpaulovich.net%2f2018%2f08%2f16%2fhexagonal-and-clean-architecture-styles-with-net-core-reviewed%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    <div class="comments">
+        
+    </div>
+
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Paulovich.NET" href="https://paulovich.net/">Paulovich.NET</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2018 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://paulovich.net/js/jquery-1.11.3.min.js"></script>
+        <script src="https://paulovich.net/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://paulovich.net/js/scripts.js"></script>
+    </body>
+</html>
+
