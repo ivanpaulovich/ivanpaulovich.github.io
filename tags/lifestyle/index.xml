@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lifestyle on Paulovich.NET</title>
+    <link>https://paulovich.net/tags/lifestyle/</link>
+    <description>Recent content in Lifestyle on Paulovich.NET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Ivan Paulovich</copyright>
+    <lastBuildDate>Wed, 26 Sep 2018 06:12:52 +0200</lastBuildDate>
+    
+	<atom:link href="https://paulovich.net/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>I am Back!</title>
+      <link>https://paulovich.net/2018/09/26/i-am-back/</link>
+      <pubDate>Wed, 26 Sep 2018 06:12:52 +0200</pubDate>
+      
+      <guid>https://paulovich.net/2018/09/26/i-am-back/</guid>
+      <description>After a period of inactivity in this blog I am back to the regular posts. I had to move the content to GitHub Pages to feel more comfortable when creating content. Also it is closer to the tools that I use everyday.
+After a comment this evening from Luís Gabriel I felt that I need to fix the smaller bugs in theme setup and I think I made a little mess with the blog comments.</description>
+    </item>
+    
+  </channel>
+</rss>
