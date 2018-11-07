@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Ivan Paulovich</copyright>
-    <lastBuildDate>Wed, 17 Oct 2018 06:12:52 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 26 Sep 2018 06:12:52 +0200</lastBuildDate>
     
 	<atom:link href="https://paulovich.net/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Video Tutorial on DDD/TDD</title>
-      <link>https://paulovich.net/2018/10/17/video-tutorial-ddd-tdd/</link>
-      <pubDate>Wed, 17 Oct 2018 06:12:52 +0200</pubDate>
-      
-      <guid>https://paulovich.net/2018/10/17/video-tutorial-ddd-tdd/</guid>
-      <description>I started to share some thoughts on development and architecture on my youtube channel. Please check out the following video and give me a feedback or suggestions for the next video. Ask me anything in the comments!
-The talk starts at 3 minutes.
-  </description>
-    </item>
     
     <item>
       <title>I am Back!</title>
