@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Ivan Paulovich</copyright>
-    <lastBuildDate>Wed, 26 Sep 2018 06:12:52 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 20:19:33 +0100</lastBuildDate>
     
 	<atom:link href="https://paulovich.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Clean Architecture implementation using WebApi and Entity Framework Core</title>
+      <link>https://paulovich.net/2018/11/12/clean-architecture-webapi-ef-core/</link>
+      <pubDate>Mon, 12 Nov 2018 20:19:33 +0100</pubDate>
+      
+      <guid>https://paulovich.net/2018/11/12/clean-architecture-webapi-ef-core/</guid>
+      <description>You may have noticed that I enjoy designing applications which business uses cases are decoupled from frameworks and libraries. I published several projects, tools and articles about Hexagonal and Clean Architecture styles, I see a lot of value by investing time and effort to understand the use cases before digging into database structures or the user interface. For that reason, I am gonna share a demo application for a simple WebApi that decouples the business (Use Cases + Entities) from the Entity Framework and the WebApi front end.</description>
+    </item>
     
     <item>
       <title>I am Back!</title>
