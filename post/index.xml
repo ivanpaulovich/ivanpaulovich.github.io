@@ -7,29 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Ivan Paulovich</copyright>
-    <lastBuildDate>Mon, 12 Nov 2018 20:19:33 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 16 Aug 2018 06:12:52 +0200</lastBuildDate>
     
 	<atom:link href="https://paulovich.net/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Clean Architecture implementation using WebApi and Entity Framework Core</title>
-      <link>https://paulovich.net/2018/11/12/clean-architecture-webapi-ef-core/</link>
-      <pubDate>Mon, 12 Nov 2018 20:19:33 +0100</pubDate>
-      
-      <guid>https://paulovich.net/2018/11/12/clean-architecture-webapi-ef-core/</guid>
-      <description>You may have noticed that I enjoy designing applications which business uses cases are decoupled from frameworks and libraries. I published several projects, tools and articles about Hexagonal and Clean Architecture styles, I see a lot of value by investing time and effort to understand the use cases before digging into database structures or the user interface. For that reason, I am gonna share a demo application for a simple WebApi that decouples the business (Use Cases + Entities) from the Entity Framework and the WebApi front end.</description>
-    </item>
-    
-    <item>
-      <title>I am Back!</title>
-      <link>https://paulovich.net/2018/09/26/i-am-back/</link>
-      <pubDate>Wed, 26 Sep 2018 06:12:52 +0200</pubDate>
-      
-      <guid>https://paulovich.net/2018/09/26/i-am-back/</guid>
-      <description>After a period of inactivity in this blog I am back to the regular posts. I had to move the content to GitHub Pages to feel more comfortable when creating content. Also it is closer to the tools that I use everyday.
-After a comment this evening from Luís Gabriel I felt that I need to fix the smaller bugs in theme setup and I think I made a little mess with the blog comments.</description>
-    </item>
     
     <item>
       <title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</title>

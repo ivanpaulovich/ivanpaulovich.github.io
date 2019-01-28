@@ -3,16 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://paulovich.net/2018/11/12/clean-architecture-webapi-ef-core/</loc>
-    <lastmod>2018-11-12T20:19:33+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/2018/09/26/i-am-back/</loc>
-    <lastmod>2018-09-26T06:12:52+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paulovich.net/2018/08/16/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</loc>
     <lastmod>2018-08-16T06:12:52+02:00</lastmod>
   </url>
@@ -30,11 +20,6 @@
   <url>
     <loc>https://paulovich.net/2018/06/24/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</loc>
     <lastmod>2018-06-24T06:12:52+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/page/about/</loc>
-    <lastmod>2018-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -58,72 +43,19 @@
   </url>
   
   <url>
-    <loc>https://paulovich.net/project/clean-architecture-kata-dojo/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/clean-architecture-manga/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/ddd-tdd-rich-domain-model-dojo-kata/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/event-sourcing-castanha/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/event-sourcing-jambo/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/hexagonal-architecture-acerola/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/project/dotnet-new-caju/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/tags/lifestyle/</loc>
-    <lastmod>2018-09-26T06:12:52+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://paulovich.net/page/</loc>
-    <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://paulovich.net/</loc>
-    <lastmod>2018-11-12T20:19:33+01:00</lastmod>
+    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://paulovich.net/post/</loc>
-    <lastmod>2018-11-12T20:19:33+01:00</lastmod>
+    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://paulovich.net/project/</loc>
-    <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paulovich.net/tags/</loc>
-    <lastmod>2018-09-26T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
