@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://paulovich.net/2019/02/19/clean-architecture-tdd-baby-steps/</loc>
+    <lastmod>2019-02-19T06:12:52+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://paulovich.net/2018/08/16/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</loc>
     <lastmod>2018-08-16T06:12:52+02:00</lastmod>
   </url>
@@ -44,13 +49,13 @@
   
   <url>
     <loc>https://paulovich.net/</loc>
-    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
+    <lastmod>2019-02-19T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://paulovich.net/post/</loc>
-    <lastmod>2018-08-16T06:12:52+02:00</lastmod>
+    <lastmod>2019-02-19T06:12:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Ivan Paulovich</copyright>
-    <lastBuildDate>Thu, 16 Aug 2018 06:12:52 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 06:12:52 +0200</lastBuildDate>
     
 	<atom:link href="https://paulovich.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Clean Architecture and TDD</title>
+      <link>https://paulovich.net/2019/02/19/clean-architecture-tdd-baby-steps/</link>
+      <pubDate>Tue, 19 Feb 2019 06:12:52 +0200</pubDate>
+      
+      <guid>https://paulovich.net/2019/02/19/clean-architecture-tdd-baby-steps/</guid>
+      <description>Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.
+ Are SCRUM ceremonies enough to be Agile? How the software implementation interfer?
+ I could say a lot about a company on how they answer the following question:
+ Are teams delivering working software to real users on every iteration (including the first) and gathering feedback?</description>
+    </item>
     
     <item>
       <title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</title>
