@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Ivan Paulovich</copyright>
-    <lastBuildDate>Tue, 19 Feb 2019 06:12:52 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 06:12:52 +0200</lastBuildDate>
     
 	<atom:link href="https://paulovich.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Clean Architecture Implementation Sample With .NET</title>
+      <link>https://paulovich.net/2019/03/10/clean-architecture-implementation-sample-dotnet/</link>
+      <pubDate>Sun, 10 Mar 2019 06:12:52 +0200</pubDate>
+      
+      <guid>https://paulovich.net/2019/03/10/clean-architecture-implementation-sample-dotnet/</guid>
+      <description>Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! The use cases are about a Todo List App and I am using the principles from the book to design the solution.</description>
+    </item>
     
     <item>
       <title>Clean Architecture and TDD</title>
