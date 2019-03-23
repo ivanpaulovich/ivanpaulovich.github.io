@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/rich-domain-model-with-ddd-tdd-reviewed/">
+  <link rel="canonical" href="/rich-domain-model-with-ddd-tdd-reviewed/">
   <link rel="alternate" type="application/rss+xml" title="paulovich.NET" href="/feed.xml">
 
 </head>
@@ -93,7 +93,13 @@
 
 <h3 id="feature-envy">Feature Envy</h3>
 
-<p>It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this: <img src="/static/envy.png" alt="" /> The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details. <img src="/static/feature-envy-fixed.png" alt="" /></p>
+<p>It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this:</p>
+
+<p><img src="/img/envy.png" alt="" /></p>
+
+<p>The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details.</p>
+
+<p><img src="/img/feature-envy-fixed.png" alt="" /></p>
 
 <h3 id="primitive-obsession">Primitive Obsession</h3>
 
@@ -156,7 +162,9 @@
   <li>It’s required from the customer to fill Name, SSN and to deposit an initial amount when registering.</li>
 </ol>
 
-<p>We could identify the following DDD patterns for these business: <a href="/static/model.png"><img src="/static/model.png" alt="" /></a></p>
+<p>We could identify the following DDD patterns for these business:</p>
+
+<p><a href="/img/model.png"><img src="/img/model.png" alt="" /></a></p>
 
 <ul>
   <li><strong>Aggregate Roots:</strong> Customer and Account.</li>

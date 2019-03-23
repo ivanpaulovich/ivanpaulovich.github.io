@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/2019/02/19/clean-architecture-tdd-baby-steps.html">
+  <link rel="canonical" href="/2019/02/19/clean-architecture-tdd-baby-steps.html">
   <link rel="alternate" type="application/rss+xml" title="paulovich.NET" href="/feed.xml">
 
 </head>
@@ -133,7 +133,7 @@
 
 <p>What if we could focus on business requirements and ignore everything else? The idea behind “Ports and Adapters” is to decouple the high level modules from the low level modules, in simple terms you could decouple the business rules from the database and user interface.</p>
 
-<p><a href="/static/hexagonal-architeture/hexagonal-architecture.png"><img src="/static/hexagonal-architecture/hexagonal-architecture.png" alt="Hexagonal Architecture" /></a></p>
+<p><a href="/img/hexagonal-architeture/hexagonal-architecture.png"><img src="/img/hexagonal-architecture/hexagonal-architecture.png" alt="Hexagonal Architecture" /></a></p>
 
 <p>As you can see on the left side there are driving actors:</p>
 
@@ -163,19 +163,19 @@
   <p>What about the driving actors? When should I implement them?</p>
 </blockquote>
 
-<p><img src="/static/hexagonal-architecture/guided-by-tests-1.png" alt="First Step" /></p>
+<p><img src="/img/hexagonal-architecture/guided-by-tests-1.png" alt="First Step" /></p>
 
 <p>The <strong>first driving adapter</strong> you should implement are the <strong>Test Harness</strong>. And to run tests you don’t need an user inteface, see how you don’t need to worry about button colors and font faces? These tests will guide the use case implementation against a mocked database.</p>
 
-<p><img src="/static/hexagonal-architecture/guided-by-tests-2.png" alt="Second Step" /></p>
+<p><img src="/img/hexagonal-architecture/guided-by-tests-2.png" alt="Second Step" /></p>
 
 <p>With the knowledge acquired by the unit tests implementation you can more confident design the <strong>User Interface</strong> then get user feedback. Every stage is a learning process, be open to change the use cases implementation and test harness at anytime!</p>
 
-<p><img src="/static/hexagonal-architecture/guided-by-tests-3.png" alt="Third Step" /></p>
+<p><img src="/img/hexagonal-architecture/guided-by-tests-3.png" alt="Third Step" /></p>
 
 <p>You now can go deeper in details and implement how the application consume the database, and you can run your existing tests against this secondary actor. Should I say that you will do small changes in the application use cases to support this new adapter? You will!</p>
 
-<p><img src="/static/hexagonal-architecture/guided-by-tests-4.png" alt="Final Step" /></p>
+<p><img src="/img/hexagonal-architecture/guided-by-tests-4.png" alt="Final Step" /></p>
 
 <p>The last step you run the <strong>User Interface</strong> against a real database implementation and get more feedback!</p>
 
