@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    Guidelines to Enrich Anemic Domain Models with TDD/DDD - paulovich.NET
+    
+  </title>
+
+  <meta name="description" content="In my previous blog posts you could see Clean Architecture and Hexagonal implementations. Continuing this series I am going deeper on the Domain Layer, throu...">
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd/">
+  <link rel="alternate" type="application/rss+xml" title="paulovich.NET" href="/feed.xml">
+
+</head>
+
+
+  <body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">paulovich.NET</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <!-- Page Header -->
+
+  <header class="masthead">
+    
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Guidelines to Enrich Anemic Domain Models with TDD/DDD</h1>
+            
+            <span class="meta">Posted by
+              <a href="#">Ivan Paulovich</a>
+              on June 24, 2018 &middot; <span class="reading-time" title="Estimated read time">
+  
+   10 mins  read </span>
+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <p>In my previous blog posts you could see <a href="https://paulovich.net/clean-architecture-for-net-applications/">Clean Architecture</a> and <a href="https://paulovich.net/hexagonal-architecture-dot-net/">Hexagonal</a> implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an <em>IO device that our software requires</em> to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.
+<a href="/static/li-tzuni-507346-unsplash.jpg"><img src="/static/li-tzuni-507346-unsplash.jpg" alt="Photo by li tzuni on Unsplash" /></a> Photo by li tzuni on Unsplash[/caption] To begin we need to understand the code issues we want to avoid before decide to invest time and effort on building rich domains models. The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.</p>
+
+<h2 id="code-smells-to-avoid">Code Smells to Avoid</h2>
+
+<p>The opposite of the Rich Domain Models are the Anemic Domain Models, in this second one the business logic are implemented far from the classes that own the data, it brings low cohesion and nonexistent encapsulation. The next topics introduce common code smells in Anemic Domain Models.</p>
+
+<h3 id="feature-envy">Feature Envy</h3>
+
+<p>It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find:</p>
+
+<ul>
+  <li>When “Application Services” or “Extension Methods” are envy of the Entities fields. These kind of classes implement the policies that should be managed by the data owner, in most of cases the Entities classes.</li>
+</ul>
+
+<h3 id="primitive-obsession">Primitive Obsession</h3>
+
+<p>It’s the use of primitive types (string, int, float, arrays) for simple tasks that ensures the business rules. There common issues are seen:</p>
+
+<ul>
+  <li>When you see “Security Social Numbers”, “Phone numbers” and Money been repeatedly validated from the UI through the database. To fix this issue we need to create a custom type to encapsulate this logic.</li>
+  <li>When a client class needs to manipulate arrays in external classes in order to keep the data and policies consistent. Generic Lists and Collections leaks abstraction, they provide access to built-in methods to manage the items that are not desired by the business rules. To fix this issue we need to create an Adapter class with the proper methods to manipulate the items.</li>
+</ul>
+
+<h3 id="abuse-of-the-public-setters">Abuse of the Public Setters</h3>
+
+<blockquote>
+  <p>When composing objects into a new type, we want the new type to exhibit simpler behavior than all of it’s component parts considered together. Steve Freeman (GOOS)</p>
+</blockquote>
+
+<p>The classes that exposes all the internal complexity by allowing the consumers to change the internal fields at any time and anywhere. Due to the non-existent encapsulation the consumers need to understand how to change the class properties and to keep the state consistent. To fix this issue we need to remove the public setters and move the logic to proper methods.</p>
+
+<h3 id="business-classes-designed-for-orm">Business Classes Designed for ORM</h3>
+
+<p>Instead of design the classes to meet business requirements the classes are designed to meet the ORM frameworks requirements. The end result are classes that only reflect tables structure.</p>
+
+<h3 id="anemic-classes">Anemic Classes</h3>
+
+<p>It’s the photograph of a poor implemented business requirements. This kind of classes only store data, they do not implement behaviors or policies. These code smells alone doesn’t mean that the code is bad at all. In certain conditions these characteristics are necessary. The problem happens when multiple code smells are combined in a single code base, then the software gets harder to change, the regression tests are required for small changes and the bugs are frequent. Check out the <a href="https://refactoring.guru/refactoring/smells">Refactoring Guru</a> for a compiled list of code smells. Let’s build a new mindset, the journey is worth it!</p>
+
+<h2 id="how-to-enrich-domain-models">How to Enrich Domain Models?</h2>
+
+<p>The reason we invest effort on enrich the Domain is to prove it’s viability, we can do a lot of work without worrying about the database or presentations concerns. 
+<a href="/static/victor-freitas-593843-unsplash.jpg"><img src="/static/victor-freitas-593843-unsplash.jpg" alt="Photo by Victor Freitas on Unsplash" /></a> Photo by Victor Freitas on Unsplash[/caption] To design a rich model we need to concern only on business policies, all the external details like Databases, HTTP and serialization will be addressed later. In our example, we define the business with the following use cases and requirements:</p>
+
+<ol>
+  <li>The customer can register a new account.</li>
+  <li>Allow to deposit into an existing account.</li>
+  <li>Allow to withdraw from an existing account.</li>
+  <li>Accounts can be closed only if they have zero balance.</li>
+  <li>Accounts does not allow to withdraw more than the current account balance.</li>
+  <li>Allow to get the account details.</li>
+  <li>Allow to get the customer details.</li>
+  <li>It’s required from the customer to fill Name, SSN and to deposit an initial amount when registering.</li>
+</ol>
+
+<p>We are going straight to the entities and use cases and see what we can do with OO principles to design a Rich Domain Model. We could identify the following patterns:</p>
+
+<ul>
+  <li><strong>Aggregate Roots:</strong> Customer and Account</li>
+  <li><strong>Entities:</strong> Credit and Debit</li>
+  <li><strong>Value Objects:</strong> Name, SSN and Amount</li>
+  <li><strong>Use Cases</strong>: Register, Deposit, Withdraw, Close, Get Customer Details, Get Account Details.</li>
+</ul>
+
+<p>We alert that our model are persistent ignorant, it privileges the business and we avoid ORM frameworks interference in our classes. To design the Customer we think first on the test specification. We would like the Customer API to be used this way:</p>
+
+<h4 id="customertestscs">CustomerTests.cs</h4>
+
+<p>We point out that the Customer and Account are aggregate roots and they must know each other by their IDs. The Customer.Register(..) method does not accept the Account instance, instead accepts only the AccountId.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/79d405a602685bb2e8468aa6dd00f42b.js"></script>
+
+<h4 id="customercs">Customer.cs</h4>
+
+<p>All fields are private sets so all the state changes are made by the methods, the specific Accounts property return an IReadOnlyCollection to prevent unexpected changes from consumers. In this class the state consistency are ensured from the constructor that requires the customer details to the Register(..) method. Previously, I said that I would not corrupt the Model in order to persist the state. I made and exception for the factory method that receives the complete Customer fields as parameters and it creates a Customer instance. To persist the objects the repository can use the public properties to get the Customer state.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/5d3f702a55a4700dd23a272a2dca5617.js"></script>
+
+<h4 id="accountcs">Account.cs</h4>
+
+<p>I added the sealed modifier to the Account class to prevent inheritance. I am an advocate of composition over inheritance, and I added this modifier to the domain classes to be transparent with my intention. I don’t want the consumers creating unnecessary coupling. The transaction history can be changed only in the next situations:</p>
+
+<ul>
+  <li>By the deposit method which adds and transaction.</li>
+  <li>By the withdraw method which adds and transaction.</li>
+  <li>By the factory method which recreates the list.</li>
+</ul>
+
+<p>The consistency is ensured by not allowing the client to make changes on the TransactionCollection property.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/21ca4c7b445764adcfc676c503a13348.js"></script>
+
+<h4 id="ssncs">SSN.cs</h4>
+
+<p>This class is a value object for the Swedish Personnummer and it encapsulates the complexity of validating the string format. Whenever I am refer to a string personnummer I can use this class.</p>
+
+<script src="https://gist.github.com/ivanpaulovich/6c7776aaff93e29e21ec3e037c9df2e9.js"></script>
+
+<h2 id="source-code">Source Code</h2>
+
+<p>There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. You can download the source code on <a href="https://github.com/ivanpaulovich/ddd-tdd-rich-domain">DDD/TDD Rich Domain</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
+cd ddd-tdd-rich-domain
+./build.sh
+</code></pre></div></div>
+
+<p><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce\_SELRES\_start">﻿</span></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Building rich domains is not an easy task, in fact it requires much more to think on implementing the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. What do you think?</p>
+
+
+        <hr>
+
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left" href="/hexagonal-architecture-dot-net/"
+            data-toggle="tooltip" data-placement="top" title="Hexagonal Architecture with .NET">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/hexagonal-architectural-in-2-minutes/"
+            data-toggle="tooltip" data-placement="top" title="Hexagonal Architectural in 2 minutes">Next<span class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="https://www.twitter.com/ivanpaulovich">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/ivanpaulovich">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/ivanpaulovich">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; Ivan Paulovich 2019</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  </body>
+
+</html>
