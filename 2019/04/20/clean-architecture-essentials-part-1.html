@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    todo: My new Clean Architecture implementation - paulovich.NET
+    Clean Architecture Essentials - Part I - paulovich.NET
     
   </title>
 
-  <meta name="description" content="I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a secret gist in your own GitHub account. Checkout a few commands:">
+  <meta name="description" content="I have been following the Clean Architecture principles on the todo development and I would like to share my experience with you. The strategies and decision...">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/2019/04/19/todo-clean-architecture-implementation.html">
+  <link rel="canonical" href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">
   <link rel="alternate" type="application/rss+xml" title="paulovich.NET" href="/feed.xml">
 
 </head>
@@ -67,13 +67,13 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>todo: My new Clean Architecture implementation</h1>
+            <h1>Clean Architecture Essentials - Part I</h1>
             
             <span class="meta">Posted by
               <a href="#">Ivan Paulovich</a>
-              on April 19, 2019 &middot; <span class="reading-time" title="Estimated read time">
+              on April 20, 2019 &middot; <span class="reading-time" title="Estimated read time">
   
-   109 1 min  read </span>
+   2 mins  read </span>
 </span>
           </div>
         </div>
@@ -85,18 +85,72 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a <code class="highlighter-rouge">secret gist</code> in your own GitHub account. Checkout a few commands:</p>
+        <p>I have been following the Clean Architecture principles on the <a href="https://github.com/ivanpaulovich/todo">todo</a> development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.</p>
 
-<p><a href="https://github.com/ivanpaulovich/todo"><img src="/img/todo-exported.png" alt="todo" /></a></p>
+<p>The first step I did was to pick a simple domain to design, I chose the “Tasks Management” domain and the expected use cases are listed below:</p>
 
-<p>If you have your machine up to date with the <a href="https://dotnet.microsoft.com/download/dotnet-core/2.2">latest .NET Core SDK</a> and you are interest to see <code class="highlighter-rouge">todo</code> in action please run:</p>
+<ul>
+  <li>Add a new task.</li>
+  <li>List all tasks.</li>
+  <li>Rename task title.</li>
+  <li>Mark task to done.</li>
+  <li>Mark task to incomplete.</li>
+  <li>Remove task.</li>
+</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dotnet tool install -g todo
+<p>To summarize the Clean Architecture style I would say that it is an application designed around use cases with the implementation guided by tests. So the next step in the <code class="highlighter-rouge">todo tool</code> development was to setup the test project.</p>
+
+<p>I created the <code class="highlighter-rouge">TodoList.UnitTests</code> for tests and <code class="highlighter-rouge">TodoList.Core</code> for the use cases implementation. That is right, when I started the development I did not create an “Web API project” instead I consider that the first application consumer are the unit tests.</p>
+
+<p>Going further. The tests and production code are created at the same time. For instance when designing the TodoUseCase, I created a test case that verifies null input.</p>
+
+<p>This simple test guides me into discovering the classes that I need.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Fact]
+public void GivenNullInput_ThrowsException()
+{
+    var sut = new TodoUseCase();
+    ...
+}
 </code></pre></div></div>
 
-<p>After that you need to <a href="https://github.com/ivanpaulovich/todo#setup">grant access gist permissions</a> to the <code class="highlighter-rouge">todo</code> tool.</p>
+<p>The next thing I did was to create the TodoUseCase class definition:</p>
 
-<p>In case you are running in a OSX checkout the issue with <a href="https://github.com/ivanpaulovich/todo/issues/30">zsh: command not found: todo</a>. Ask me about it!</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public sealed class TodoUseCase
+{
+    public void Execute(Request request)
+    {
+        throw new NotImplementedException();
+    }
+}
+</code></pre></div></div>
+
+<p>Then I continue with the test design:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Fact]
+public void GivenNullInput_ThrowsException()
+{
+    var sut = new TodoUseCase();
+    Assert.Throws&lt;Exception&gt;(() =&gt; sut.Execute(null));
+}
+</code></pre></div></div>
+
+<p>Later I go back to the production code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public sealed class TodoUseCase
+{
+    public void Execute(Request request)
+    {
+        if (request == null)
+            throw new Exception("Request is null");
+
+        ...
+    }
+}
+</code></pre></div></div>
+
+<p>This is the beginning of Clean Architecture series. What do you think?</p>
+
 
 
         <hr>
@@ -104,14 +158,10 @@
         <div class="clearfix">
 
           
-          <a class="btn btn-primary float-left" href="/2019/03/10/clean-architecture-implementation-sample-dotnet.html"
-            data-toggle="tooltip" data-placement="top" title="Clean Architecture Implementation Sample With .NET">&larr; Previous<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/2019/04/19/todo-clean-architecture-implementation.html"
+            data-toggle="tooltip" data-placement="top" title="todo: My new Clean Architecture implementation">&larr; Previous<span class="d-none d-md-inline">
               Post</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/2019/04/20/clean-architecture-essentials-part-1.html"
-            data-toggle="tooltip" data-placement="top" title="Clean Architecture Essentials - Part I">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
           
 
         </div>
