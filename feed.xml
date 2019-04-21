@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-21T15:21:20+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">paulovich.NET</title><subtitle>Software Architecture</subtitle><author><name>Ivan Paulovich</name></author><entry><title type="html">Clean Architecture Essentials - Part I</title><link href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html" rel="alternate" type="text/html" title="Clean Architecture Essentials - Part I" /><published>2019-04-20T06:12:52+02:00</published><updated>2019-04-20T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1</id><content type="html" xml:base="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-21T20:05:43+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">paulovich.NET</title><subtitle>Software Architecture</subtitle><author><name>Ivan Paulovich</name></author><entry><title type="html">Clean Architecture Essentials - Part I</title><link href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html" rel="alternate" type="text/html" title="Clean Architecture Essentials - Part I" /><published>2019-04-20T06:12:52+02:00</published><updated>2019-04-20T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1</id><content type="html" xml:base="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
 
 &lt;h2 id=&quot;use-cases&quot;&gt;Use Cases&lt;/h2&gt;
 
@@ -68,7 +68,8 @@ public void GivenNullInput_ThrowsException()
 
 &lt;p&gt;This is the beginning of Clean Architecture series. What do you think?&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">I have been following the Clean Architecture principles on the todo development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.</summary></entry><entry><title type="html">todo: My new Clean Architecture implementation</title><link href="http://localhost:4000/2019/04/19/todo-clean-architecture-implementation.html" rel="alternate" type="text/html" title="todo: My new Clean Architecture implementation" /><published>2019-04-19T06:12:52+02:00</published><updated>2019-04-19T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/19/todo-clean-architecture-implementation</id><content type="html" xml:base="http://localhost:4000/2019/04/19/todo-clean-architecture-implementation.html">&lt;p&gt;I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a &lt;code class=&quot;highlighter-rouge&quot;&gt;secret gist&lt;/code&gt; in your own GitHub account. Checkout a few commands:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;&lt;img src=&quot;/img/todo-exported.png&quot; alt=&quot;todo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/todo-exported.png&quot; alt=&quot;todo&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Todo running in the terminal.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;If you have your machine up to date with the &lt;a href=&quot;https://dotnet.microsoft.com/download/dotnet-core/2.2&quot;&gt;latest .NET Core SDK&lt;/a&gt; and you are interest to see &lt;code class=&quot;highlighter-rouge&quot;&gt;todo&lt;/code&gt; in action please run:&lt;/p&gt;
 
@@ -126,7 +127,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;What if we could focus on business requirements and ignore everything else? The idea behind “Ports and Adapters” is to decouple the high level modules from the low level modules, in simple terms you could decouple the business rules from the database and user interface.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/hexagonal-architeture/hexagonal-architecture.png&quot;&gt;&lt;img src=&quot;/img/hexagonal-architecture/hexagonal-architecture.png&quot; alt=&quot;Hexagonal Architecture&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/hexagonal-architecture.png&quot; alt=&quot;Hexagonal Architecture&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Hexagonal Architecture.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see on the left side there are driving actors:&lt;/p&gt;
 
@@ -140,8 +142,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 &lt;ul&gt;
   &lt;li&gt;Mocked Database&lt;/li&gt;
   &lt;li&gt;SQL Database Adapter&lt;/li&gt;
-  &lt;li&gt;Mocked Webserver&lt;/li&gt;
-  &lt;li&gt;Webserver Adapter&lt;/li&gt;
+  &lt;li&gt;Mocked Web server&lt;/li&gt;
+  &lt;li&gt;Web server Adapter&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The use cases are implemented inside the &lt;strong&gt;Application Layer&lt;/strong&gt;.&lt;/p&gt;
@@ -150,25 +152,29 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;h2 id=&quot;ports-and-adapters-implementation-workflow&quot;&gt;Ports and Adapters Implementation Workflow&lt;/h2&gt;
 
-&lt;p&gt;The benefit of “Ports and Adapters” is that the application use cases could be implemented in isolation from external services, so we can delay the database and webserver implementation by creating fake implementations.&lt;/p&gt;
+&lt;p&gt;The benefit of “Ports and Adapters” is that the application use cases could be implemented in isolation from external services, so we can delay the database and web server implementation by creating fake implementations.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;What about the driving actors? When should I implement them?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-1.png&quot; alt=&quot;First Step&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-1.png&quot; alt=&quot;First Step&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;First Step&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The &lt;strong&gt;first driving adapter&lt;/strong&gt; you should implement are the &lt;strong&gt;Test Harness&lt;/strong&gt;. And to run tests you don’t need an user inteface, see how you don’t need to worry about button colors and font faces? These tests will guide the use case implementation against a mocked database.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-2.png&quot; alt=&quot;Second Step&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-2.png&quot; alt=&quot;Second Step&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Second Step&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;With the knowledge acquired by the unit tests implementation you can more confident design the &lt;strong&gt;User Interface&lt;/strong&gt; then get user feedback. Every stage is a learning process, be open to change the use cases implementation and test harness at anytime!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-3.png&quot; alt=&quot;Third Step&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-3.png&quot; alt=&quot;Third Step&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Third Step&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;You now can go deeper in details and implement how the application consume the database, and you can run your existing tests against this secondary actor. Should I say that you will do small changes in the application use cases to support this new adapter? You will!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-4.png&quot; alt=&quot;Final Step&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-4.png&quot; alt=&quot;Final Step&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Final Step&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The last step you run the &lt;strong&gt;User Interface&lt;/strong&gt; against a real database implementation and get more feedback!&lt;/p&gt;
 
