@@ -96,7 +96,8 @@ $ dotnet new clean \
 
 <p>As the SOLID principles and the Clean Architecture rules are worth to write about it, I am starting this blogging series explaining the decisions we have made through the development of the Manga Project. Feedback are welcome! Clean Architecture <a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html">expects at least 4 layers</a> and in each layer there are common components. Starting with the layers from inside to the outer ones:</p>
 
-<p><a href="/img/CleanArchitecture-Uncle-Bob.jpg"><img src="/img/CleanArchitecture-Uncle-Bob.jpg" alt="Clean Architecture Diagram by Uncle Bob" /></a></p>
+<p><img class="img-fluid" src="/img/CleanArchitecture-Uncle-Bob.jpg" alt="Clean Architecture Diagram by Uncle Bob" />
+<span class="caption text-muted">Clean Architecture Diagram by Uncle Bob</span></p>
 
 <ol>
   <li>Enterprise Business Rules</li>
@@ -111,7 +112,8 @@ $ dotnet new clean \
 
 <p>Beginning with the Enterprise Business Rules Layer we are talking about Aggregates, Entities, Value Objects and others patterns of a rich Domain. In our specific Bounded Context we have the Customer and the Account as <strong>Aggregate Roots</strong>, also the Credit/Debit transactions as <strong>Entities</strong> and last but no least we have the Name, Person Number and Amount as <strong>Value Objects</strong>.</p>
 
-<p><a href="/img/Account-Balance-Context.png"><img src="/img/Account-Balance-Context.png" alt="" /></a></p>
+<p><img class="img-fluid" src="/img/Account-Balance-Context.png" alt="Account Balance" />
+<span class="caption text-muted">Account Balance</span></p>
 
 <p>In short words, the previous components are the business entities that encapsulates fields and prevents unexpected changes or behaviors, these components maintain the application state in the most reliable way. Now, let me highlight some characteristics of this data structures:</p>
 
@@ -161,7 +163,8 @@ $ dotnet new clean \
 
 <p>So our Use Cases implementations are first-class modules in the root of this layer. The shape of a Use Case is an <strong>Interactor</strong> object that receives an <strong>Input</strong>, do some work then pass the <strong>Output</strong> through the currently <strong>Presenter</strong> instance as shown in the following figure:</p>
 
-<p><a href="/img/Flow-Of-Control.png"><img src="/img/Flow-Of-Control.png" alt="" /></a></p>
+<p><img class="img-fluid" src="/img/Flow-Of-Control.png" alt="Flow of Control" />
+<span class="caption text-muted">Flow of Control</span></p>
 
 <p>In the previous Flow of Control we have:</p>
 
@@ -410,11 +413,13 @@ public class CustomersController : Microsoft.AspNetCore.Mvc.Controller
 
 <p>Summing up, we separated the Solution in projects so we could draw boundaries between the modules, clarify the dependencies and we have small classes that makes easy to create new features without changing the existing ones. These are the Solution Explorer in Visual Studio 2017:</p>
 
-<p><a href="/img/Manga-Solution-Explorer.png"><img src="/img/Manga-Solution-Explorer.png" alt="" /></a></p>
+<p><img class="img-fluid" src="/img/Manga-Solution-Explorer.png" alt="Solution Explorer" />
+<span class="caption text-muted">Solution Explorer</span></p>
 
 <p>And to help you understand the dependencies between the projects this diagram:</p>
 
-<p><a href="/img/Layers.png"><img src="/img/Layers.png" alt="" /></a></p>
+<p><img class="img-fluid" src="/img/Layers.png" alt="Layers" />
+<span class="caption text-muted">Layers</span></p>
 
 <p>Finally, as we did not cover every detail in source code take a look at.</p>
 
@@ -425,7 +430,8 @@ dotnet run
 
 <p>Or by:</p>
 
-<p><a href="/img/dotnet-new-caju-0.2.84.gif"><img src="/img/dotnet-new-caju-0.2.84.gif" alt="" /></a></p>
+<p><img class="img-fluid" src="/img/dotnet-new-caju-0.2.84.gif" alt="dotnet new caju" />
+<span class="caption text-muted">dotnet new caju</span></p>
 
 <p>I hope that this template could improve your productivity in building applications with evolutionary architecture.</p>
 

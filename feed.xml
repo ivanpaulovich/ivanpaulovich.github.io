@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-21T20:05:43+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">paulovich.NET</title><subtitle>Software Architecture</subtitle><author><name>Ivan Paulovich</name></author><entry><title type="html">Clean Architecture Essentials - Part I</title><link href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html" rel="alternate" type="text/html" title="Clean Architecture Essentials - Part I" /><published>2019-04-20T06:12:52+02:00</published><updated>2019-04-20T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1</id><content type="html" xml:base="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-01T14:06:36+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">paulovich.NET</title><subtitle>Software Architecture</subtitle><author><name>Ivan Paulovich</name></author><entry><title type="html">Clean Architecture Essentials - Part I</title><link href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html" rel="alternate" type="text/html" title="Clean Architecture Essentials - Part I" /><published>2019-04-20T06:12:52+02:00</published><updated>2019-04-20T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1</id><content type="html" xml:base="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
 
 &lt;h2 id=&quot;use-cases&quot;&gt;Use Cases&lt;/h2&gt;
 
@@ -246,7 +246,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Let’s see how I applied this principle in the next example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/DIP-1-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;DIP&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;On the left side we found in red an Layered Application where the DepositUseCase depends on the AccountSQLRepository implementation. It is a coupled way to write code. On the right side in blue, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has its dependency pointing inwards.&lt;/p&gt;
 
@@ -280,7 +281,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-1.png&quot; alt=&quot;&quot; /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-1.png&quot; alt=&quot;Hexagonal&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Hexagonal&lt;/span&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The blue potato shape at the center is the Domain Layer and there are reasons for it. Every business domain has its own rules, very specific business rules, that is the reason of its undefined shape. For example, I designed our Domain Layer with DDD Building Blocks.&lt;/li&gt;
@@ -296,7 +298,10 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Let’s describe the Dependency Diagram below:&lt;/p&gt;
 
-&lt;h2&gt;&lt;img src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;&quot; /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependencies Diagram&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Dependencies Diagram&lt;/span&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The Domain Layer is totally independent of other layers and frameworks.&lt;/li&gt;
@@ -318,11 +323,13 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Use Cases implementations are first-class modules in the root of this layer. The shape of a Use Case is an &lt;strong&gt;Interactor&lt;/strong&gt; object that receives an &lt;strong&gt;Input&lt;/strong&gt;, do some work then pass the &lt;strong&gt;Output&lt;/strong&gt; through the caller. That’s the reason I am an advocate of feature folders describing the use cases and inside them the necessary classes:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Use-Cases.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Use Cases&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;At your first look of the solution folders, you can build an idea of the purpose of this software. It seems like it can manage your Banck Account, for example you can Deposit or Withdraw money. Following we see the communication between the layers:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Clean-Architecture-Style.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Clean-Architecture-Style.png&quot; alt=&quot;Clean Architecture Style&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Clean Architecture Style&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The Application exposes an interface (Port) to the UI Layer and another interface (another Port) to the Infrastructure Layer. What have you seen until here is &lt;strong&gt;Enterprise + Application Business Rules&lt;/strong&gt; enforced without frameworks dependencies or without database coupling. Every details has abstractions protecting the Business Rules to be coupled to tech stuff.&lt;/p&gt;
 
@@ -330,7 +337,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Now we advance to the next layer, at the User Interface Layer we translate the input in a way that the Use Cases can understand, it is good practice to do not reuse entities in this layer because it could create coupling, the front-end has specific frameworks, other ways of creating its data structures, different presentation for each field and validation rules. In our implementation we have the following feature folders for every use case:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Web-Use-Cases.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Web-Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Use Cases&lt;/span&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Request&lt;/strong&gt;: a data structure for the user input (accountId and amount).&lt;/li&gt;
@@ -351,7 +359,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Another external layer is the Infrastructure Layer that implements Data Access, Dependency Injection Framework (DI) and other frameworks specifics. In this example we have multiple data access implementations.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Infrastructure.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Infrastructure.png&quot; alt=&quot;Infrastructure&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Infrastructure&lt;/span&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;how-and-when-the-di-is-configured&quot;&gt;How and When the DI is configured&lt;/h2&gt;
 
@@ -383,11 +392,13 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/envy.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/envy.png&quot; alt=&quot;Envy&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Envy&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/feature-envy-fixed.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/feature-envy-fixed.png&quot; alt=&quot;Envy&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Feature Envy Fixed&lt;/span&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;primitive-obsession&quot;&gt;Primitive Obsession&lt;/h3&gt;
 
@@ -452,7 +463,8 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;We could identify the following DDD patterns for these business:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/model.png&quot;&gt;&lt;img src=&quot;/img/model.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/model.png&quot; alt=&quot;Model&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Model&lt;/span&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Aggregate Roots:&lt;/strong&gt; Customer and Account.&lt;/li&gt;
@@ -535,7 +547,8 @@ cd ddd-tdd-rich-domain
   &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/Bo8jrZxMAgE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!</summary></entry><entry><title type="html">Guidelines to Enrich Anemic Domain Models with TDD/DDD</title><link href="http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd/" rel="alternate" type="text/html" title="Guidelines to Enrich Anemic Domain Models with TDD/DDD" /><published>2018-06-24T06:12:52+02:00</published><updated>2018-06-24T06:12:52+02:00</updated><id>http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd</id><content type="html" xml:base="http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd/">&lt;p&gt;In my previous blog posts you could see &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture&lt;/a&gt; and &lt;a href=&quot;https://paulovich.net/hexagonal-architecture-dot-net/&quot;&gt;Hexagonal&lt;/a&gt; implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/li-tzuni-507346-unsplash.jpg&quot;&gt;&lt;img src=&quot;/img/li-tzuni-507346-unsplash.jpg&quot; alt=&quot;Photo by li tzuni on Unsplash&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/li-tzuni-507346-unsplash.jpg&quot; alt=&quot;Photo by li tzuni on Unsplash&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Photo by li tzuni on Unsplash&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Photo by li tzuni on Unsplash[/caption] To begin we need to understand the code issues we want to avoid before decide to invest time and effort on building rich domains models. The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.&lt;/p&gt;
 
@@ -580,7 +593,8 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;The reason we invest effort on enrich the Domain is to prove it’s viability, we can do a lot of work without worrying about the database or presentations concerns.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/victor-freitas-593843-unsplash.jpg&quot;&gt;&lt;img src=&quot;/img/victor-freitas-593843-unsplash.jpg&quot; alt=&quot;Photo by Victor Freitas on Unsplash&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/victor-freitas-593843-unsplash.jpg&quot; alt=&quot;Photo by Victor Freitas on Unsplash&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Photo by Victor Freitas on Unsplash&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Photo by Victor Freitas on Unsplash[/caption] To design a rich model we need to concern only on business policies, all the external details like Databases, HTTP and serialization will be addressed later. In our example, we define the business with the following use cases and requirements:&lt;/p&gt;
 
@@ -715,14 +729,15 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;To clarify the idea I created the next picture with the before and after applying DIP:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/DIP-1-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;DIP&lt;/span&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;On the left side of the next picture we find in blue an Layered Application where the DepositService depends on AccountSQLRepository.&lt;/li&gt;
   &lt;li&gt;And on the right side in green, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has your dependency pointing inwards. aaaaa&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The following listing of DepositService shows an implementation. Suggestion: clone the &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola repo&lt;/a&gt; for the full implementation.&lt;/p&gt;
+&lt;p&gt;The following listing of DepositService shows an implementation. Suggestion: clone the &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola repository&lt;/a&gt; for the full implementation.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class DepositService : IDepositService
 {
@@ -797,7 +812,9 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;Let’s describe the Dependency Layer Diagram below:&lt;/p&gt;
 
-&lt;h2&gt;&lt;a href=&quot;/img/Untitled-Diagram-1.png&quot;&gt;&lt;img src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependency Layer Diagram&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;Dependency Layer Diagram&lt;/span&gt;
+——————————————————————————————————————————————————-&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The domain is totally independent of other layers and frameworks.&lt;/li&gt;
