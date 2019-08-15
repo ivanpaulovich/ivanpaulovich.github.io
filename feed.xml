@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-01T14:08:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">paulovich.NET</title><subtitle>Software Architecture</subtitle><author><name>Ivan Paulovich</name></author><entry><title type="html">Clean Architecture Essentials - Part I</title><link href="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html" rel="alternate" type="text/html" title="Clean Architecture Essentials - Part I" /><published>2019-04-20T06:12:52+02:00</published><updated>2019-04-20T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1</id><content type="html" xml:base="http://localhost:4000/2019/04/20/clean-architecture-essentials-part-1.html">&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Architecture and .NET Development</title>
+    <description>Software Architecture and .NET Development</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 15 Aug 2019 20:30:29 +0000</pubDate>
+    <lastBuildDate>Thu, 15 Aug 2019 20:30:29 +0000</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Clean Architecture Essentials - Part I</title>
+        <description>&lt;p&gt;I have been following the Clean Architecture principles on the &lt;a href=&quot;https://github.com/ivanpaulovich/todo&quot;&gt;todo&lt;/a&gt; development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.&lt;/p&gt;
 
 &lt;h2 id=&quot;use-cases&quot;&gt;Use Cases&lt;/h2&gt;
 
@@ -23,38 +36,67 @@
 
 &lt;p&gt;This simple test guides me into discovering the classes that I need.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Fact]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[Fact]
 public void GivenNullInput_ThrowsException()
 {
     var sut = new TodoUseCase();
     ...
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The next thing I did was to create the TodoUseCase class definition:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public sealed class TodoUseCase
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public sealed class TodoUseCase
 {
     public void Execute(Request request)
     {
         throw new NotImplementedException();
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then I continue with the test design:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Fact]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[Fact]
 public void GivenNullInput_ThrowsException()
 {
     var sut = new TodoUseCase();
     Assert.Throws&amp;lt;Exception&amp;gt;(() =&amp;gt; sut.Execute(null));
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Later I go back to the production code:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public sealed class TodoUseCase
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public sealed class TodoUseCase
 {
     public void Execute(Request request)
     {
@@ -64,22 +106,62 @@ public void GivenNullInput_ThrowsException()
         ...
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;This is the beginning of Clean Architecture series. What do you think?&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">I have been following the Clean Architecture principles on the todo development and I would like to share my experience with you. The strategies and decisions I have made could help you in future projects.</summary></entry><entry><title type="html">todo: My new Clean Architecture implementation</title><link href="http://localhost:4000/2019/04/19/todo-clean-architecture-implementation.html" rel="alternate" type="text/html" title="todo: My new Clean Architecture implementation" /><published>2019-04-19T06:12:52+02:00</published><updated>2019-04-19T06:12:52+02:00</updated><id>http://localhost:4000/2019/04/19/todo-clean-architecture-implementation</id><content type="html" xml:base="http://localhost:4000/2019/04/19/todo-clean-architecture-implementation.html">&lt;p&gt;I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a &lt;code class=&quot;highlighter-rouge&quot;&gt;secret gist&lt;/code&gt; in your own GitHub account. Checkout a few commands:&lt;/p&gt;
+&lt;p&gt;This is the beginning of Clean Architecture series. What do you think?&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/todo-exported.png&quot; alt=&quot;todo&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Todo running in the terminal.&lt;/span&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Apr 2019 04:12:52 +0000</pubDate>
+        <link>/clean-architecture-essentials-part-1/</link>
+        <guid isPermaLink="true">/clean-architecture-essentials-part-1/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>todo: My new Clean Architecture implementation</title>
+        <description>&lt;p&gt;I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a &lt;code class=&quot;highlighter-rouge&quot;&gt;secret gist&lt;/code&gt; in your own GitHub account. Checkout a few commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/todo-exported.png&quot; alt=&quot;Todo running in the terminal&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you have your machine up to date with the &lt;a href=&quot;https://dotnet.microsoft.com/download/dotnet-core/2.2&quot;&gt;latest .NET Core SDK&lt;/a&gt; and you are interest to see &lt;code class=&quot;highlighter-rouge&quot;&gt;todo&lt;/code&gt; in action please run:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ dotnet tool install -g todo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;$ dotnet tool install -g todo
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;After that you need to &lt;a href=&quot;https://github.com/ivanpaulovich/todo#setup&quot;&gt;grant access gist permissions&lt;/a&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;todo&lt;/code&gt; tool.&lt;/p&gt;
 
-&lt;p&gt;In case you are running in a OSX checkout the issue with &lt;a href=&quot;https://github.com/ivanpaulovich/todo/issues/30&quot;&gt;zsh: command not found: todo&lt;/a&gt;. Ask me about it!&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">I released a dotnet tool to manage tasks via the comnand line. The tasks are stored in a secret gist in your own GitHub account. Checkout a few commands:</summary></entry><entry><title type="html">Clean Architecture Implementation Sample With .NET</title><link href="http://localhost:4000/2019/03/10/clean-architecture-implementation-sample-dotnet.html" rel="alternate" type="text/html" title="Clean Architecture Implementation Sample With .NET" /><published>2019-03-10T05:12:52+01:00</published><updated>2019-03-10T05:12:52+01:00</updated><id>http://localhost:4000/2019/03/10/clean-architecture-implementation-sample-dotnet</id><content type="html" xml:base="http://localhost:4000/2019/03/10/clean-architecture-implementation-sample-dotnet.html">&lt;p&gt;Hi all, I started a new open source project about &lt;a href=&quot;https://github.com/ivanpaulovich/dotnet-clean-architecture&quot;&gt;Clean Architecture with .NET&lt;/a&gt; and I invite you all to check out! 
-The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am using the principles from the book to design the solution.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! The use cases are about a Todo List App and I am using the principles from the book to design the solution.</summary></entry><entry><title type="html">Clean Architecture and TDD</title><link href="http://localhost:4000/2019/02/19/clean-architecture-tdd-baby-steps.html" rel="alternate" type="text/html" title="Clean Architecture and TDD" /><published>2019-02-19T05:12:52+01:00</published><updated>2019-02-19T05:12:52+01:00</updated><id>http://localhost:4000/2019/02/19/clean-architecture-tdd-baby-steps</id><content type="html" xml:base="http://localhost:4000/2019/02/19/clean-architecture-tdd-baby-steps.html">&lt;p&gt;Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.&lt;/p&gt;
+&lt;p&gt;In case you are running in a OSX checkout the issue with &lt;a href=&quot;https://github.com/ivanpaulovich/todo/issues/30&quot;&gt;zsh: command not found: todo&lt;/a&gt;. Ask me about it!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Apr 2019 04:12:52 +0000</pubDate>
+        <link>/todo-clean-architecture-implementation/</link>
+        <guid isPermaLink="true">/todo-clean-architecture-implementation/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>Clean Architecture Implementation Sample With .NET</title>
+        <description>&lt;p&gt;Hi all, I started a new open source project about &lt;a href=&quot;https://github.com/ivanpaulovich/dotnet-clean-architecture&quot;&gt;Clean Architecture with .NET&lt;/a&gt; and I invite you all to check out! 
+The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am using the principles from the book to design the solution.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Mar 2019 04:12:52 +0000</pubDate>
+        <link>/clean-architecture-implementation-sample-dotnet/</link>
+        <guid isPermaLink="true">/clean-architecture-implementation-sample-dotnet/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>Clean Architecture and TDD</title>
+        <description>&lt;p&gt;Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Are SCRUM ceremonies enough to be Agile? How the software implementation interfer?&lt;/p&gt;
@@ -127,8 +209,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;What if we could focus on business requirements and ignore everything else? The idea behind “Ports and Adapters” is to decouple the high level modules from the low level modules, in simple terms you could decouple the business rules from the database and user interface.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/hexagonal-architecture.png&quot; alt=&quot;Hexagonal Architecture&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Hexagonal Architecture.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/hexagonal-architecture.png&quot; alt=&quot;Hexagonal Architecture&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see on the left side there are driving actors:&lt;/p&gt;
 
@@ -158,23 +239,19 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
   &lt;p&gt;What about the driving actors? When should I implement them?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-1.png&quot; alt=&quot;First Step&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;First Step&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-1.png&quot; alt=&quot;First Step&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The &lt;strong&gt;first driving adapter&lt;/strong&gt; you should implement are the &lt;strong&gt;Test Harness&lt;/strong&gt;. And to run tests you don’t need an user inteface, see how you don’t need to worry about button colors and font faces? These tests will guide the use case implementation against a mocked database.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-2.png&quot; alt=&quot;Second Step&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Second Step&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-2.png&quot; alt=&quot;Second Step&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;With the knowledge acquired by the unit tests implementation you can more confident design the &lt;strong&gt;User Interface&lt;/strong&gt; then get user feedback. Every stage is a learning process, be open to change the use cases implementation and test harness at anytime!&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-3.png&quot; alt=&quot;Third Step&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Third Step&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-3.png&quot; alt=&quot;Third Step&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You now can go deeper in details and implement how the application consume the database, and you can run your existing tests against this secondary actor. Should I say that you will do small changes in the application use cases to support this new adapter? You will!&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-architecture/guided-by-tests-4.png&quot; alt=&quot;Final Step&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Final Step&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-architecture/guided-by-tests-4.png&quot; alt=&quot;Final Step&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The last step you run the &lt;strong&gt;User Interface&lt;/strong&gt; against a real database implementation and get more feedback!&lt;/p&gt;
 
@@ -190,7 +267,20 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
   &lt;p&gt;The only way to go fast is to go well. Every time you yeild to the temptation to trade quality for speed, you slow down. Every time. Uncle Bob.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Software should be implemented incrementally and on every sprint you should acquire business knowleadge that help you be effective on the next sprint.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.</summary></entry><entry><title type="html">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</title><link href="http://localhost:4000/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" rel="alternate" type="text/html" title="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)" /><published>2018-08-16T06:12:52+02:00</published><updated>2018-08-16T06:12:52+02:00</updated><id>http://localhost:4000/hexagonal-and-clean-architecture-styles-with-net-core-reviewed</id><content type="html" xml:base="http://localhost:4000/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/">&lt;p&gt;Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:&lt;/p&gt;
+&lt;p&gt;Software should be implemented incrementally and on every sprint you should acquire business knowledge that help you be effective on the next sprint.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Feb 2019 04:12:52 +0000</pubDate>
+        <link>/clean-architecture-tdd-baby-steps/</link>
+        <guid isPermaLink="true">/clean-architecture-tdd-baby-steps/</guid>
+        
+        
+        <category>TDD</category>
+        
+      </item>
+    
+      <item>
+        <title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</title>
+        <description>&lt;p&gt;Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Allow an application to equally be driven by users, programs or tests, and to be developed and tested in isolation from any of its eventual run-time devices and databases.&lt;/p&gt;
@@ -246,8 +336,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Let’s see how I applied this principle in the next example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;DIP&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On the left side we found in red an Layered Application where the DepositUseCase depends on the AccountSQLRepository implementation. It is a coupled way to write code. On the right side in blue, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has its dependency pointing inwards.&lt;/p&gt;
 
@@ -281,8 +370,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/hexagonal-1.png&quot; alt=&quot;Hexagonal&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Hexagonal&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-1.png&quot; alt=&quot;Hexagonal&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The blue potato shape at the center is the Domain Layer and there are reasons for it. Every business domain has its own rules, very specific business rules, that is the reason of its undefined shape. For example, I designed our Domain Layer with DDD Building Blocks.&lt;/li&gt;
@@ -298,8 +386,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Let’s describe the Dependency Diagram below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependencies Diagram&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Dependencies Diagram&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependencies Diagram&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -323,13 +410,11 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Use Cases implementations are first-class modules in the root of this layer. The shape of a Use Case is an &lt;strong&gt;Interactor&lt;/strong&gt; object that receives an &lt;strong&gt;Input&lt;/strong&gt;, do some work then pass the &lt;strong&gt;Output&lt;/strong&gt; through the caller. That’s the reason I am an advocate of feature folders describing the use cases and inside them the necessary classes:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Use Cases&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At your first look of the solution folders, you can build an idea of the purpose of this software. It seems like it can manage your Banck Account, for example you can Deposit or Withdraw money. Following we see the communication between the layers:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Clean-Architecture-Style.png&quot; alt=&quot;Clean Architecture Style&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Clean Architecture Style&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Clean-Architecture-Style.png&quot; alt=&quot;Clean Architecture Style&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The Application exposes an interface (Port) to the UI Layer and another interface (another Port) to the Infrastructure Layer. What have you seen until here is &lt;strong&gt;Enterprise + Application Business Rules&lt;/strong&gt; enforced without frameworks dependencies or without database coupling. Every details has abstractions protecting the Business Rules to be coupled to tech stuff.&lt;/p&gt;
 
@@ -337,8 +422,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Now we advance to the next layer, at the User Interface Layer we translate the input in a way that the Use Cases can understand, it is good practice to do not reuse entities in this layer because it could create coupling, the front-end has specific frameworks, other ways of creating its data structures, different presentation for each field and validation rules. In our implementation we have the following feature folders for every use case:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Web-Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Use Cases&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Web-Use-Cases.png&quot; alt=&quot;Use Cases&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Request&lt;/strong&gt;: a data structure for the user input (accountId and amount).&lt;/li&gt;
@@ -359,8 +443,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;Another external layer is the Infrastructure Layer that implements Data Access, Dependency Injection Framework (DI) and other frameworks specifics. In this example we have multiple data access implementations.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Infrastructure.png&quot; alt=&quot;Infrastructure&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Infrastructure&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Infrastructure.png&quot; alt=&quot;Infrastructure&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;how-and-when-the-di-is-configured&quot;&gt;How and When the DI is configured&lt;/h2&gt;
 
@@ -382,7 +465,20 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;With Hexagonal Architecture you design a decoupled software that allows major decisions to be deferred, all business rules will be isolated from peripheral concerns. And you have the option to try different adapters with less effort. Have your experience when the code base gets coupled to an specific framework? What are your experience with Hexagonal Architecture? Leave your comment.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:</summary></entry><entry><title type="html">Rich Domain Model with DDD/TDD (Reviewed)</title><link href="http://localhost:4000/rich-domain-model-with-ddd-tdd-reviewed/" rel="alternate" type="text/html" title="Rich Domain Model with DDD/TDD (Reviewed)" /><published>2018-07-29T06:12:52+02:00</published><updated>2018-07-29T06:12:52+02:00</updated><id>http://localhost:4000/rich-domain-model-with-ddd-tdd-reviewed</id><content type="html" xml:base="http://localhost:4000/rich-domain-model-with-ddd-tdd-reviewed/">&lt;p&gt;Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.&lt;/p&gt;
+&lt;p&gt;With Hexagonal Architecture you design a decoupled software that allows major decisions to be deferred, all business rules will be isolated from peripheral concerns. And you have the option to try different adapters with less effort. Have your experience when the code base gets coupled to an specific framework? What are your experience with Hexagonal Architecture? Leave your comment.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Aug 2018 04:12:52 +0000</pubDate>
+        <link>/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</link>
+        <guid isPermaLink="true">/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>Rich Domain Model with DDD/TDD (Reviewed)</title>
+        <description>&lt;p&gt;Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.&lt;/p&gt;
 
 &lt;h2 id=&quot;code-smells-to-avoid&quot;&gt;Code Smells to Avoid&lt;/h2&gt;
 
@@ -392,13 +488,11 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/envy.png&quot; alt=&quot;Envy&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Envy&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/envy.png&quot; alt=&quot;Envy&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/feature-envy-fixed.png&quot; alt=&quot;Envy&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Feature Envy Fixed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/feature-envy-fixed.png&quot; alt=&quot;Feature Envy Fixed&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;primitive-obsession&quot;&gt;Primitive Obsession&lt;/h3&gt;
 
@@ -463,8 +557,7 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;We could identify the following DDD patterns for these business:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/model.png&quot; alt=&quot;Model&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Model&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/model.png&quot; alt=&quot;Model&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Aggregate Roots:&lt;/strong&gt; Customer and Account.&lt;/li&gt;
@@ -513,16 +606,32 @@ The use cases are about a &lt;strong&gt;Todo List App&lt;/strong&gt; and I am us
 
 &lt;p&gt;There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. The source code is available on GitHub &lt;a href=&quot;https://github.com/ivanpaulovich/ddd-tdd-rich-domain&quot;&gt;DDD/TDD Rich Domain&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 cd ddd-tdd-rich-domain
 ./build.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Give it a stargazer, fork it if you like.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Building rich domains is not an easy task, in fact it requires much more effort to implement the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. Have you implemented a Rich Domain Model? How was your experience? Leave your feedback.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.</summary></entry><entry><title type="html">Hexagonal Architectural in 2 minutes</title><link href="http://localhost:4000/hexagonal-architectural-in-2-minutes/" rel="alternate" type="text/html" title="Hexagonal Architectural in 2 minutes" /><published>2018-07-18T06:12:52+02:00</published><updated>2018-07-18T06:12:52+02:00</updated><id>http://localhost:4000/hexagonal-architectural-in-2-minutes</id><content type="html" xml:base="http://localhost:4000/hexagonal-architectural-in-2-minutes/">&lt;p&gt;Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!&lt;/p&gt;
+&lt;p&gt;Building rich domains is not an easy task, in fact it requires much more effort to implement the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. Have you implemented a Rich Domain Model? How was your experience? Leave your feedback.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Jul 2018 04:12:52 +0000</pubDate>
+        <link>/rich-domain-model-with-ddd-tdd-reviewed/</link>
+        <guid isPermaLink="true">/rich-domain-model-with-ddd-tdd-reviewed/</guid>
+        
+        
+        <category>DDD</category>
+        
+      </item>
+    
+      <item>
+        <title>Hexagonal Architectural in 2 minutes</title>
+        <description>&lt;p&gt;Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!&lt;/p&gt;
 
 &lt;style&gt;
 .embed-container {
@@ -545,10 +654,22 @@ cd ddd-tdd-rich-domain
 
 &lt;div class=&quot;embed-container&quot;&gt;
   &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/Bo8jrZxMAgE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!</summary></entry><entry><title type="html">Guidelines to Enrich Anemic Domain Models with TDD/DDD</title><link href="http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd/" rel="alternate" type="text/html" title="Guidelines to Enrich Anemic Domain Models with TDD/DDD" /><published>2018-06-24T06:12:52+02:00</published><updated>2018-06-24T06:12:52+02:00</updated><id>http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd</id><content type="html" xml:base="http://localhost:4000/guidelines-to-enrich-anemic-domain-models-tdd-ddd/">&lt;p&gt;In my previous blog posts you could see &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture&lt;/a&gt; and &lt;a href=&quot;https://paulovich.net/hexagonal-architecture-dot-net/&quot;&gt;Hexagonal&lt;/a&gt; implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 18 Jul 2018 04:12:52 +0000</pubDate>
+        <link>/hexagonal-architectural-in-2-minutes/</link>
+        <guid isPermaLink="true">/hexagonal-architectural-in-2-minutes/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>Guidelines to Enrich Anemic Domain Models with TDD/DDD</title>
+        <description>&lt;p&gt;In my previous blog posts you could see &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture&lt;/a&gt; and &lt;a href=&quot;https://paulovich.net/hexagonal-architecture-dot-net/&quot;&gt;Hexagonal&lt;/a&gt; implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/li-tzuni-507346-unsplash.jpg&quot; alt=&quot;Photo by li tzuni on Unsplash&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Photo by li tzuni on Unsplash&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/li-tzuni-507346-unsplash.jpg&quot; alt=&quot;Photo by li tzuni on Unsplash&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Photo by li tzuni on Unsplash[/caption] To begin we need to understand the code issues we want to avoid before decide to invest time and effort on building rich domains models. The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.&lt;/p&gt;
 
@@ -593,10 +714,9 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;The reason we invest effort on enrich the Domain is to prove it’s viability, we can do a lot of work without worrying about the database or presentations concerns.&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/victor-freitas-593843-unsplash.jpg&quot; alt=&quot;Photo by Victor Freitas on Unsplash&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Photo by Victor Freitas on Unsplash&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/victor-freitas-593843-unsplash.jpg&quot; alt=&quot;Photo by Victor Freitas on Unsplash&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Photo by Victor Freitas on Unsplash[/caption] To design a rich model we need to concern only on business policies, all the external details like Databases, HTTP and serialization will be addressed later. In our example, we define the business with the following use cases and requirements:&lt;/p&gt;
+&lt;p&gt;To design a rich model we need to concern only on business policies, all the external details like Databases, HTTP and serialization will be addressed later. In our example, we define the business with the following use cases and requirements:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;The customer can register a new account.&lt;/li&gt;
@@ -656,16 +776,32 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. You can download the source code on &lt;a href=&quot;https://github.com/ivanpaulovich/ddd-tdd-rich-domain&quot;&gt;DDD/TDD Rich Domain&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 cd ddd-tdd-rich-domain
 ./build.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;span data-mce-type=&quot;bookmark&quot; style=&quot;display: inline-block; width: 0px; overflow: hidden; line-height: 0;&quot; class=&quot;mce\_SELRES\_start&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Building rich domains is not an easy task, in fact it requires much more to think on implementing the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. What do you think?&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">In my previous blog posts you could see Clean Architecture and Hexagonal implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an IO device that our software requires to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.</summary></entry><entry><title type="html">Hexagonal Architecture with .NET</title><link href="http://localhost:4000/hexagonal-architecture-dot-net/" rel="alternate" type="text/html" title="Hexagonal Architecture with .NET" /><published>2018-05-26T06:12:52+02:00</published><updated>2018-05-26T06:12:52+02:00</updated><id>http://localhost:4000/hexagonal-architecture-dot-net</id><content type="html" xml:base="http://localhost:4000/hexagonal-architecture-dot-net/">&lt;p&gt;The feedback of the &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture for .NET Applications&lt;/a&gt; made me feel like I needed to take a step back and introduce some concepts first, so I will present my implementation of Hexagonal Architecture to make easier to understand them completely. Unfortunately in my previous experiences in different companies, remain very common that applications are built on top of frameworks and databases. I see that many developers are used to implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by what the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by &lt;a href=&quot;http://alistair.cockburn.us/Hexagonal+architecture&quot;&gt;Alistar Cockburn&lt;/a&gt; more than 13 years ago, and it is getting better with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:&lt;/p&gt;
+&lt;p&gt;Building rich domains is not an easy task, in fact it requires much more to think on implementing the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. What do you think?&lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Jun 2018 04:12:52 +0000</pubDate>
+        <link>/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</link>
+        <guid isPermaLink="true">/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</guid>
+        
+        
+        <category>DDD</category>
+        
+      </item>
+    
+      <item>
+        <title>Hexagonal Architecture with .NET</title>
+        <description>&lt;p&gt;The feedback of the &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture for .NET Applications&lt;/a&gt; made me feel like I needed to take a step back and introduce some concepts first, so I will present my implementation of Hexagonal Architecture to make easier to understand them completely. Unfortunately in my previous experiences in different companies, remain very common that applications are built on top of frameworks and databases. I see that many developers are used to implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by what the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by &lt;a href=&quot;http://alistair.cockburn.us/Hexagonal+architecture&quot;&gt;Alistar Cockburn&lt;/a&gt; more than 13 years ago, and it is getting better with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Allow an application to equally be driven by users, programs or tests, and to be developed and tested in isolation from any of its eventual run-time devices and databases.&lt;/p&gt;
@@ -729,8 +865,7 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;To clarify the idea I created the next picture with the before and after applying DIP:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;DIP&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;On the left side of the next picture we find in blue an Layered Application where the DepositService depends on AccountSQLRepository.&lt;/li&gt;
@@ -739,7 +874,43 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;The following listing of DepositService shows an implementation. Suggestion: clone the &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola repository&lt;/a&gt; for the full implementation.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class DepositService : IDepositService
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public class DepositService : IDepositService
 {
   private readonly IAccountReadOnlyRepository accountReadOnlyRepository;
   private readonly IAccountWriteOnlyRepository accountWriteOnlyRepository;
@@ -775,7 +946,7 @@ cd ddd-tdd-rich-domain
     return result;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;That is the main idea behind Hexagonal Architecture, every time our application requires an external service we implement adapter behind an abstraction.&lt;/p&gt;
 
@@ -797,7 +968,7 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-1.png&quot; alt=&quot;&quot; /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/hexagonal-1.png&quot; alt=&quot;Hexagonal&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The blue potato shape at the center is the Domain and there are reasons for it. Every business domain has its own rules, different specifications from each other, that is the reason of its undefined shape. For instance, I designed our Domain Layer with DDD Patterns.&lt;/li&gt;
@@ -812,9 +983,9 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;Let’s describe the Dependency Layer Diagram below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&quot;img-fluid&quot; src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependency Layer Diagram&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;Dependency Layer Diagram&lt;/span&gt;
-——————————————————————————————————————————————————-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependency Layer Diagram&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The domain is totally independent of other layers and frameworks.&lt;/li&gt;
@@ -853,11 +1024,15 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;For the Query side, in the Application Layer we have only an small interface. And in the Infrastructure Layer we have the Adapter implementation.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public interface IAccountsQueries
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public interface IAccountsQueries
 {
   Task&amp;lt;AccountResult&amp;gt; GetAccount(Guid id);
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;By having an guarantee that the query side does not make changes in state. We can take advantage of better solutions for reading. For instance we can use caching, segregated databases to boost performance and it could be done inside the Adapter.&lt;/p&gt;
 
@@ -865,7 +1040,45 @@ cd ddd-tdd-rich-domain
 
 &lt;p&gt;A Port is an way an Actor can interact with the Application Layer. The role of the Port is to translate the Actor’s input into structures the Application Services can understand. For instance a Port could be an Web Form, an Console App or another system. For this article the Port supports the REST protocol and was implemented using WebApi framework.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Route(&quot;api/[controller]&quot;)]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[Route(&quot;api/[controller]&quot;)]
 public class AccountsController : Controller
 {
   private readonly IDepositService depositService;
@@ -903,7 +1116,7 @@ public class AccountsController : Controller
     return new ObjectResult(model);
   }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The WebApi has Controllers that do not depends on Application Services implementation, its easy to mock this services.&lt;/p&gt;
 
@@ -921,16 +1134,34 @@ public class AccountsController : Controller
 
 &lt;p&gt;You can download the source code on &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola GitHub repository&lt;/a&gt; or through the following commands:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dotnet new -i Paulovich.Caju::0.5.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dotnet new -i Paulovich.Caju::0.5.0
 dotnet new hexagonal \
   --data-access entityframework \
   --use-cases full \
   --user-interface webapi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;With Hexagonal Architecture you design a decoupled software that allows major decisions to be made in the future, all business rules will be isolated from peripheral concerns. And you have the option to try different ports and adapters with less effort. What comes next? Leave your comment.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">The feedback of the Clean Architecture for .NET Applications made me feel like I needed to take a step back and introduce some concepts first, so I will present my implementation of Hexagonal Architecture to make easier to understand them completely. Unfortunately in my previous experiences in different companies, remain very common that applications are built on top of frameworks and databases. I see that many developers are used to implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by what the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and it is getting better with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:</summary></entry><entry><title type="html">Architecture Templates for dotnet new</title><link href="http://localhost:4000/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/" rel="alternate" type="text/html" title="Architecture Templates for dotnet new" /><published>2018-05-22T06:12:52+02:00</published><updated>2018-05-22T06:12:52+02:00</updated><id>http://localhost:4000/architecture-templates-for-dotnet-new</id><content type="html" xml:base="http://localhost:4000/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/">&lt;p&gt;I am releasing an new version of my &lt;a href=&quot;https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju&quot;&gt;Architecture Templates for dotnet new&lt;/a&gt;. We are working on testing, compatibility and documentation.&lt;/p&gt;
+&lt;p&gt;With Hexagonal Architecture you design a decoupled software that allows major decisions to be made in the future, all business rules will be isolated from peripheral concerns. And you have the option to try different ports and adapters with less effort. What comes next? Leave your comment.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 26 May 2018 04:12:52 +0000</pubDate>
+        <link>/hexagonal-architecture-dot-net/</link>
+        <guid isPermaLink="true">/hexagonal-architecture-dot-net/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+      <item>
+        <title>Architecture Templates for dotnet new</title>
+        <description>&lt;p&gt;I am releasing an new version of my &lt;a href=&quot;https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju&quot;&gt;Architecture Templates for dotnet new&lt;/a&gt;. We are working on testing, compatibility and documentation.&lt;/p&gt;
 
 &lt;h2 id=&quot;paulovichcaju-040-release-notes&quot;&gt;Paulovich.Caju 0.4.0 Release notes&lt;/h2&gt;
 
@@ -943,8 +1174,9 @@ dotnet new hexagonal \
 
 &lt;p&gt;To install the latest version use:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dotnet new -i Paulovich.Caju
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dotnet new -i Paulovich.Caju
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then run &lt;strong&gt;dotnet new&lt;/strong&gt; and check the templates list:&lt;/p&gt;
 
@@ -985,18 +1217,36 @@ dotnet new hexagonal \
 
 &lt;p&gt;The old commands were:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dotnet new caju --architecture-style hexagonal
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dotnet new caju --architecture-style hexagonal
 dotnet new caju --architecture-style eventsourcing
 dotnet new caju --architecture-style clean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The &lt;strong&gt;new commands&lt;/strong&gt; in Paulovich.Caju 0.4.0 package are:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dotnet new hexagonal
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dotnet new hexagonal
 dotnet new eventsourcing
 dotnet new clean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Much more clear now! Remember that each template has slight differences, so add the &lt;strong&gt;–help&lt;/strong&gt; for details.&lt;/p&gt;
 
-&lt;p&gt;This templates segregation are required to speed up the updates.&lt;/p&gt;</content><author><name>Ivan Paulovich</name></author><summary type="html">I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.</summary></entry></feed>
+&lt;p&gt;This templates segregation are required to speed up the updates.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 May 2018 04:12:52 +0000</pubDate>
+        <link>/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</link>
+        <guid isPermaLink="true">/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/</guid>
+        
+        
+        <category>CleanArchitecture</category>
+        
+      </item>
+    
+  </channel>
+</rss>

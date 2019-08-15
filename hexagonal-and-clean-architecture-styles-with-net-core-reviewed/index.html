@@ -1,91 +1,218 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<html>
+<link rel="icon" href="/assets/images/logo.png">
 
-  <head>
+<title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed) | Paulovich.NET</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed) | Software Architecture and .NET Development</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)" />
+<meta name="author" content="ivanpaulovich" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:" />
+<meta property="og:description" content="Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:" />
+<meta property="og:site_name" content="Software Architecture and .NET Development" />
+<meta property="og:image" content="/assets/images/17.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-08-16T04:12:52+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)","dateModified":"2018-08-16T04:12:52+00:00","datePublished":"2018-08-16T04:12:52+00:00","image":"/assets/images/17.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/"},"url":"/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"ivanpaulovich"},"author":{"@type":"Person","name":"ivanpaulovich"},"description":"Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-  <title>
-    Hexagonal and Clean Architecture Styles with .NET Core (Reviewed) - paulovich.NET
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
-  </title>
+<link href="/assets/css/screen.css" rel="stylesheet">
 
-  <meta name="description" content="Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics...">
+<link href="/assets/css/main.css" rel="stylesheet">
 
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
-
-  <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/">
-  <link rel="alternate" type="application/rss+xml" title="paulovich.NET" href="/feed.xml">
+<script src="/assets/js/jquery.min.js"></script>
 
 </head>
 
 
-  <body>
 
-    <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="/">paulovich.NET</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fa fa-bars"></i>
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Paulovich.NET">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/posts">Posts</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
     </div>
-  </div>
+
+    </div>
 </nav>
+<!-- End Navigation
+================================================== -->
 
+<div class="site-content">
 
-    <!-- Page Header -->
+<div class="container">
 
-  <header class="masthead">
-    
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</h1>
-            
-            <span class="meta">Posted by
-              <a href="#">Ivan Paulovich</a>
-              on August 16, 2018 &middot; <span class="reading-time" title="Estimated read time">
-  
-   14 mins  read </span>
-</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">Paulovich.NET</h1>
+    <p class="lead">
+        Software Architecture and .NET Development
+    </p>
+</div>
 
-  <div class="container">
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:</p>
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)&url=/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://paulovich.net">Ivan Paulovich</a><a target="_blank" href="https://twitter.com/ivanpaulovich" class="btn follow">Follow</a>
+                        <span class="author-description">Agile .NET developer focused on Clean architecture. I enjoy implementing solutions based on use cases and decoupled from technology details.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/17.jpg" alt="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by Alistar Cockburn more than 13 years ago, and this received improvements with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:</p>
 
 <blockquote>
   <p>Allow an application to equally be driven by users, programs or tests, and to be developed and tested in isolation from any of its eventual run-time devices and databases.</p>
@@ -141,8 +268,7 @@
 
 <p>Let’s see how I applied this principle in the next example:</p>
 
-<p><img class="img-fluid" src="/img/DIP-1-2.png" alt="DIP" />
-<span class="caption text-muted">DIP</span></p>
+<p><img src="/img/DIP-1-2.png" alt="DIP" /></p>
 
 <p>On the left side we found in red an Layered Application where the DepositUseCase depends on the AccountSQLRepository implementation. It is a coupled way to write code. On the right side in blue, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has its dependency pointing inwards.</p>
 
@@ -176,8 +302,7 @@
 
 <p>One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture:</p>
 
-<p><img class="img-fluid" src="/img/hexagonal-1.png" alt="Hexagonal" />
-<span class="caption text-muted">Hexagonal</span></p>
+<p><img src="/img/hexagonal-1.png" alt="Hexagonal" /></p>
 
 <ul>
   <li>The blue potato shape at the center is the Domain Layer and there are reasons for it. Every business domain has its own rules, very specific business rules, that is the reason of its undefined shape. For example, I designed our Domain Layer with DDD Building Blocks.</li>
@@ -193,8 +318,7 @@
 
 <p>Let’s describe the Dependency Diagram below:</p>
 
-<p><img class="img-fluid" src="/img/Untitled-Diagram-1.png" alt="Dependencies Diagram" />
-<span class="caption text-muted">Dependencies Diagram</span></p>
+<p><img src="/img/Untitled-Diagram-1.png" alt="Dependencies Diagram" /></p>
 
 <hr />
 
@@ -218,13 +342,11 @@
 
 <p>Use Cases implementations are first-class modules in the root of this layer. The shape of a Use Case is an <strong>Interactor</strong> object that receives an <strong>Input</strong>, do some work then pass the <strong>Output</strong> through the caller. That’s the reason I am an advocate of feature folders describing the use cases and inside them the necessary classes:</p>
 
-<p><img class="img-fluid" src="/img/Use-Cases.png" alt="Use Cases" />
-<span class="caption text-muted">Use Cases</span></p>
+<p><img src="/img/Use-Cases.png" alt="Use Cases" /></p>
 
 <p>At your first look of the solution folders, you can build an idea of the purpose of this software. It seems like it can manage your Banck Account, for example you can Deposit or Withdraw money. Following we see the communication between the layers:</p>
 
-<p><img class="img-fluid" src="/img/Clean-Architecture-Style.png" alt="Clean Architecture Style" />
-<span class="caption text-muted">Clean Architecture Style</span></p>
+<p><img src="/img/Clean-Architecture-Style.png" alt="Clean Architecture Style" /></p>
 
 <p>The Application exposes an interface (Port) to the UI Layer and another interface (another Port) to the Infrastructure Layer. What have you seen until here is <strong>Enterprise + Application Business Rules</strong> enforced without frameworks dependencies or without database coupling. Every details has abstractions protecting the Business Rules to be coupled to tech stuff.</p>
 
@@ -232,8 +354,7 @@
 
 <p>Now we advance to the next layer, at the User Interface Layer we translate the input in a way that the Use Cases can understand, it is good practice to do not reuse entities in this layer because it could create coupling, the front-end has specific frameworks, other ways of creating its data structures, different presentation for each field and validation rules. In our implementation we have the following feature folders for every use case:</p>
 
-<p><img class="img-fluid" src="/img/Web-Use-Cases.png" alt="Use Cases" />
-<span class="caption text-muted">Use Cases</span></p>
+<p><img src="/img/Web-Use-Cases.png" alt="Use Cases" /></p>
 
 <ul>
   <li><strong>Request</strong>: a data structure for the user input (accountId and amount).</li>
@@ -254,8 +375,7 @@
 
 <p>Another external layer is the Infrastructure Layer that implements Data Access, Dependency Injection Framework (DI) and other frameworks specifics. In this example we have multiple data access implementations.</p>
 
-<p><img class="img-fluid" src="/img/Infrastructure.png" alt="Infrastructure" />
-<span class="caption text-muted">Infrastructure</span></p>
+<p><img src="/img/Infrastructure.png" alt="Infrastructure" /></p>
 
 <h2 id="how-and-when-the-di-is-configured">How and When the DI is configured</h2>
 
@@ -279,108 +399,175 @@
 
 <p>With Hexagonal Architecture you design a decoupled software that allows major decisions to be deferred, all business rules will be isolated from peripheral concerns. And you have the option to try different adapters with less effort. Have your experience when the code base gets coupled to an specific framework? What are your experience with Hexagonal Architecture? Leave your comment.</p>
 
+            </div>
 
-        <hr>
+            <!-- Rating -->
+            
 
-        <div class="clearfix">
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2018-08-16">16 Aug 2018</time></span>           
+                
+                </small>
+            </p>
 
-          
-          <a class="btn btn-primary float-left" href="/rich-domain-model-with-ddd-tdd-reviewed/"
-            data-toggle="tooltip" data-placement="top" title="Rich Domain Model with DDD/TDD (Reviewed)">&larr; Previous<span class="d-none d-md-inline">
-              Post</span></a>
-          
-          
-          <a class="btn btn-primary float-right" href="/2019/02/19/clean-architecture-tdd-baby-steps.html"
-            data-toggle="tooltip" data-placement="top" title="Clean Architecture and TDD">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
-          
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#CleanArchitecture">CleanArchitecture</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//rich-domain-model-with-ddd-tdd-reviewed/"> &laquo; Rich Domain Model with DDD/TDD (Reviewed)</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//clean-architecture-tdd-baby-steps/">Clean Architecture and TDD &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
 
         </div>
+        <!-- End Post -->
 
-        <hr>
-		
-        
- <div class="comments">
- 	<div id="disqus_thread"></div>
- 	<script type="text/javascript">
+    </div>
+</div>
+<!-- End Article
+================================================== -->
 
- 	    var disqus_shortname = 'paulovichdotnet';
+<!-- Begin Comments
+================================================== -->
 
- 	    (function() {
- 	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- 	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
- 	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
- 	    })();
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'paulovichdotnet'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
 
- 	</script>
- 	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
- </div>
- 
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/logo.png" alt="Software Architecture and .NET Development"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://paulovich.us3.list-manage.com/subscribe/post?u=3908a479dc89ce5adc26cc8c5&amp;id=9275121da4" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
             
-        <hr>
+            
+                
+                    <a class="mt-1 mb-1" href="/category/CleanArchitecture">CleanArchitecture (9)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/DDD">DDD (2)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/TDD">TDD (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
 
-      </div>
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2019 Paulovich.NET 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
     </div>
-  </div>
-
-
-    <!-- Footer -->
-
-<hr>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          
-          <li class="list-inline-item">
-            <a href="https://www.twitter.com/ivanpaulovich">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-          
-          
-          <li class="list-inline-item">
-            <a href="https://www.linkedin.com/in/ivanpaulovich">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-          
-          <li class="list-inline-item">
-            <a href="https://github.com/ivanpaulovich">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-        <p class="copyright text-muted">Copyright &copy; Ivan Paulovich 2019</p>
-      </div>
-    </div>
-  </div>
 </footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
 
 
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
-
-<script src="/assets/scripts.js"></script>
+<script src="/assets/js/lazyload.js"></script>
 
 
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
 
 
-  </body>
+<script id="dsq-count-scr" src="//paulovichdotnet.disqus.com/count.js"></script>
 
+
+</body>
 </html>
