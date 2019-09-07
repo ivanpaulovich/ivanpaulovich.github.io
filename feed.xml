@@ -5,8 +5,8 @@
     <description>Software Architecture and .NET Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Sep 2019 21:28:29 +0000</pubDate>
-    <lastBuildDate>Sat, 07 Sep 2019 21:28:29 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Sep 2019 21:37:30 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Sep 2019 21:37:30 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -144,6 +144,8 @@
     &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InitialAmount&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The immediate benefit is that Validation is built in in ASP.NET Core, completely integrated with Swagger (Open API Specification).&lt;/p&gt;
 
 &lt;h3 id=&quot;2-validating-fields-format-in-the-domain-layer&quot;&gt;2. Validating fields format in the Domain Layer&lt;/h3&gt;
 
