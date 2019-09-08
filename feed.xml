@@ -5,20 +5,20 @@
     <description>Software Architecture and .NET Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 Sep 2019 22:01:17 +0000</pubDate>
-    <lastBuildDate>Sat, 07 Sep 2019 22:01:17 +0000</lastBuildDate>
+    <pubDate>Sun, 08 Sep 2019 16:16:16 +0000</pubDate>
+    <lastBuildDate>Sun, 08 Sep 2019 16:16:16 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>Designing and Testing Input Validation in .NET Core: The Clean Architecture way</title>
-        <description>&lt;p&gt;Almost every software requires some input validation implementation. Due to the importance there are frameworks and guidelines to help us complete the task, should not be dificult to write good validation code right?&lt;/p&gt;
+        <description>&lt;p&gt;Almost every software requires some input validation implementation. Due to the importance there are frameworks and guidelines to help us complete the task, should not be difficult to write good validation code right?&lt;/p&gt;
 
 &lt;p&gt;Wrong! Validation is the most common source of issues in Web applications. Let me explain the code smells:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Untestable Validation Code:&lt;/strong&gt; To test the validation logic it is required to write tests against the whole universe of combinations, it is not pratical.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Untestable Validation Code:&lt;/strong&gt; To test the validation logic it is required to write tests against the whole universe of combinations, it is not practical.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Mixed Validation Code:&lt;/strong&gt; Every method is concerned about input validation. Complexity increases on every new feature added.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Business Logic depedent on Frameworks:&lt;/strong&gt; Too much business code wrote using frameworks. What if we need to change the framework?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Business Logic dependent on Frameworks:&lt;/strong&gt; Too much business code wrote using frameworks. What if we need to change the framework?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Have you seen bad code like this?&lt;/p&gt;
@@ -151,7 +151,7 @@
 
 &lt;h3 id=&quot;2-validating-fields-format-in-the-domain-layer&quot;&gt;2. Validating fields format in the Domain Layer&lt;/h3&gt;
 
-&lt;p&gt;Fiels data format validation is a business concern. For that reason I want them to be implemented in the Domain layer. My suggestion is that you add a folder for Value Objects with classes like this:&lt;/p&gt;
+&lt;p&gt;Fields data format validation is a business concern. For that reason I want them to be implemented in the Domain layer. My suggestion is that you add a folder for Value Objects with classes like this:&lt;/p&gt;
 
 &lt;p&gt;In Sweden the &lt;code class=&quot;highlighter-rouge&quot;&gt;Social Security Number&lt;/code&gt; is called &lt;code class=&quot;highlighter-rouge&quot;&gt;Personnummer&lt;/code&gt; and the format is YYMMDDNNNN.&lt;/p&gt;
 
@@ -598,8 +598,8 @@
 
 &lt;ul&gt;
   &lt;li&gt;The interesting about Request/Response objects is that they are made of serializable objects (eg. &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;string&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;The Request/Response are responsible for carring the data from and back to the User.&lt;/li&gt;
-  &lt;li&gt;Of couse you can’t trust it, you need to create Input objects.&lt;/li&gt;
+  &lt;li&gt;The Request/Response are responsible for carrying the data from and back to the User.&lt;/li&gt;
+  &lt;li&gt;Of course you can’t trust it, you need to create Input objects.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -652,7 +652,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The beatiful of this approach is that the use cases can use Input objects and read the Value Objects which are always valid.&lt;/p&gt;
+&lt;p&gt;The beautiful of this approach is that the use cases can use Input objects and read the Value Objects which are always valid.&lt;/p&gt;
 
 &lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
@@ -876,13 +876,13 @@
 
 &lt;p&gt;Use the frameworks with cautions, implement the business validation inside the Domain and clean up fat methods replacing primitive objects with proper Value Objects.&lt;/p&gt;
 
-&lt;p&gt;Want to see it in action? The demo is runnning on Heroku:&lt;/p&gt;
+&lt;p&gt;Want to see it in action? The demo is running on Heroku:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://clean-architecture-manga.herokuapp.com/swagger/index.html&quot;&gt;&lt;img src=&quot;/assets/images/clean-architecture-manga-swagger.png&quot; alt=&quot;Clean Architecture Manga Swagger&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Happy Codding!&lt;/p&gt;
 
-&lt;p&gt;Do you aggre/disagree?&lt;/p&gt;
+&lt;p&gt;Do you agree/disagree?&lt;/p&gt;
 </description>
         <pubDate>Sat, 07 Sep 2019 04:12:52 +0000</pubDate>
         <link>/designing-testing-input-validation-in-dotnet-core-the-clean-architecture-way/</link>
