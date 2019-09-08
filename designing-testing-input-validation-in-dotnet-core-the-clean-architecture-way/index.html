@@ -251,7 +251,7 @@
 25
 26
 </pre></td><td class="rouge-code"><pre>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">RegisterCustomer</span><span class="p">(</span>
         <span class="kt">string</span> <span class="n">ssn</span><span class="p">,</span>
         <span class="kt">string</span> <span class="n">name</span><span class="p">,</span>
         <span class="kt">double</span> <span class="n">initialAmount</span><span class="p">)</span>
@@ -267,12 +267,12 @@
 
     <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
         <span class="k">throw</span> <span class="k">new</span> <span class="nf">NameShouldNotBeEmptyException</span><span class="p">(</span><span class="s">"The 'name' field is required"</span><span class="p">);</span>
-        
+
     <span class="k">if</span> <span class="p">(</span><span class="k">value</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
             <span class="k">throw</span> <span class="k">new</span> <span class="nf">AmountShouldBePositiveException</span><span class="p">(</span><span class="s">"The 'Amount' should be positive."</span><span class="p">);</span>
-            
+
     <span class="c1">//</span>
-    <span class="c1">// do the use case logic</span>
+    <span class="c1">// other logic implementation omitted</span>
     <span class="c1">//</span>
 <span class="p">}</span>
 

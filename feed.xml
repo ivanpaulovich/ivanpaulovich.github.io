@@ -5,8 +5,8 @@
     <description>Software Architecture and .NET Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Sep 2019 16:16:16 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Sep 2019 16:16:16 +0000</lastBuildDate>
+    <pubDate>Sun, 08 Sep 2019 16:25:47 +0000</pubDate>
+    <lastBuildDate>Sun, 08 Sep 2019 16:25:47 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -50,7 +50,7 @@
 25
 26
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;RegisterCustomer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ssn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initialAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -66,12 +66,12 @@
 
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsNullOrWhiteSpace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NameShouldNotBeEmptyException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The 'name' field is required&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
+
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AmountShouldBePositiveException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The 'Amount' should be positive.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            
+
     &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// do the use case logic&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// other logic implementation omitted&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
