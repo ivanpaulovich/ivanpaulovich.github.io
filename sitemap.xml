@@ -70,6 +70,9 @@
 <loc>/category/ddd/</loc>
 </url>
 <url>
+<loc>/category/video/</loc>
+</url>
+<url>
 <loc>/category/tdd/</loc>
 </url>
 <url>
@@ -77,9 +80,6 @@
 </url>
 <url>
 <loc>/category/hexagonalarchitecture/</loc>
-</url>
-<url>
-<loc>/category/video/</loc>
 </url>
 <url>
 <loc>/page2/</loc>
