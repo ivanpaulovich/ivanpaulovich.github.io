@@ -5,9 +5,435 @@
     <description>Software Architecture and .NET Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Sep 2019 16:34:34 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Sep 2019 16:34:34 +0000</lastBuildDate>
+    <pubDate>Tue, 10 Sep 2019 19:44:21 +0000</pubDate>
+    <lastBuildDate>Tue, 10 Sep 2019 19:44:21 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Designing and Testing Video</title>
+        <description>&lt;p&gt;I started a new series of videos introducing Clean Architecture, Open Source and .NET Development.&lt;/p&gt;
+
+&lt;p&gt;Leave your comments, questions and they may be featured on the next video.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=hyW4d5OcExw&quot; title=&quot;Designing and Testing Input Validation with .NET Core: The Clean Architecture way&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/hyW4d5OcExw/0.jpg&quot; alt=&quot;Designing and Testing Input Validation with .NET Core: The Clean Architecture way&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Sep 2019 17:12:52 +0000</pubDate>
+        <link>/designing-testing-video/</link>
+        <guid isPermaLink="true">/designing-testing-video/</guid>
+        
+        
+        <category>cleanarchitecture</category>
+        
+        <category>tdd</category>
+        
+        <category>video</category>
+        
+      </item>
+    
+      <item>
+        <title>TDD and Hexagonal Architecture Video</title>
+        <description>&lt;p&gt;Quick tips for the ones following the Hexagonal Architecture, please apply TDD outside-in and and do not start implementing Mocks for every dependency.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Before implementing a Mock you should implement the standard Fake.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=j6_XPsqjrhE&quot; title=&quot;TDD and Hexagonal Architecture: Clean Tests&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/j6_XPsqjrhE/0.jpg&quot; alt=&quot;TDD and Hexagonal Architecture: Clean Tests&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 07 Sep 2019 04:12:52 +0000</pubDate>
+        <link>/tdd-hexagonal-architecture-video/</link>
+        <guid isPermaLink="true">/tdd-hexagonal-architecture-video/</guid>
+        
+        
+        <category>tdd</category>
+        
+        <category>hexagonalarchitecture</category>
+        
+        <category>video</category>
+        
+      </item>
+    
+      <item>
+        <title>Clean Architecture Presenter Pattern: Explained</title>
+        <description>&lt;p&gt;The easiest way to identify a poor designed Web application is by looking at their controllers, usually there is a mix of business rules and View Models.
+The following code snippet calls a service to get the account details then the transaction list is exported to a excel spreadsheet. Check it out:&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;/// &amp;lt;summary&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;/// Get an account details&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;/// &amp;lt;/summary&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[HttpGet(&quot;{AccountId}&quot;, Name = &quot;GetAccount&quot;)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[ProducesResponseType(StatusCodes.Status200OK)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[ProducesResponseType(StatusCodes.Status404NotFound)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[ProducesResponseType(StatusCodes.Status400BadRequest)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[ProducesResponseType(StatusCodes.Status500InternalServerError)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[SwaggerRequestExample(typeof(GetAccountDetailsRequest), typeof(GetAccountDetailsRequestExample))]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IActionResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FromRoute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GetAccountDetailsRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAccountDetailsInput&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetAccountDetailsInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AccountId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_getAccountDetailsUseCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAccountDetailsInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;TransactionDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Transactions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TransactionModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TransactionDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TransactionDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ExcelPackage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ExcelPackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ExcelWorksheet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Workbook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Worksheets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AccountId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Cells&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;A1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LoadFromDataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bold&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Numberformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Format&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;dd/MM/yyyy HH:mm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAsByteArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;FileContentResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DomainException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domainException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ProblemDetails&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bad Request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Detail&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domainException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The controller receives the &lt;code class=&quot;highlighter-rouge&quot;&gt;getAccountDetailsOutput&lt;/code&gt;, it creates a DataTable then it generates the Excel file. In case of exceptions it returns a BadRequest response. Isn’t too much responsibility for a single method?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/presenter/clean-architecture-controller-1.png&quot; alt=&quot;Cluttered Controller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We need to declutter this mess!&lt;/p&gt;
+
+&lt;h2 id=&quot;global-exception-handling-with-filters&quot;&gt;Global Exception Handling with Filters&lt;/h2&gt;
+
+&lt;p&gt;Actions should not implement &lt;code class=&quot;highlighter-rouge&quot;&gt;BadRequest&lt;/code&gt; or exception handling. We move the exceptions handling to a Filter (at top level), this object will catch exceptions globally.&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BusinessExceptionFilter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IExceptionFilter&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;OnException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ExceptionContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;DomainException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domainException&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DomainException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;domainException&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ProblemDetails&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bad Request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Detail&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;domainException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;BadRequestObjectResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Second you add this filter at the &lt;code class=&quot;highlighter-rouge&quot;&gt;ConfigureServices(IServiceCollection services)&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddMvc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Filters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BusinessExceptionFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-excel-presenter&quot;&gt;The Excel Presenter&lt;/h2&gt;
+
+&lt;p&gt;We still have the Excel file creation to declutter. Who should be responsible for it? The answer is a &lt;strong&gt;Presenter&lt;/strong&gt; object.&lt;/p&gt;
+
+&lt;p&gt;The presenter will expose methods&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/presenter/clean-architecture-controller-2.png&quot; alt=&quot;Cluttered Controller&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GetAccountDetailsPresenterV2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IOutputPort&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IActionResult&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ViewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ProblemDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;An error occurred&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Detail&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;ViewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;BadRequestObjectResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;problemDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsOutput&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;TransactionDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Transactions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TransactionModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TransactionDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TransactionDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ExcelPackage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ExcelPackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ExcelWorksheet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Workbook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Worksheets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AccountId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Cells&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;A1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;LoadFromDataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Font&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bold&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Numberformat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Format&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;dd/MM/yyyy HH:mm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAsByteArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;ViewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;FileContentResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fileContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ViewModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotFoundObjectResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;passing-the-output-message-back&quot;&gt;Passing the Output Message Back&lt;/h2&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsInput&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;IAccount&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_accountRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AccountId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_outputHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;NotFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&quot;The account &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AccountId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; does not exist or is not processed yet.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;GetAccountDetailsOutput&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetAccountDetailsOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;_outputHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;replaceable-presenters&quot;&gt;Replaceable Presenters&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/presenter/clean-architecture-controller-3.png&quot; alt=&quot;Cluttered Controller&quot; /&gt;
+&lt;img src=&quot;/img/presenter/clean-architecture-controller-4.png&quot; alt=&quot;Cluttered Controller&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;registering-controllers-use-cases-and-presenters&quot;&gt;Registering Controllers, Use Cases and Presenters&lt;/h2&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddMvc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetCompatibilityVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CompatibilityVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Version_2_2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddControllersAsServices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AddScoped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenterV2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenterV2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddTransient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AccountsV2Controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRequiredService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenterV2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(),&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRequiredService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Repositories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IAccountRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRequiredService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenterV2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AddScoped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AddScoped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Boundaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOutputPort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetRequiredService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WebApi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseCases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountDetailsPresenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;());&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;a&lt;/p&gt;
+</description>
+        <pubDate>Sat, 07 Sep 2019 04:12:52 +0000</pubDate>
+        <link>/clean-architecture-presenter-pattern-explained/</link>
+        <guid isPermaLink="true">/clean-architecture-presenter-pattern-explained/</guid>
+        
+        
+        <category>cleanarchitecture</category>
+        
+        <category>presenter</category>
+        
+      </item>
     
       <item>
         <title>Designing and Testing Input Validation in .NET Core: The Clean Architecture way</title>
@@ -1516,536 +1942,6 @@ cd ddd-tdd-rich-domain
         
         
         <category>ddd</category>
-        
-      </item>
-    
-      <item>
-        <title>Hexagonal Architectural in 2 minutes</title>
-        <description>&lt;p&gt;Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!&lt;/p&gt;
-
-&lt;style&gt;
-.embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-}
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/Bo8jrZxMAgE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 18 Jul 2018 04:12:52 +0000</pubDate>
-        <link>/hexagonal-architectural-in-2-minutes/</link>
-        <guid isPermaLink="true">/hexagonal-architectural-in-2-minutes/</guid>
-        
-        
-        <category>cleanarchitecture</category>
-        
-      </item>
-    
-      <item>
-        <title>Guidelines to Enrich Anemic Domain Models with TDD/DDD</title>
-        <description>&lt;p&gt;In my previous blog posts you could see &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture&lt;/a&gt; and &lt;a href=&quot;https://paulovich.net/hexagonal-architecture-dot-net/&quot;&gt;Hexagonal&lt;/a&gt; implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an &lt;em&gt;IO device that our software requires&lt;/em&gt; to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/li-tzuni-507346-unsplash.jpg&quot; alt=&quot;Photo by li tzuni on Unsplash&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Photo by li tzuni on Unsplash[/caption] To begin we need to understand the code issues we want to avoid before decide to invest time and effort on building rich domains models. The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.&lt;/p&gt;
-
-&lt;h2 id=&quot;code-smells-to-avoid&quot;&gt;Code Smells to Avoid&lt;/h2&gt;
-
-&lt;p&gt;The opposite of the Rich Domain Models are the Anemic Domain Models, in this second one the business logic are implemented far from the classes that own the data, it brings low cohesion and nonexistent encapsulation. The next topics introduce common code smells in Anemic Domain Models.&lt;/p&gt;
-
-&lt;h3 id=&quot;feature-envy&quot;&gt;Feature Envy&lt;/h3&gt;
-
-&lt;p&gt;It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When “Application Services” or “Extension Methods” are envy of the Entities fields. These kind of classes implement the policies that should be managed by the data owner, in most of cases the Entities classes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;primitive-obsession&quot;&gt;Primitive Obsession&lt;/h3&gt;
-
-&lt;p&gt;It’s the use of primitive types (string, int, float, arrays) for simple tasks that ensures the business rules. There common issues are seen:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When you see “Security Social Numbers”, “Phone numbers” and Money been repeatedly validated from the UI through the database. To fix this issue we need to create a custom type to encapsulate this logic.&lt;/li&gt;
-  &lt;li&gt;When a client class needs to manipulate arrays in external classes in order to keep the data and policies consistent. Generic Lists and Collections leaks abstraction, they provide access to built-in methods to manage the items that are not desired by the business rules. To fix this issue we need to create an Adapter class with the proper methods to manipulate the items.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;abuse-of-the-public-setters&quot;&gt;Abuse of the Public Setters&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;When composing objects into a new type, we want the new type to exhibit simpler behavior than all of it’s component parts considered together. Steve Freeman (GOOS)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The classes that exposes all the internal complexity by allowing the consumers to change the internal fields at any time and anywhere. Due to the non-existent encapsulation the consumers need to understand how to change the class properties and to keep the state consistent. To fix this issue we need to remove the public setters and move the logic to proper methods.&lt;/p&gt;
-
-&lt;h3 id=&quot;business-classes-designed-for-orm&quot;&gt;Business Classes Designed for ORM&lt;/h3&gt;
-
-&lt;p&gt;Instead of design the classes to meet business requirements the classes are designed to meet the ORM frameworks requirements. The end result are classes that only reflect tables structure.&lt;/p&gt;
-
-&lt;h3 id=&quot;anemic-classes&quot;&gt;Anemic Classes&lt;/h3&gt;
-
-&lt;p&gt;It’s the photograph of a poor implemented business requirements. This kind of classes only store data, they do not implement behaviors or policies. These code smells alone doesn’t mean that the code is bad at all. In certain conditions these characteristics are necessary. The problem happens when multiple code smells are combined in a single code base, then the software gets harder to change, the regression tests are required for small changes and the bugs are frequent. Check out the &lt;a href=&quot;https://refactoring.guru/refactoring/smells&quot;&gt;Refactoring Guru&lt;/a&gt; for a compiled list of code smells. Let’s build a new mindset, the journey is worth it!&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-enrich-domain-models&quot;&gt;How to Enrich Domain Models?&lt;/h2&gt;
-
-&lt;p&gt;The reason we invest effort on enrich the Domain is to prove it’s viability, we can do a lot of work without worrying about the database or presentations concerns.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/victor-freitas-593843-unsplash.jpg&quot; alt=&quot;Photo by Victor Freitas on Unsplash&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To design a rich model we need to concern only on business policies, all the external details like Databases, HTTP and serialization will be addressed later. In our example, we define the business with the following use cases and requirements:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The customer can register a new account.&lt;/li&gt;
-  &lt;li&gt;Allow to deposit into an existing account.&lt;/li&gt;
-  &lt;li&gt;Allow to withdraw from an existing account.&lt;/li&gt;
-  &lt;li&gt;Accounts can be closed only if they have zero balance.&lt;/li&gt;
-  &lt;li&gt;Accounts does not allow to withdraw more than the current account balance.&lt;/li&gt;
-  &lt;li&gt;Allow to get the account details.&lt;/li&gt;
-  &lt;li&gt;Allow to get the customer details.&lt;/li&gt;
-  &lt;li&gt;It’s required from the customer to fill Name, SSN and to deposit an initial amount when registering.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;We are going straight to the entities and use cases and see what we can do with OO principles to design a Rich Domain Model. We could identify the following patterns:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Aggregate Roots:&lt;/strong&gt; Customer and Account&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Entities:&lt;/strong&gt; Credit and Debit&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Value Objects:&lt;/strong&gt; Name, SSN and Amount&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Use Cases&lt;/strong&gt;: Register, Deposit, Withdraw, Close, Get Customer Details, Get Account Details.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We alert that our model are persistent ignorant, it privileges the business and we avoid ORM frameworks interference in our classes. To design the Customer we think first on the test specification. We would like the Customer API to be used this way:&lt;/p&gt;
-
-&lt;h4 id=&quot;customertestscs&quot;&gt;CustomerTests.cs&lt;/h4&gt;
-
-&lt;p&gt;We point out that the Customer and Account are aggregate roots and they must know each other by their IDs. The Customer.Register(..) method does not accept the Account instance, instead accepts only the AccountId.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/ivanpaulovich/79d405a602685bb2e8468aa6dd00f42b.js&quot;&gt;&lt;/script&gt;
-
-&lt;h4 id=&quot;customercs&quot;&gt;Customer.cs&lt;/h4&gt;
-
-&lt;p&gt;All fields are private sets so all the state changes are made by the methods, the specific Accounts property return an IReadOnlyCollection to prevent unexpected changes from consumers. In this class the state consistency are ensured from the constructor that requires the customer details to the Register(..) method. Previously, I said that I would not corrupt the Model in order to persist the state. I made and exception for the factory method that receives the complete Customer fields as parameters and it creates a Customer instance. To persist the objects the repository can use the public properties to get the Customer state.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/ivanpaulovich/5d3f702a55a4700dd23a272a2dca5617.js&quot;&gt;&lt;/script&gt;
-
-&lt;h4 id=&quot;accountcs&quot;&gt;Account.cs&lt;/h4&gt;
-
-&lt;p&gt;I added the sealed modifier to the Account class to prevent inheritance. I am an advocate of composition over inheritance, and I added this modifier to the domain classes to be transparent with my intention. I don’t want the consumers creating unnecessary coupling. The transaction history can be changed only in the next situations:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;By the deposit method which adds and transaction.&lt;/li&gt;
-  &lt;li&gt;By the withdraw method which adds and transaction.&lt;/li&gt;
-  &lt;li&gt;By the factory method which recreates the list.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The consistency is ensured by not allowing the client to make changes on the TransactionCollection property.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/ivanpaulovich/21ca4c7b445764adcfc676c503a13348.js&quot;&gt;&lt;/script&gt;
-
-&lt;h4 id=&quot;ssncs&quot;&gt;SSN.cs&lt;/h4&gt;
-
-&lt;p&gt;This class is a value object for the Swedish Personnummer and it encapsulates the complexity of validating the string format. Whenever I am refer to a string personnummer I can use this class.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/ivanpaulovich/6c7776aaff93e29e21ec3e037c9df2e9.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;source-code&quot;&gt;Source Code&lt;/h2&gt;
-
-&lt;p&gt;There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. You can download the source code on &lt;a href=&quot;https://github.com/ivanpaulovich/ddd-tdd-rich-domain&quot;&gt;DDD/TDD Rich Domain&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
-cd ddd-tdd-rich-domain
-./build.sh
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;span data-mce-type=&quot;bookmark&quot; style=&quot;display: inline-block; width: 0px; overflow: hidden; line-height: 0;&quot; class=&quot;mce\_SELRES\_start&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Building rich domains is not an easy task, in fact it requires much more to think on implementing the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. What do you think?&lt;/p&gt;
-</description>
-        <pubDate>Sun, 24 Jun 2018 04:12:52 +0000</pubDate>
-        <link>/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</link>
-        <guid isPermaLink="true">/guidelines-to-enrich-anemic-domain-models-tdd-ddd/</guid>
-        
-        
-        <category>ddd</category>
-        
-      </item>
-    
-      <item>
-        <title>Hexagonal Architecture with .NET</title>
-        <description>&lt;p&gt;The feedback of the &lt;a href=&quot;https://paulovich.net/clean-architecture-for-net-applications/&quot;&gt;Clean Architecture for .NET Applications&lt;/a&gt; made me feel like I needed to take a step back and introduce some concepts first, so I will present my implementation of Hexagonal Architecture to make easier to understand them completely. Unfortunately in my previous experiences in different companies, remain very common that applications are built on top of frameworks and databases. I see that many developers are used to implement software that mimics the data tables instead of design software driven by the business domain. As time goes by, the software becomes highly coupled to these external details and what happens next is the application evolution been dictated by what the vendors support. Hexagonal Architecture (aka Ports and Adapters) is one strategy to decouple the use cases from the external details. It was coined by &lt;a href=&quot;http://alistair.cockburn.us/Hexagonal+architecture&quot;&gt;Alistar Cockburn&lt;/a&gt; more than 13 years ago, and it is getting better with the Onion and Clean Architectures. Let me introduce the Hexagonal Architecture’s intent:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Allow an application to equally be driven by users, programs or tests, and to be developed and tested in isolation from any of its eventual run-time devices and databases.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I need to point out that everything that gives support for external capabilities are just External Details, on the other side everything that contains the Business Rules and Use Cases should be inside the A_pplication Layer_ and they need to be sustained for long time. In our software we have to distinguish between one and the other.&lt;/p&gt;
-
-&lt;h3 id=&quot;external-details&quot;&gt;External Details&lt;/h3&gt;
-
-&lt;p&gt;In most scenarios we can defer the implementation of external details and still validate the application behavior. If your answer is yes for any of the next questions, you are probably dealing with peripheral details:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Does the application needs an database to persist state?&lt;/li&gt;
-  &lt;li&gt;Does the application requires an User Interface?&lt;/li&gt;
-  &lt;li&gt;Does the application consumes an external API?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These are common external details which can be mocked, faked or their concrete implementation be replaced for different reasons. I suggest to defer their implementation while you discover more of the domain. Keep in mind the Uncle Bob’s quote:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A good architecture allows major decisions to be deferred and a good architect maximize the number of decisions not made.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Visual Studio makes easier to add libraries for Reflection, Serialization, Security and many others Nuget packages in our projects.  The problem begin when we add these libraries to our Application and Domain. These libraries are just details and should be out of the Application. What we can do?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Stop writing classes with inheritance from frameworks.&lt;/li&gt;
-  &lt;li&gt;Stop going for shinning objects.&lt;/li&gt;
-  &lt;li&gt;Focus on the business rules, make them clear on your Application and Domain Layers.&lt;/li&gt;
-  &lt;li&gt;Don’t fall into tooling traps.&lt;/li&gt;
-  &lt;li&gt;Create the appropriate abstraction for these peripheral concerns.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For didactic reasons we call these details as Ports and Adapters in Hexagonal Architecture style.&lt;/p&gt;
-
-&lt;h3 id=&quot;business-rules-and-use-cases&quot;&gt;Business Rules and Use Cases&lt;/h3&gt;
-
-&lt;p&gt;The business rules are the fine grained rules, they encapsulate entity fields and conditions. Also the business rules are the use cases that interacts with many entities and services. They together give create process in the application, they should be sustained for a long time. If it’s still unclear, this Uncle Bob phrase might help:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Business Rules would make or save the business money, irrespective of whether they were implemented on a computer. They would make or save money even if they were executed manually.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In the DDD age, we have patterns to describe business with Entities, Value Types, Aggregates, Domain Services and so on. They are a perfect match with Hexagonal Architecture. Moving on, there are design principles that must be clear before implementing Hexagonal Architecture style.&lt;/p&gt;
-
-&lt;h3 id=&quot;dependency-inversion-principle-dip&quot;&gt;Dependency Inversion Principle (DIP)&lt;/h3&gt;
-
-&lt;p&gt;In the next example, the &lt;a href=&quot;https://drive.google.com/file/d/0BwhCYaYDn8EgMjdlMWIzNGUtZTQ0NC00ZjQ5LTkwYzQtZjRhMDRlNTQ3ZGMz/view&quot;&gt;DIP&lt;/a&gt; was applied when decoupling our Application Services from the Repositories. And this principle was used to decouple many other things in our Application. Let’s remember the DIP and navigate through one example:  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;For the following example checkout the concepts:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The DepositService is the &lt;strong&gt;High-level module&lt;/strong&gt; that do not depend on database details, instead it depends on IAccountRepository abstraction.&lt;/li&gt;
-  &lt;li&gt;The IAccountRepository is the &lt;strong&gt;abstraction&lt;/strong&gt; that do not depend on database details.&lt;/li&gt;
-  &lt;li&gt;The AccountSQLRepository is the &lt;strong&gt;low-level module&lt;/strong&gt; that depends on IAccountRepository abstraction.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To clarify the idea I created the next picture with the before and after applying DIP:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/DIP-1-2.png&quot; alt=&quot;DIP&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;On the left side of the next picture we find in blue an Layered Application where the DepositService depends on AccountSQLRepository.&lt;/li&gt;
-  &lt;li&gt;And on the right side in green, by adding an IAccountRepository and applying DIP then the AccountSQLRepository has your dependency pointing inwards. aaaaa&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The following listing of DepositService shows an implementation. Suggestion: clone the &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola repository&lt;/a&gt; for the full implementation.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public class DepositService : IDepositService
-{
-  private readonly IAccountReadOnlyRepository accountReadOnlyRepository;
-  private readonly IAccountWriteOnlyRepository accountWriteOnlyRepository;
-  private readonly IResultConverter resultConverter;
-
-  public DepositService(
-    IAccountReadOnlyRepository accountReadOnlyRepository,
-    IAccountWriteOnlyRepository accountWriteOnlyRepository,
-    IResultConverter resultConverter)
-  {
-    this.accountReadOnlyRepository = accountReadOnlyRepository;
-    this.accountWriteOnlyRepository = accountWriteOnlyRepository;
-    this.resultConverter = resultConverter;
-  }
-
-  public async Task&amp;lt;DepositResult&amp;gt; Process(DepositCommand command)
-  {
-    Account account = await accountReadOnlyRepository.Get(command.AccountId);
-    if (account == null)
-      throw new AccountNotFoundException(
-      $&quot;The account {command.AccountId} does not exists or is already closed.&quot;);
-
-    Credit credit = new Credit(account.Id, command.Amount);
-    account.Deposit(credit);
-
-    await accountWriteOnlyRepository.Update(account, credit);
-
-    TransactionResult transactionResult = resultConverter.Map(credit);
-    DepositResult result = new DepositResult(
-      transactionResult,
-      account.GetCurrentBalance().Value);
-
-    return result;
-  }
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That is the main idea behind Hexagonal Architecture, every time our application requires an external service we implement adapter behind an abstraction.&lt;/p&gt;
-
-&lt;h3 id=&quot;separation-of-concerns-soc&quot;&gt;&lt;strong&gt;Separation of Concerns&lt;/strong&gt; (SoC)&lt;/h3&gt;
-
-&lt;p&gt;Our application requires some external capabilities but the application is not concerned about their implementation details, only their abstractions are visible to the application layer. We apply &lt;a href=&quot;https://en.wikipedia.org/wiki/Separation_of_concerns&quot;&gt;SoC&lt;/a&gt; by creating boundaries around the Adapters and by allowing them to be developed and tested in isolation. Usually, we have different packages for each Adapter. We could have an specific Adapter for an SQL Database and an specific Adapter for Azure Storage which could be replaced with little effort. That is the idea behind the Hexagonal Architecture, &lt;strong&gt;keep the options open as long as possible and the ability to rollback if necessary&lt;/strong&gt;. We can quote Uncle Bob’s Plugin Architecture, with the relationship between Visual Studio and Resharper. Not a single line of VS knows about Resharper, but Resharper is developed based on the Visual Studio abstractions. They are developed by different companies one in Seattle and another in Moscow and still running well together.&lt;/p&gt;
-
-&lt;h2 id=&quot;hexagonal-architecture-style-characteristics&quot;&gt;Hexagonal Architecture Style Characteristics&lt;/h2&gt;
-
-&lt;p&gt;With this style we have:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;An independent Business Domain to embody the small set of critical business rules.&lt;/li&gt;
-  &lt;li&gt;Application Services to implement the use cases.&lt;/li&gt;
-  &lt;li&gt;Ports to get the input.&lt;/li&gt;
-  &lt;li&gt;Adapters providing implementations of frameworks and access to databases.&lt;/li&gt;
-  &lt;li&gt;Externally the user, other systems and services.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;One way to explain the Hexagonal Architecture is by its shapes. Take a look at the following picture:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/hexagonal-1.png&quot; alt=&quot;Hexagonal&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The blue potato shape at the center is the Domain and there are reasons for it. Every business domain has its own rules, different specifications from each other, that is the reason of its undefined shape. For instance, I designed our Domain Layer with DDD Patterns.&lt;/li&gt;
-  &lt;li&gt;The application has an hexagonal shape because each of its sides has specifics protocols, in our example we have &lt;strong&gt;Commands&lt;/strong&gt; and &lt;strong&gt;Queries&lt;/strong&gt; giving access to the Application.&lt;/li&gt;
-  &lt;li&gt;The Ports and Adapters are implemented outside of the application as plugins.&lt;/li&gt;
-  &lt;li&gt;Externally we have other systems.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The direction of the dependencies goes inwards the center, so the Domain Layer does not know the Application Layer but the Application Layer depends on the Domain, the same rule applies to the outer layers.&lt;/p&gt;
-
-&lt;h3 id=&quot;layers&quot;&gt;Layers&lt;/h3&gt;
-
-&lt;p&gt;Let’s describe the Dependency Layer Diagram below:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Untitled-Diagram-1.png&quot; alt=&quot;Dependency Layer Diagram&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The domain is totally independent of other layers and frameworks.&lt;/li&gt;
-  &lt;li&gt;The application depends on Domain and is independent of frameworks, databases and UI.&lt;/li&gt;
-  &lt;li&gt;Adapters provides implementations for the Application needs.&lt;/li&gt;
-  &lt;li&gt;The UI depends on Application and loads the Infrastructure by indirection.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We should pay attention that the Infrastructure Layer can have many concerns. I recommend to design the infrastructure in a way you can split it when necessary, particularly when you have distinct adapters with overlapping concerns. It is important to highlight the dashed arrow from the UI Layer to the Infrastructure layer. That is the where &lt;strong&gt;Dependency Injection&lt;/strong&gt; is implemented, the concretions are loaded closer to the Main function. And there is a single setting in a external file that decides all the dependencies to be loaded.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-application-layer&quot;&gt;The Application Layer&lt;/h3&gt;
-
-&lt;p&gt;To make simpler the Application Layer implementation, I split it in two stacks: one for the transactions and other for the queries.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the user sends an Deposit Input, it goes to the transactions stack, it is converted into a Command that goes through the DepositService, uses the Entities to enforce the business rules and the transaction is finally persisted in a database by an adapter.&lt;/li&gt;
-  &lt;li&gt;The other stack is tinnier and implemented by the Adapters. It is used only for querying view objects.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;With this approach we avoid the degradation of our domain because we don’t need to represent every Query Results into Entities.&lt;/p&gt;
-
-&lt;h3 id=&quot;use-cases-components&quot;&gt;Use Cases Components&lt;/h3&gt;
-
-&lt;p&gt;It is very important to organize the Application Layer with the use case vocabulary. I recommend one folder for each use case, as we have in the following example:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Command (DepositCommand.cs)&lt;/li&gt;
-  &lt;li&gt;Use case Interface (IDepositService.cs)&lt;/li&gt;
-  &lt;li&gt;Use case Implementation (DepositService.cs)&lt;/li&gt;
-  &lt;li&gt;Command Result (DepositResult.cs)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;With this approach we have an application design that supports new use case implementations with fewer changes in existing code base. This keep the work effort for new use cases implementations constants along the sprints in an Agile methodology.&lt;/p&gt;
-
-&lt;h3 id=&quot;queries&quot;&gt;Queries&lt;/h3&gt;
-
-&lt;p&gt;For the Query side, in the Application Layer we have only an small interface. And in the Infrastructure Layer we have the Adapter implementation.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public interface IAccountsQueries
-{
-  Task&amp;lt;AccountResult&amp;gt; GetAccount(Guid id);
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;By having an guarantee that the query side does not make changes in state. We can take advantage of better solutions for reading. For instance we can use caching, segregated databases to boost performance and it could be done inside the Adapter.&lt;/p&gt;
-
-&lt;h2 id=&quot;ports&quot;&gt;Ports&lt;/h2&gt;
-
-&lt;p&gt;A Port is an way an Actor can interact with the Application Layer. The role of the Port is to translate the Actor’s input into structures the Application Services can understand. For instance a Port could be an Web Form, an Console App or another system. For this article the Port supports the REST protocol and was implemented using WebApi framework.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[Route(&quot;api/[controller]&quot;)]
-public class AccountsController : Controller
-{
-  private readonly IDepositService depositService;
-
-  public AccountsController(
-    IDepositService depositService)
-  {
-    this.depositService = depositService;
-  }
-
-  /// &amp;lt;summary&amp;gt;
-  /// Deposit from an account
-  /// &amp;lt;/summary&amp;gt;
-  [HttpPatch(&quot;Deposit&quot;)]
-  public async Task&amp;lt;IActionResult&amp;gt; Deposit(\[FromBody\]DepositRequest request)
-  {
-    var command = new DepositCommand(
-      request.AccountId,
-      request.Amount);
-
-    DepositResult depositResult = await depositService.Process(command);
-
-    if (depositResult == null)
-    {
-      return new NoContentResult();
-    }
-
-    Model model = new Model(
-      depositResult.Transaction.Amount,
-      depositResult.Transaction.Description,
-      depositResult.Transaction.TransactionDate,
-      depositResult.UpdatedBalance
-    );
-
-    return new ObjectResult(model);
-  }
-}
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The WebApi has Controllers that do not depends on Application Services implementation, its easy to mock this services.&lt;/p&gt;
-
-&lt;h3 id=&quot;port-components&quot;&gt;Port Components&lt;/h3&gt;
-
-&lt;p&gt;We segregate Port Components by use cases, for the Deposit use case:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Request (DepositRequest.cs)&lt;/li&gt;
-  &lt;li&gt;Controller + Action (DepositController.cs)&lt;/li&gt;
-  &lt;li&gt;Model (Model.cs)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;source-code&quot;&gt;Source Code&lt;/h2&gt;
-
-&lt;p&gt;You can download the source code on &lt;a href=&quot;https://github.com/ivanpaulovich/acerola-hexagonal-architecture&quot;&gt;Acerola GitHub repository&lt;/a&gt; or through the following commands:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dotnet new -i Paulovich.Caju::0.5.0
-dotnet new hexagonal \
-  --data-access entityframework \
-  --use-cases full \
-  --user-interface webapi
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;With Hexagonal Architecture you design a decoupled software that allows major decisions to be made in the future, all business rules will be isolated from peripheral concerns. And you have the option to try different ports and adapters with less effort. What comes next? Leave your comment.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 26 May 2018 04:12:52 +0000</pubDate>
-        <link>/hexagonal-architecture-dot-net/</link>
-        <guid isPermaLink="true">/hexagonal-architecture-dot-net/</guid>
-        
-        
-        <category>cleanarchitecture</category>
         
       </item>
     
