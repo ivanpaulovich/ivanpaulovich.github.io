@@ -5,9 +5,24 @@
     <description>Software Architecture and .NET Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Sep 2019 20:00:17 +0000</pubDate>
-    <lastBuildDate>Tue, 10 Sep 2019 20:00:17 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Sep 2019 19:15:00 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Sep 2019 19:15:00 +0000</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Clean Architecture: The User Interface is a detail</title>
+        <description>&lt;p&gt;Today I talk about Presenters. I hope you enjoy and I looking forward feedback.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=lWH_ZDu2zKQ&quot; title=&quot;Clean Architecture: The User Interface is a detail&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/lWH_ZDu2zKQ/0.jpg&quot; alt=&quot;Clean Architecture: The User Interface is a detail&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Sep 2019 17:12:52 +0000</pubDate>
+        <link>/the-ui-is-a-detail/</link>
+        <guid isPermaLink="true">/the-ui-is-a-detail/</guid>
+        
+        
+        <category>cleanarchitecture</category>
+        
+      </item>
     
       <item>
         <title>Designing and Testing Video</title>
@@ -1560,44 +1575,6 @@ cd ddd-tdd-rich-domain
         
         
         <category>ddd</category>
-        
-      </item>
-    
-      <item>
-        <title>Hexagonal Architectural in 2 minutes</title>
-        <description>&lt;p&gt;Hi folks, I testing my content on youtube, I plan to share short ideas straight to the point. The first video is about Hexagonal Architecture and its a 2 minutes talk. If you liked this new format, leave your feedback!&lt;/p&gt;
-
-&lt;style&gt;
-.embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-}
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;embed-container&quot;&gt;
-  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/Bo8jrZxMAgE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 18 Jul 2018 04:12:52 +0000</pubDate>
-        <link>/hexagonal-architectural-in-2-minutes/</link>
-        <guid isPermaLink="true">/hexagonal-architectural-in-2-minutes/</guid>
-        
-        
-        <category>cleanarchitecture</category>
-        
-        <category>video</category>
         
       </item>
     
