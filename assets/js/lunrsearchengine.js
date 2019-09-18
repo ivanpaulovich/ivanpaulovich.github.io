@@ -6,9 +6,9 @@ var documents = [{
     "body": "404 Page does not exist!Please use the search bar at the top or visit our homepage! "
     }, {
     "id": 1,
-    "url": "/about",
-    "title": "Mediumish Template for Jekyll",
-    "body": "This website is built with Jekyll and Mediumish template for Jekyll. It's for demonstration purposes, no real content can be found. Mediumish template for Jekyll is compatible with Github pages, in fact even this demo is created with Github Pages and hosted with Github.  Documentation: Please, read the docs here. Questions or bug reports?: Head over to our Github repository! Buy me a coffeeThank you for your support! Your donation helps me to maintain and improve Mediumish . Buy me a coffee Documentation"
+    "url": "/about-ivan-paulovich",
+    "title": "About Ivan Paulovich",
+    "body": "Follow @ivanpaulovich Agile Software Developer, Tech Lead, 20+ GitHub projects about Clean Architecture, SOLID, DDD and TDD. Speaker/Streamer Projects: I have been supporting open source projects for many years focused on Clean Architecture, Domain-Driven Design, Test-Driven Development and SOLID principles. Clean Architecture MangaStarWatchForkClean Architecture sample with . NET Core. Use cases as central organising structure, decoupled from frameworks and technology details dotnet new cajuStarWatchForkThis dotnet-new template for . NET Back-ends increases productivity on building applications with the Hexagonal, Clean or Event Sourcing architectures styles. This tool generates a . NET back-end with built-in best practices in 15 seconds! Clean Architecture WebApi EF CoreStarWatchForkThe simplest Clean Architecture demo on how to implement a Web Api using . NET Core and Entity Framework todoStarWatchForkCommad-Line Task management with storage on your GitHub Event Sourcing JamboStarWatchForkAn Hexagonal Architecture with DDD + Aggregates + Event Sourcing using . NET Core, Kafka e MongoDB (Blog Engine) Hexagonal Architecture AcerolaStarWatchForkAn Hexagonal Architecture service template with DDD, CQRS, TDD and SOLID using . NET Core 2. 0. All small features are testable and could be mocked. Adapters could be mocked or exchanged. Questions or bug reports?: Let me know at ivan@paulovich. net! "
     }, {
     "id": 2,
     "url": "/categories",
