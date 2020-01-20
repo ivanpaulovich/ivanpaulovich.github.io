@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<title>Clean Architecture Essentials | Paulovich.NET</title>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Clean Architecture Essentials | Software Architecture and .NET Development</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Clean Architecture Essentials" />
+<meta name="author" content="ivanpaulovich" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The “Software Architecture”" />
+<meta property="og:description" content="The “Software Architecture”" />
+<meta property="og:site_name" content="Software Architecture and .NET Development" />
+<meta property="og:image" content="/assets/images/17.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-20T04:12:52+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"ivanpaulovich"},"url":"/clean-architecture-essentials/","headline":"Clean Architecture Essentials","dateModified":"2018-01-20T04:12:52+00:00","datePublished":"2018-01-20T04:12:52+00:00","author":{"@type":"Person","name":"ivanpaulovich"},"description":"The “Software Architecture”","image":"/assets/images/17.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/clean-architecture-essentials/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+<!-- change your GA id in _config.yml -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-27176166-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Paulovich.NET">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about-ivan-paulovich">About</a>
+                </li>
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">Paulovich.NET</h1>
+    <p class="lead">
+        Software Architecture and .NET Development
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Clean Architecture Essentials&url=https://paulovich.net/clean-architecture-essentials/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://paulovich.net/clean-architecture-essentials/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://paulovich.net/clean-architecture-essentials/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="https://paulovich.net">Ivan Paulovich</a><a target="_blank" href="https://twitter.com/ivanpaulovich" class="btn follow">Follow</a>
+                        <span class="author-description">Agile .NET developer focused on Clean architecture. I enjoy implementing solutions based on use cases and decoupled from technology details.</span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Clean Architecture Essentials</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/17.jpg" alt="Clean Architecture Essentials">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <h1 id="the-software-architecture">The “Software Architecture”</h1>
+
+<p>We usually see Software Architecture descriptions like “The software architecture is an ASP.NET Web API with Entity Framework Core and SQL Server”. This article explains why you should describe software by the use cases instead of layers and the frameworks it uses.</p>
+
+<p>Secondly, I will distill the Clean Architecture Principles.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hZGF6RHrr8o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h2 id="architecture-is-about-usage">Architecture is About Usage</h2>
+
+<p>By a quick look at the following blueprint, you can easily guess it is for a church, a theater or a place that people can gather together. Mostly because there is an open space with many benches focused on the same direction, big doors so a large number of people can enter and leave quickly.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/nauj79ytnncw9o0da1fl.png" alt="Church Blueprint" /></p>
+
+<p>It is not a house blueprint, right?</p>
+
+<blockquote>
+  <p>The challenge in software design is to scream the use cases in source code in a way that the first look tells us what the software does instead of frameworks that it is made of.</p>
+</blockquote>
+
+<p>The default approach of software development is to prioritize the frameworks and technology details. An e-commerce website will scream Web at you, Model-View-Controller or any other framework building blocks.</p>
+
+<p>Could we design the software in a different way? Let’s introduce Clean Architecture.</p>
+
+<h2 id="clean-architecture">Clean Architecture</h2>
+
+<p>The Clean Architecture style aims for a loosely coupled implementation focused on use cases and it is summarized as:</p>
+
+<ol>
+  <li>It is an architecture style that the Use Cases are the central organizing structure.</li>
+  <li>Follows the Ports and Adapters pattern.
+    <ul>
+      <li>The implementation is guided by tests (TDD Outside-In).</li>
+      <li>Decoupled from technology details.</li>
+    </ul>
+  </li>
+  <li>Follows lots of principles (Stable Abstractions Principle, Stable Dependencies Principle, SOLID and so on).</li>
+</ol>
+
+<h3 id="use-cases">Use Cases</h3>
+
+<p>Use Cases are algorithms that interpret the input to generate the output data, their implementation should be closer as possible to the business vocabulary.</p>
+
+<p>When talking about a use case, it does not matter if it a Mobile or a Desktop application, use cases are delivery independent. The most important about use cases is how they interact with the actors.</p>
+
+<ul>
+  <li>Primary actors initiate a use case. They can be the End User, another system or a clock.</li>
+  <li>Secondary actors are affected by use cases.</li>
+</ul>
+
+<p>A set of use cases is used to describe software. Following the Customer primary actor on the left side, in the middle the Ticket Terminal system and the secondary actors on the right side:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/q2twal2uljc0qoy7j4kl.png" alt="Ticket Terminal Use Cases" /></p>
+
+<p>This article uses code snippets from sample applications and talks. If you are familiar with .NET, these GitHub projects host the full implementation:</p>
+
+<ul>
+  <li>:globe_with_meridians: <a href="https://github.com/ivanpaulovich/clean-architecture-manga">Clean Architecture Manga</a>.</li>
+  <li>:globe_with_meridians: <a href="https://github.com/ivanpaulovich/todo">Todo</a>.</li>
+</ul>
+
+<p>Following the project structure:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/w7todun7jck4lln2nopf.png" alt="Structure" /></p>
+
+<p>Following the Register Use Case implementation:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">Register</span> <span class="p">:</span> <span class="n">IUseCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Execute</span><span class="p">(</span><span class="n">RegisterInput</span> <span class="n">input</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">customer</span> <span class="p">=</span> <span class="n">_entityFactory</span><span class="p">.</span><span class="nf">NewCustomer</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">SSN</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">account</span> <span class="p">=</span> <span class="n">_entityFactory</span><span class="p">.</span><span class="nf">NewAccount</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+
+        <span class="kt">var</span> <span class="n">credit</span> <span class="p">=</span> <span class="n">account</span><span class="p">.</span><span class="nf">Deposit</span><span class="p">(</span><span class="n">_entityFactory</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">InitialAmount</span><span class="p">);</span>
+        <span class="n">customer</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="n">account</span><span class="p">);</span>
+
+        <span class="k">await</span> <span class="n">_customerRepository</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+        <span class="k">await</span> <span class="n">_accountRepository</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">credit</span><span class="p">);</span>
+        <span class="k">await</span> <span class="n">_unitOfWork</span><span class="p">.</span><span class="nf">Save</span><span class="p">();</span>
+
+        <span class="kt">var</span> <span class="n">output</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RegisterOutput</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">account</span><span class="p">);</span>
+        <span class="n">_outputPort</span><span class="p">.</span><span class="nf">Standard</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// properties and constructor ommited</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The use cases are first-class objects in the application and WebApi layers. By a quick look at the use case names in the source tree, you can guess that the source code is for a Wallet software.</p>
+
+<p>In natural language the <strong>RegisterUseCase</strong> steps are:</p>
+
+<ul>
+  <li>Instantiate a Customer.</li>
+  <li>Open up an Account then Deposit an Initial Amount.</li>
+  <li>Save the data.</li>
+  <li>Write a message to the output port.</li>
+</ul>
+
+<h3 id="ports-and-adapters-aka-hexagonal-architecture">Ports and Adapters a.k.a Hexagonal Architecture</h3>
+
+<p>Clean Architecture applies the Separation of Concerns Principle through the Ports and Adapters pattern. This means that the application layer exposes <strong>Ports</strong> (Interfaces) and <strong>Adapters</strong> are implemented in the infrastructure layer.</p>
+
+<ul>
+  <li><strong>Ports</strong> can be an Input Port or an Output Port. The Input Port is called by the Primary Actors and the Output Ports are invoked by the Use Cases.</li>
+  <li><strong>Adapters</strong> are technology-specific.</li>
+</ul>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/4x5rmc160cak8eip39bx.png" alt="Ports and Adapters" /></p>
+
+<p>This is the preferred architectural style for microservices. Unfortunately, I see lots of incomplete implementations and source code that do not get the most of the pattern.</p>
+
+<p>The previous picture shows for each dependency two implementations, one Fake (Test Double) implementation, and one Real Implementation. The purpose of it is to make possible to run the software independently of external dependencies.</p>
+
+<blockquote>
+  <p>A Fake implementation provides an illusion of external dependencies, it has the same capabilities expected from the real implementation and it runs without I/O.</p>
+</blockquote>
+
+<p>The issue that I see in many codebases is the focus on implementing tests against Mocks which can only run through Unit Tests. A fake could run in the Production environment, can help the developer get feedback and it really pays back the investment.</p>
+
+<p>Let’s start with the Hexagonal Architecture style intent:</p>
+
+<blockquote>
+  <p>Develop, test and run an application in isolation of external devices. Allows a developer to get feedback after every new implementation.</p>
+</blockquote>
+
+<p>Follow <a href="https://paulovich.net/clean-architecture-tdd-baby-steps/">TDD Outside-in</a> in order to achieve the intent:</p>
+
+<ol>
+  <li>Start the development from the Test Cases, implement the Use Cases.</li>
+  <li>When you find a dependency, instead of implementing the real one start by creating a Fake (Test Double).</li>
+  <li>Get Feedback, make possible to run your application against the Fakes. You can even publish it to production.</li>
+  <li>Implement the real adapter in isolation.</li>
+  <li>The last step is to create the User Interface.</li>
+</ol>
+
+<h3 id="principles">Principles</h3>
+
+<p>Clean Architecture is full of principles, let’s analyze code snippets for the different levels of Stability and Abstraction:</p>
+
+<p>The <code class="highlighter-rouge">IAccountRepository</code> interface is <strong>highly abstract</strong>, <strong>general</strong> and <strong>stable</strong>. It does not have “implementation”, it is a high-level concept and it does not have dependencies.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="nc">IAccountRepository</span>
+<span class="p">{</span>
+    <span class="n">Task</span><span class="p">&lt;</span><span class="n">IAccount</span><span class="p">&gt;</span> <span class="nf">Get</span><span class="p">(</span><span class="n">Guid</span> <span class="n">id</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="nf">Add</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">ICredit</span> <span class="n">credit</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="nf">Update</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">ICredit</span> <span class="n">credit</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="nf">Update</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">IDebit</span> <span class="n">debit</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">AccountRepository</code> is a <strong>Very Concrete</strong> <code class="highlighter-rouge">sealed class</code>, and it is
+<strong>Very Specific</strong> to Entity Framework and <strong>Unstable</strong> by implementing interfaces and depending on libraries.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">AccountRepository</span> <span class="p">:</span> <span class="n">IAccountRepository</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">MangaContext</span> <span class="n">_context</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">AccountRepository</span><span class="p">(</span><span class="n">MangaContext</span> <span class="n">context</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_context</span> <span class="p">=</span> <span class="n">context</span> <span class="p">??</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentNullException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">context</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Add</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">ICredit</span> <span class="n">credit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Accounts</span><span class="p">.</span><span class="nf">AddAsync</span><span class="p">((</span><span class="n">EntityFrameworkDataAccess</span><span class="p">.</span><span class="n">Account</span><span class="p">)</span> <span class="n">account</span><span class="p">);</span>
+        <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Credits</span><span class="p">.</span><span class="nf">AddAsync</span><span class="p">((</span><span class="n">EntityFrameworkDataAccess</span><span class="p">.</span><span class="n">Credit</span><span class="p">)</span> <span class="n">credit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">deleteSQL</span> <span class="p">=</span>
+            <span class="s">@"DELETE FROM Credit WHERE AccountId = @Id;
+                    DELETE FROM Debit WHERE AccountId = @Id;
+                    DELETE FROM Account WHERE Id = @Id;"</span><span class="p">;</span>
+
+        <span class="kt">var</span> <span class="n">id</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SqlParameter</span><span class="p">(</span><span class="s">"@Id"</span><span class="p">,</span> <span class="n">account</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span>
+
+        <span class="kt">int</span> <span class="n">affectedRows</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="nf">ExecuteSqlRawAsync</span><span class="p">(</span>
+            <span class="n">deleteSQL</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IAccount</span><span class="p">&gt;</span> <span class="nf">Get</span><span class="p">(</span><span class="n">Guid</span> <span class="n">id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Infrastructure</span><span class="p">.</span><span class="n">EntityFrameworkDataAccess</span><span class="p">.</span><span class="n">Account</span> <span class="n">account</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_context</span>
+            <span class="p">.</span><span class="n">Accounts</span>
+            <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Id</span> <span class="p">==</span> <span class="n">id</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">SingleOrDefaultAsync</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">account</span> <span class="k">is</span> <span class="k">null</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountNotFoundException</span><span class="p">(</span><span class="s">$"The account </span><span class="p">{</span><span class="n">id</span><span class="p">}</span><span class="s"> does not exist or is not processed yet."</span><span class="p">);</span>
+
+        <span class="kt">var</span> <span class="n">credits</span> <span class="p">=</span> <span class="n">_context</span><span class="p">.</span><span class="n">Credits</span>
+            <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">AccountId</span> <span class="p">==</span> <span class="n">id</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">ToList</span><span class="p">();</span>
+
+        <span class="kt">var</span> <span class="n">debits</span> <span class="p">=</span> <span class="n">_context</span><span class="p">.</span><span class="n">Debits</span>
+            <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">e</span> <span class="p">=&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">AccountId</span> <span class="p">==</span> <span class="n">id</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">ToList</span><span class="p">();</span>
+
+        <span class="n">account</span><span class="p">.</span><span class="nf">Load</span><span class="p">(</span><span class="n">credits</span><span class="p">,</span> <span class="n">debits</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">account</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Update</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">ICredit</span> <span class="n">credit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Credits</span><span class="p">.</span><span class="nf">AddAsync</span><span class="p">((</span><span class="n">EntityFrameworkDataAccess</span><span class="p">.</span><span class="n">Credit</span><span class="p">)</span> <span class="n">credit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Update</span><span class="p">(</span><span class="n">IAccount</span> <span class="n">account</span><span class="p">,</span> <span class="n">IDebit</span> <span class="n">debit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">await</span> <span class="n">_context</span><span class="p">.</span><span class="n">Debits</span><span class="p">.</span><span class="nf">AddAsync</span><span class="p">((</span><span class="n">EntityFrameworkDataAccess</span><span class="p">.</span><span class="n">Debit</span><span class="p">)</span> <span class="n">debit</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">RegisterRequest</code> class is <strong>concrete</strong>, by exposing getters and setters it is <strong>inconsistent</strong> and <strong>specific</strong> to the consumer.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Registration Request</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">RegisterRequest</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// SSN</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">SSN</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Name</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Initial Amount</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="p">[</span><span class="n">Required</span><span class="p">]</span>
+    <span class="k">public</span> <span class="kt">decimal</span> <span class="n">InitialAmount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">RegisterInput</code> class is <strong>concrete</strong>, a little bit <strong>consistent</strong> and <strong>less specific</strong>.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">RegisterInput</span> <span class="p">:</span> <span class="n">IUseCaseInput</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">SSN</span> <span class="n">SSN</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">Name</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">PositiveMoney</span> <span class="n">InitialAmount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="nf">RegisterInput</span><span class="p">(</span>
+        <span class="n">SSN</span> <span class="n">ssn</span><span class="p">,</span>
+        <span class="n">Name</span> <span class="n">name</span><span class="p">,</span>
+        <span class="n">PositiveMoney</span> <span class="n">initialAmount</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SSN</span> <span class="p">=</span> <span class="n">ssn</span><span class="p">;</span>
+        <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">InitialAmount</span> <span class="p">=</span> <span class="n">initialAmount</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The last one is the <code class="highlighter-rouge">IAccount</code> interface that is <strong>highly abstract</strong>, <strong>general</strong> and <strong>stable</strong>.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="nc">IAccount</span> <span class="p">:</span> <span class="n">IAggregateRoot</span>
+<span class="p">{</span>
+    <span class="n">ICredit</span> <span class="nf">Deposit</span><span class="p">(</span><span class="n">IEntityFactory</span> <span class="n">entityFactory</span><span class="p">,</span> <span class="n">PositiveMoney</span> <span class="n">amountToDeposit</span><span class="p">);</span>
+    <span class="n">IDebit</span> <span class="nf">Withdraw</span><span class="p">(</span><span class="n">IEntityFactory</span> <span class="n">entityFactory</span><span class="p">,</span> <span class="n">PositiveMoney</span> <span class="n">amountToWithdraw</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="nf">IsClosingAllowed</span><span class="p">();</span>
+    <span class="n">Money</span> <span class="nf">GetCurrentBalance</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The Clean Architecture Principles will guide you to place objects with certain properties according to the following spectrum:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/6rdi4hyfx0ebhk0eq02t.png" alt="Clean Architecture Spectrum" /></p>
+
+<p>Another Clean Architecture representation is by concentric circles, where:</p>
+
+<ul>
+  <li>The more inner in the diagram the more the layer is stable and abstract.</li>
+  <li>The dependency direction goes inwards the center.</li>
+  <li>Classes that change together are packaged together.</li>
+</ul>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/oa8pcds17jnbxtw42j5d.png" alt="Clean Architecture Layers" /></p>
+
+<p>Following another complete example showing that:</p>
+
+<ul>
+  <li>The User Interface and the Infrastructure Layers are very unstable and concrete. Highly specific to the devices they are designed for.</li>
+  <li>The Core Layer is highly abstract and general. Very stable.</li>
+</ul>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/4hpaw8rmbkvkq4zbzawk.png" alt="Order Ticket" /></p>
+
+<h2 id="plugin-architecture">Plugin Architecture</h2>
+
+<p>During the software development, we will inevitably face discussions about what is the best frontend framework, best database or ORM. We should no fall into these never-ending discussions and deffer decisions like those in the earlier stages. Consider the Uncle Bob quote:</p>
+
+<blockquote>
+  <p>A good architecture allows major decisions to be deferred.
+ A good architect maximizes the number of decisions not made.</p>
+</blockquote>
+
+<p>One can easily find arguments to say that NoSQL is the best database, another developer can find good arguments to choose SQL Server as the database.</p>
+
+<p>My answer to this is that either one should be implemented. The best option is to implement the Fake storage and move on with the project.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/m9ietb03vjnhxn4k3x9z.png" alt="Plugin Architecture" /></p>
+
+<p>Keep in mind that you should embrace the change because in the future you will find a Cloud service that will be the better option.</p>
+
+<h2 id="ports-and-adapters-in-details">Ports and Adapters in details</h2>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/pu5uquekwb6pgr74ctye.png" alt="Alt Text" /></p>
+
+<h1 id="pluggable-user-interface">Pluggable User Interface</h1>
+
+<blockquote>
+  <p>Decoupling the User Interface is equally important than decoupling Repositories and Services but we usually don’t put much effort into it. This practice leads to Controllers that look like God classes, hard to test and to maintain.</p>
+</blockquote>
+
+<p>Suppose that you have a GetAccountDetailsUseCase. It should display one of the following options:</p>
+
+<ol>
+  <li>The Account Details.</li>
+  <li>Not Found in case it does not exits.</li>
+</ol>
+
+<p>The initial code should look like:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IActionResult</span><span class="p">&gt;</span> <span class="nf">Get</span><span class="p">([</span><span class="n">FromRoute</span><span class="p">][</span><span class="n">Required</span><span class="p">]</span> <span class="n">GetAccountDetailsRequest</span> <span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">input</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GetAccountDetailsInput</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">AccountId</span><span class="p">);</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">output</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_useCase</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nf">Ok</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">AccountNotFoundException</span> <span class="n">ex</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">NotFound</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I wish that the Controller does not know about the output message to decide which View to return. Let’s delegate these responsibility to the Presenter.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/2f0srp30n1sqdedkeu7p.png" alt="User Interface" /></p>
+
+<p>Both <code class="highlighter-rouge">Controller</code> and <code class="highlighter-rouge">UseCase</code> implementations uses the same <code class="highlighter-rouge">Presenter</code> instance. The Controller does not know about the output message, so we can have an Action that looks like:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Get an account details</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="na">[HttpGet("{AccountId}", Name = "GetAccount")]</span>
+<span class="na">[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetAccountDetailsResponse))]</span>
+<span class="na">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IActionResult</span><span class="p">&gt;</span> <span class="nf">Get</span><span class="p">([</span><span class="n">FromRoute</span><span class="p">][</span><span class="n">Required</span><span class="p">]</span> <span class="n">GetAccountDetailsRequest</span> <span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">input</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GetAccountDetailsInput</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">AccountId</span><span class="p">);</span>
+    <span class="k">await</span> <span class="n">_useCase</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">_presenter</span><span class="p">.</span><span class="n">ViewModel</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The Presenter is in charge of translating the Value Objects into a WebApi response. Fortunately the Value Objects exposes a <code class="highlighter-rouge">ToDecimal()</code> or <code class="highlighter-rouge">ToString()</code> methods which converts it into primitive types.</p>
+
+<p>The <code class="highlighter-rouge">GetAccountDetailsPresenter</code> implements both <code class="highlighter-rouge">NotFound</code> and <code class="highlighter-rouge">Standard</code> methods mimicking the StdOut and StdErr from Unix. These methods creates the ViewModel object.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">interface</span> <span class="nc">IOutputPort</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">NotFound</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">);</span>
+    <span class="k">void</span> <span class="nf">Standard</span><span class="p">(</span><span class="n">GetAccountDetailsOutput</span> <span class="n">getAccountDetailsOutput</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">GetAccountDetailsPresenter</span> <span class="p">:</span> <span class="n">IOutputPort</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">ViewModel</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">NotFound</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ViewModel</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">NotFoundObjectResult</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Standard</span><span class="p">(</span><span class="n">GetAccountDetailsOutput</span> <span class="n">output</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">transactions</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">TransactionModel</span><span class="p">&gt;();</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">output</span><span class="p">.</span><span class="n">Transactions</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TransactionModel</span><span class="p">(</span>
+                <span class="n">item</span><span class="p">.</span><span class="n">Amount</span><span class="p">.</span><span class="nf">ToMoney</span><span class="p">().</span><span class="nf">ToDecimal</span><span class="p">(),</span>
+                <span class="n">item</span><span class="p">.</span><span class="n">Description</span><span class="p">,</span>
+                <span class="n">item</span><span class="p">.</span><span class="n">TransactionDate</span><span class="p">);</span>
+
+            <span class="n">transactions</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">transaction</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GetAccountDetailsResponse</span><span class="p">(</span>
+            <span class="n">output</span><span class="p">.</span><span class="n">AccountId</span><span class="p">,</span>
+            <span class="n">output</span><span class="p">.</span><span class="n">CurrentBalance</span><span class="p">.</span><span class="nf">ToDecimal</span><span class="p">(),</span>
+            <span class="n">transactions</span><span class="p">);</span>
+
+        <span class="n">ViewModel</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">OkObjectResult</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">GetAccountDetailsUseCase</code> depends on the <code class="highlighter-rouge">IOutputPort</code> interface and it calls <code class="highlighter-rouge">NotFound</code> or <code class="highlighter-rouge">Standard</code> method accordingly.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre><span class="k">public</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">GetAccountDetails</span> <span class="p">:</span> <span class="n">IUseCase</span><span class="p">,</span> <span class="n">IUseCaseV2</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">IOutputPort</span> <span class="n">_outputPort</span><span class="p">;</span>
+    <span class="k">private</span> <span class="k">readonly</span> <span class="n">IAccountRepository</span> <span class="n">_accountRepository</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">GetAccountDetails</span><span class="p">(</span>
+        <span class="n">IOutputPort</span> <span class="n">outputPort</span><span class="p">,</span>
+        <span class="n">IAccountRepository</span> <span class="n">accountRepository</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_outputPort</span> <span class="p">=</span> <span class="n">outputPort</span><span class="p">;</span>
+        <span class="n">_accountRepository</span> <span class="p">=</span> <span class="n">accountRepository</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="nf">Execute</span><span class="p">(</span><span class="n">GetAccountDetailsInput</span> <span class="n">input</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">IAccount</span> <span class="n">account</span><span class="p">;</span>
+
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">account</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_accountRepository</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">AccountId</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">AccountNotFoundException</span> <span class="n">ex</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">_outputPort</span><span class="p">.</span><span class="nf">NotFound</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">var</span> <span class="n">output</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GetAccountDetailsOutput</span><span class="p">(</span><span class="n">account</span><span class="p">);</span>
+        <span class="n">_outputPort</span><span class="p">.</span><span class="nf">Standard</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="adding-a-mediator">Adding a Mediator</h2>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Get an account details</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="na">[HttpGet("{AccountId}", Name = "GetAccount")]</span>
+<span class="na">[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetAccountDetailsResponse))]</span>
+<span class="na">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+<span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IActionResult</span><span class="p">&gt;</span> <span class="nf">Get</span><span class="p">([</span><span class="n">FromRoute</span><span class="p">][</span><span class="n">Required</span><span class="p">]</span> <span class="n">GetAccountDetailsRequest</span> <span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">input</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GetAccountDetailsInput</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">AccountId</span><span class="p">);</span>
+    <span class="k">await</span> <span class="n">_mediator</span><span class="p">.</span><span class="nf">PublishAsync</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">_presenter</span><span class="p">.</span><span class="n">ViewModel</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You notice that I added the <code class="highlighter-rouge">mediator</code> instance to decouple the Controller and the <code class="highlighter-rouge">UseCase</code>, it means that the Controller will produce messages, give them to the mediator then the mediator will deliver the message to the appropriate UseCase. Of course, you can invoke the UseCase directly, verify whats works best for your project.</p>
+
+<p>By definition the Output messages given by the UseCase are a consistent and immutable objects, it uses Value Objects to describe the business state.</p>
+
+<h1 id="evolutionary-architecture">Evolutionary Architecture</h1>
+
+<p>All developers will build a Task List app at least once. As a .NET Developer we always start thinking by creating an WebApi first then dig into the business details, for this sample application I wanted to proceed differently.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/p0djcfppl8rg337xecvm.png" alt="Todo Use Cases" /></p>
+
+<p>I started the development from the Unit Tests, implementing the Use Cases independently and for each dependency creating a Fake. After a while I decided to create a SQL Server database because that is what .NET Developers do, we spin up a SQL Server so we can persist taks ;)</p>
+
+<p>To make it short, at the end a Console UI and a Storage to GitHub gist was good enough for me.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/16lvcpag4bddy0dcgcih.png" alt="Evolutionary Architecture" /></p>
+
+<h1 id="wrapping-up">Wrapping Up</h1>
+
+<ul>
+  <li>Clean Architecture is about usage and the use cases are the central organizing principle.</li>
+  <li>Use cases implementation are guided by tests.</li>
+  <li>The User Interface and Persistence are designed to fulfill the core needs (not the opposite!).</li>
+  <li>Defer decisions by implementing the simplest component first.</li>
+</ul>
+
+<p>The <a href="https://github.com/ivanpaulovich/clean-architecture-manga">source code is on GitHub</a> and it is updated frequently with new videos and pull-requests. Check it out!</p>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2018-01-20">20 Jan 2018</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#cleanarchitecture">cleanarchitecture</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//check-out-these-awesome-hexagonal-and-clean-architectures-implementations/">Check out these awesome Hexagonal and Clean Architectures implementations! &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'paulovichdotnet'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/logo.png" alt="Software Architecture and .NET Development"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://paulovich.us3.list-manage.com/subscribe/post?u=3908a479dc89ce5adc26cc8c5&amp;id=9275121da4" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/category/cleanarchitecture">cleanarchitecture (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/ddd">ddd (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/video">video (3)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/tdd">tdd (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/validation">validation (1)</a>
+                
+                    <a class="mt-1 mb-1" href="/category/hexagonalarchitecture">hexagonalarchitecture (1)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2020 Paulovich.NET 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//paulovichdotnet.disqus.com/count.js"></script>
+
+
+</body>
+</html>
