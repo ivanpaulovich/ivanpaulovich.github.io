@@ -13,6 +13,11 @@
 <meta name="description" content="In my previous blog posts you could see Clean Architecture and Hexagonal implementations. Continuing this series I am going deeper on the Domain Layer, through my journey of building rich domain models I had bad and good experiences that now I would like to share with you. These are my opinionated approaches that could streamline your learning process. What are the business rules? The business rules would make or save the business money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database are just an IO device that our software requires to persist state. We could say the same about the Web, the way we present the information to our users has nothing to do with the business rules. That is the mine mindset but what I find in our industry is a mix of business, persistence and frameworks.  Photo by li tzuni on Unsplash[/caption] To begin we need to understand the code issues we want to avoid before decide to invest time and effort on building rich domains models. The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.">
 
 
+  <meta name="author" content="Ivan Paulovich">
+  
+  <meta property="article:author" content="Ivan Paulovich">
+  
+
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
@@ -140,11 +145,22 @@
 <div itemscope itemtype="https://schema.org/Person">
 
   
+    <div class="author__avatar">
+      
+        <img src="https://avatars.githubusercontent.com/u/7133698?v=4&size=200" alt="Ivan Paulovich" itemprop="image">
+      
+    </div>
+  
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name"></h3>
+      <h3 class="author__name" itemprop="name">Ivan Paulovich</h3>
     
+    
+      <div class="author__bio" itemprop="description">
+        <p>Senior Software Engineer.</p>
+
+      </div>
     
   </div>
 
@@ -152,7 +168,42 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Stockholm</span>
+        </li>
+      
 
+      
+        
+          
+            <li><a href="https://www.youtube.com/c/IvanPaulovichDotNet/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">Youtube</span></a></li>
+          
+        
+          
+            <li><a href="https://resume.io/r/gmOmOKetz" rel="nofollow noopener noreferrer"><i class="fa-file-pdf" aria-hidden="true"></i><span class="label">My CV</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:ivan@paulovich.net">
+            <meta itemprop="email" content="ivan@paulovich.net" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/ivanpaulovich" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
+          </a>
+        </li>
       
 
       
@@ -168,13 +219,11 @@
       
 
       
-
-      
-
-      
-
-      
-
+        <li>
+          <a href="https://github.com/ivanpaulovich" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
       
 
       
