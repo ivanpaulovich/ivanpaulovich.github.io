@@ -1,0 +1,548 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Clean Architecture and TDD - Paulovich.NET</title>
+<meta name="description" content="Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Paulovich.NET">
+<meta property="og:title" content="Clean Architecture and TDD">
+<meta property="og:url" content="/architecture-templates-for-dotnet-new/">
+
+
+  <meta property="og:description" content="Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-02-19T05:12:52+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/architecture-templates-for-dotnet-new/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Paulovich.NET Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Paulovich.NET
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about-ivan-paulovich">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Clean Architecture and TDD">
+    <meta itemprop="description" content="Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.">
+    <meta itemprop="datePublished" content="2019-02-19T05:12:52+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Clean Architecture and TDD
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM ceremonies, they adopted small developers teams, they have a SM and PO roles.</p>
+
+<blockquote>
+  <p>Are SCRUM ceremonies enough to be Agile? How the software implementation interfer?</p>
+</blockquote>
+
+<p>I could say a lot about a company on how they answer the following question:</p>
+
+<blockquote>
+  <p>Are teams delivering working software to real users on every iteration (including the first) and gathering feedback?</p>
+</blockquote>
+
+<p>If the answer is <em>No</em> I suppose the following:</p>
+
+<ul>
+  <li>Teams usually do not deliver on the first iteration because they are designing an architecture or adding framework dependencies.</li>
+  <li>They do not gather user feedback on every iteration.</li>
+  <li>Long lead time for every new feature, the business value is retained for long time.</li>
+</ul>
+
+<p>Agile is about collaboration with people, gathering feedback from real users!</p>
+
+<blockquote>
+  <p>Why software take so long to reach the production environment? Why they have so many bugs?</p>
+</blockquote>
+
+<p>The software architecture is the main reason for features taking long time to be released to production. It is common that teams do a lot of effort designing a big archictecture up front that requires fancy frameworks for every feature. The end result is an application overwhelmed of dependencies, error prone and hard to change.</p>
+
+<p>The application reachs production with many bugs because the team spend most of the time configuring the web server, working with ORM frameworks and the user interfaces. The team did not have time in collaboration with the users trying to understand the use cases and implementing the business rules.</p>
+
+<p>By a lack of confidence, the developers try to implement the frameworks on the initial sprints to avoid getting caught unprepared on the later sprints. This decision create coupling with technology. Let me ask some questions: - Do we need a database server to implement the business rules? Do we need a running web server to gather the real user feedback?</p>
+
+<blockquote>
+  <p>We don’t need a SQL Server or a running Web Server to gather user feedback on the business rules.</p>
+</blockquote>
+
+<p>To design a tightly coupled architecture we just need to begin with configuring the database, the web server, the frameworks then in the remaining time implementing the business rules.</p>
+
+<blockquote>
+  <p>With so many moving parts we fail to get the real user feedback! Worse… it will fail slowly.</p>
+</blockquote>
+
+<p>Now… suppose that we wish to design a software architecture that prioritize collaboration with Domain Experts. We desire an application loose coupled to a database and the web server, we want to decide about these details when we have enough information. Is implementing the business requirements the priority for your organization? If that’s the case you will need to work on your programming disciplines.</p>
+
+<h2 id="just-enough-architecture">Just Enough Architecture</h2>
+
+<p>What if we could focus on business requirements and ignore everything else? The idea behind “Ports and Adapters” is to decouple the high level modules from the low level modules, in simple terms you could decouple the business rules from the database and user interface.</p>
+
+<p><a href="/static/hexagonal-architeture/hexagonal-architecture.png"><img src="/static/hexagonal-architecture/hexagonal-architecture.png" alt="Hexagonal Architecture" /></a></p>
+
+<p>As you can see on the left side there are driving actors:</p>
+
+<ul>
+  <li>Test Harness</li>
+  <li>User Interface</li>
+</ul>
+
+<p>The secondary actors are on the right side:</p>
+
+<ul>
+  <li>Mocked Database</li>
+  <li>SQL Database Adapter</li>
+  <li>Mocked Webserver</li>
+  <li>Webserver Adapter</li>
+</ul>
+
+<p>The use cases are implemented inside the <strong>Application Layer</strong>.</p>
+
+<p>What I am saying is that whatever the right or left side dependencies are you always can delay their implementation by prioritizing tests and mocks. The use cases are the important thing you need to focus on! Is there a correct order to implement an Hexagonal Architecture?</p>
+
+<h2 id="ports-and-adapters-implementation-workflow">Ports and Adapters Implementation Workflow</h2>
+
+<p>The benefit of “Ports and Adapters” is that the application use cases could be implemented in isolation from external services, so we can delay the database and webserver implementation by creating fake implementations.</p>
+
+<blockquote>
+  <p>What about the driving actors? When should I implement them?</p>
+</blockquote>
+
+<p><img src="/static/hexagonal-architecture/guided-by-tests-1.png" alt="First Step" /></p>
+
+<p>The <strong>first driving adapter</strong> you should implement are the <strong>Test Harness</strong>. And to run tests you don’t need an user inteface, see how you don’t need to worry about button colors and font faces? These tests will guide the use case implementation against a mocked database.</p>
+
+<p><img src="/static/hexagonal-architecture/guided-by-tests-2.png" alt="Second Step" /></p>
+
+<p>With the knowledge acquired by the unit tests implementation you can more confident design the <strong>User Interface</strong> then get user feedback. Every stage is a learning process, be open to change the use cases implementation and test harness at anytime!</p>
+
+<p><img src="/static/hexagonal-architecture/guided-by-tests-3.png" alt="Third Step" /></p>
+
+<p>You now can go deeper in details and implement how the application consume the database, and you can run your existing tests against this secondary actor. Should I say that you will do small changes in the application use cases to support this new adapter? You will!</p>
+
+<p><img src="/static/hexagonal-architecture/guided-by-tests-4.png" alt="Final Step" /></p>
+
+<p>The last step you run the <strong>User Interface</strong> against a real database implementation and get more feedback!</p>
+
+<h3 id="optional-acceptance-tests">Optional Acceptance Tests</h3>
+
+<p>We could create tests for the User Interface. Considering that you followed the previous steps.</p>
+
+<h2 id="why-tdd-is-agile">Why TDD is Agile?</h2>
+
+<p>Agile methodology is not about doing things quickly without quality. When designing tests you may feel that you are wasting time and in reality is the opposite:</p>
+
+<blockquote>
+  <p>The only way to go fast is to go well. Every time you yeild to the temptation to trade quality for speed, you slow down. Every time. Uncle Bob.</p>
+</blockquote>
+
+<p>Software should be implemented incrementally and on every sprint you should acquire business knowleadge that help you be effective on the next sprint.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-02-19T05:12:52+01:00">February 19, 2019</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Clean+Architecture+and+TDD%20%2Farchitecture-templates-for-dotnet-new%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Farchitecture-templates-for-dotnet-new%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Farchitecture-templates-for-dotnet-new%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" class="pagination--pager" title="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+">Previous</a>
+    
+    
+      <a href="/clean-architecture-implementation-sample-dotnet/" class="pagination--pager" title="Clean Architecture Implementation Sample With .NET
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-essentials/" rel="permalink">Clean Architecture Essentials
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The “Software Architecture”
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-implementation-sample-dotnet/" rel="permalink">Clean Architecture Implementation Sample With .NET
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! 
+The use cases are about a Todo List App an...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" rel="permalink">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/rich-domain-model-with-ddd-tdd-reviewed/" rel="permalink">Rich Domain Model with DDD/TDD (Reviewed)
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These a...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Paulovich.NET. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "/architecture-templates-for-dotnet-new/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/clean-architecture-tdd-baby-steps"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://paulovichdotnet.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

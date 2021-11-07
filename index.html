@@ -1,702 +1,540 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-<link rel="icon" href="/assets/images/logo.png">
+<!-- begin _includes/seo.html --><title>Paulovich.NET</title>
+<meta name="description" content="Paving the way for a Clean Architecture.">
 
-<title>Home | Paulovich.NET</title>
 
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Home | Software Architecture and .NET Development</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Home" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Software Architecture and .NET Development" />
-<meta property="og:description" content="Software Architecture and .NET Development" />
-<meta property="og:site_name" content="Software Architecture and .NET Development" />
-<link rel="next" href="/page2/" />
+  <meta name="author" content="Ivan Paulovich">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Paulovich.NET">
+<meta property="og:title" content="Paulovich.NET">
+<meta property="og:url" content="/">
+
+
+  <meta property="og:description" content="Paving the way for a Clean Architecture.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="/">
+
+
+
+
 <script type="application/ld+json">
-{"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"}},"url":"/","name":"Software Architecture and .NET Development","headline":"Home","description":"Software Architecture and .NET Development","@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {
+    "@context": "https://schema.org",
     
-<link href="/assets/css/screen.css" rel="stylesheet">
-
-<link href="/assets/css/main.css" rel="stylesheet">
-
-<script src="/assets/js/jquery.min.js"></script>
-
-</head>
-
-<!-- change your GA id in _config.yml -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-27176166-2', 'auto');
-ga('send', 'pageview');
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
 </script>
 
 
-<body class="layout-default">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
 
 
-<!-- Begin Menu Navigation
-================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-
-    <div class="container pr-0">
-
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.png" alt="Paulovich.NET">
-    </a>
-    <!-- End Logo -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMediumish">
-
-        <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
-                
-                <li class="nav-item active">
-                
-                <a class="nav-link" href="/index.html">Blog</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/about-ivan-paulovich">About</a>
-                </li>
-
-                <script src="/assets/js/lunr.js"></script>
 
 
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
+
+<!-- end _includes/seo.html -->
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
-</form>
 
-<div id="lunrsearchresults">
-    <ul></ul>
-</div>
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Paulovich.NET Feed">
 
-<script src="/assets/js/lunrsearchengine.js"></script>
 
-            </ul>
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- End Menu -->
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
 
-    </div>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-    </div>
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--home">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
 </nav>
-<!-- End Navigation
-================================================== -->
 
-<div class="site-content">
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
 
-<div class="container">
+    
 
-<!-- Site Title
-================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">Paulovich.NET</h1>
-    <p class="lead">
-        Software Architecture and .NET Development
-    </p>
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Paulovich.NET
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about-ivan-paulovich">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
 </div>
 
-<!-- Content
-================================================== -->
-<div class="main-content">
-    
 
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
+    <div class="initial-content">
+      
 
-    
 
-        
 
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-    
-
-        
-
-            <!-- begin post -->
-
-<div class="col-md-6 mb-30px">
-    <div class="listfeaturedtag h-100">
-        <div class="row h-100">
-            <div class="col-12 col-md-12 col-lg-5 pr-lg-0">
-                <div class="h-100">
-                    <div class="wrapthumbnail">
-                        <a href="/clean-architecture-essentials/">
-                            
-                            <img class="featured-box-img-cover" src="/assets/images/17.jpg">
-                            
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-7">
-                <div class="h-100 card-group">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title">
-                                <a class="text-dark" href="/clean-architecture-essentials/">Clean Architecture Essentials</a>
-                                
-                            </h2>
-
-                            <h4 class="card-text">The “Software Architecture”
-
-</h4>
-                        </div>
-                        <div class="card-footer b-0 bg-white mt-auto">
-                            <div class="wrapfooter">
-                                
-                                <span class="meta-footer-thumb">
-                                
-                                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                                
-                                </span>
-                                <span class="author-meta">
-                                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                                
-                                <span class="post-date">20 Jan 2018</span>
-                                </span>
-                                <span class="post-read-more"><a href="/clean-architecture-essentials/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-    
-
-    </div>
-</section>
-
-
-
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
-
-    <div class="section-title">
-
-        <h2><span>All Stories</span></h2>
-
-    </div>
-
-    <div class="row listrecent">
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/shinning-frameworks-trap/">
-                
-
-                    
-                        <img class="img-fluid" src="/img/shinning-frameworks-trap.jpeg" alt="Shinning Frameworks and DDD?"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/shinning-frameworks-trap/">Shinning Frameworks and DDD?</a>
-                
-            </h2>
-            <h4 class="card-text">I talked today about the Shinning Frameworks Trap. Don’t fall into it!
-
-</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">12 Sep 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/shinning-frameworks-trap/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/the-ui-is-a-detail/">
-                
-
-                    
-                        <img class="img-fluid" src="/img/clean-architecture-the-ui-is-a-detail.jpeg" alt="Clean Architecture: The User Interface is a detail"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/the-ui-is-a-detail/">Clean Architecture: The User Interface is a detail</a>
-                
-            </h2>
-            <h4 class="card-text">Today I talk about Presenters. I hope you enjoy and I looking forward feedback.
-
-</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">11 Sep 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/the-ui-is-a-detail/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/designing-testing-video/">
-                
-
-                    
-                        <img class="img-fluid" src="/img/design-tests-video-thumb.jpg" alt="Designing and Testing Video"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/designing-testing-video/">Designing and Testing Video</a>
-                
-            </h2>
-            <h4 class="card-text">I started a new series of videos introducing Clean Architecture, Open Source and .NET Development.
-
-</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">10 Sep 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/designing-testing-video/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/tdd-hexagonal-architecture-video/">
-                
-
-                    
-                        <img class="img-fluid" src="/img/ports-and-adapters-video-thumb.jpg" alt="TDD and Hexagonal Architecture Video"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/tdd-hexagonal-architecture-video/">TDD and Hexagonal Architecture Video</a>
-                
-            </h2>
-            <h4 class="card-text">Quick tips for the ones following the Hexagonal Architecture, please apply TDD outside-in and and do not start implementing Mocks for every dependency.
-
-</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">07 Sep 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/tdd-hexagonal-architecture-video/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/designing-testing-input-validation-in-dotnet-core-the-clean-architecture-way/">
-                
-
-                    
-                        <img class="img-fluid" src="/assets/images/norman-tsui-PoF0kgQm9hE-unsplash.jpg" alt="Designing and Testing Input Validation in .NET Core: The Clean Architecture way"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/designing-testing-input-validation-in-dotnet-core-the-clean-architecture-way/">Designing and Testing Input Validation in .NET Core: The Clean Architecture way</a>
-                
-            </h2>
-            <h4 class="card-text">Almost every software requires some input validation implementation. Due to the importance there are frameworks and guidelines to help us complete the task, should not be difficult to write good...</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">07 Sep 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/designing-testing-input-validation-in-dotnet-core-the-clean-architecture-way/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-        <!-- begin post -->
-
-
-<div class="col-lg-4 col-md-6 mb-30px card-group">
-    <div class="card h-100">
-        <div class="maxthumb">
-            <a href="/clean-architecture-essentials-part-1/">
-                
-
-                    
-                        <img class="img-fluid" src="/assets/images/17.jpg" alt="Clean Architecture Essentials - Part I"> 
-                    
-
-                
-            </a>
-        </div>
-        <div class="card-body">
-            <h2 class="card-title">
-                <a class="text-dark" href="/clean-architecture-essentials-part-1/">Clean Architecture Essentials - Part I</a>
-                
-            </h2>
-            <h4 class="card-text">I have been following the Clean Architecture principles on the todo development and I would like to share my experience with you. The strategies and decisions I have made could...</h4>
-        </div>
-        <div class="card-footer bg-white">
-            <div class="wrapfooter">
-                
-                <span class="meta-footer-thumb">
-                
-                <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                
-                </span>
-                <span class="author-meta">
-                <span class="post-name"><a target="_blank" href="https://paulovich.net">Ivan Paulovich</a></span><br/>
-                
-                <span class="post-date">20 Apr 2019</span>
-                </span>
-                <span class="post-read-more"><a href="/clean-architecture-essentials-part-1/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end post -->
-
-        
-
-    </div>
-
-</section>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
-<span class="navigation" role="navigation">
-    
-<div class="pagination">
+<div id="main" role="main">
   
-    <span>&laquo; Prev</span>
+  <div class="sidebar sticky">
   
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="https://avatars.githubusercontent.com/u/7133698?v=4&size=200" alt="Ivan Paulovich" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Ivan Paulovich</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Senior Software Engineer.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Stockholm</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://www.youtube.com/c/IvanPaulovichDotNet/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">Youtube</span></a></li>
+          
+        
+          
+            <li><a href="https://resume.io/r/gmOmOKetz" rel="nofollow noopener noreferrer"><i class="fa-file-pdf" aria-hidden="true"></i><span class="label">My CV</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:ivan@paulovich.net">
+            <meta itemprop="email" content="ivan@paulovich.net" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/ivanpaulovich" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ivanpaulovich" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title"></h1>
+    
+    
+
+
+<h3 class="archive__subtitle">Recent Posts</h3>
+
+
+
+
+<div class="entries-list">
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-essentials/" rel="permalink">Clean Architecture Essentials
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The “Software Architecture”
+</p>
+  </article>
+</div>
 
   
     
-      <span class="ml-1 mr-1">1</span>
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-implementation-sample-dotnet/" rel="permalink">Clean Architecture Implementation Sample With .NET
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! 
+The use cases are about a Todo List App an...</p>
+  </article>
+</div>
+
   
     
-      <a class="ml-1 mr-1" href="/page2/">2</a>
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/architecture-templates-for-dotnet-new/" rel="permalink">Clean Architecture and TDD
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM cere...</p>
+  </article>
+</div>
+
   
     
-      <a class="ml-1 mr-1" href="/page3/">3</a>
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-  
-
-  
-    <a class="ml-1 mr-1" href="/page2/">Next &raquo;</a>
-  
-</div>
-
-</span>
-</div>
-
-
-</div>
-
-
-<!-- Bottom Alert Bar
-================================================== -->
-<div class="alertbar">
-	<div class="container text-center">
-		<span><img src="/assets/images/logo.png" alt="Software Architecture and .NET Development"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
-        <form action="https://paulovich.us3.list-manage.com/subscribe/post?u=3908a479dc89ce5adc26cc8c5&amp;id=9275121da4" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
-            <div class="mc-field-group">
-            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="heart">
-            </div>
-        </form>
-	</div>
-</div>
-
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" rel="permalink">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+</a>
+      
+    </h2>
     
+
+
+    <p class="archive__item-excerpt" itemprop="description">Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics...</p>
+  </article>
 </div>
 
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-            </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            
-            
-                
-                    <a class="mt-1 mb-1" href="/category/cleanarchitecture">cleanarchitecture (14)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/ddd">ddd (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/video">video (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/tdd">tdd (4)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/validation">validation (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/hexagonalarchitecture">hexagonalarchitecture (1)</a>
-                
-            
-            
-		</div>
-	</div>
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/rich-domain-model-with-ddd-tdd-reviewed/" rel="permalink">Rich Domain Model with DDD/TDD (Reviewed)
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These a...</p>
+  </article>
 </div>
 
-<!-- Begin Footer
-================================================== -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2020 Paulovich.NET 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
-            </div>
-        </div>
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/guidelines-to-enrich-anemic-domain-models-tdd-ddd/" rel="permalink">Guidelines to Enrich Anemic Domain Models with TDD/DDD
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">In my previous blog posts you could see Clean Architecture and Hexagonal implementations. Continuing this series I am going deeper on the Domain Layer, throu...</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hexagonal-architecture-dot-net/" rel="permalink">Hexagonal Architecture with .NET
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The feedback of the Clean Architecture for .NET Applications made me feel like I needed to take a step back and introduce some concepts first, so I will pres...</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/architecture-templates-for-dotnet-new/" rel="permalink">Architecture Templates for dotnet new
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.
+</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-for-net-applications/" rel="permalink">Clean Architecture for .NET Applications
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">I’d like to introduce my service template for .NET Applications based on the Clean Architecture style. You can download the full source code or you can play ...</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/" rel="permalink">Check out these awesome Hexagonal and Clean Architectures implementations!
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architect...</p>
+  </article>
+</div>
+
+  
+</div>
+
+
+
+
+  </div>
+</div>
     </div>
-</footer>
-<!-- End Footer
-================================================== -->
 
-</div> <!-- /.site-content -->
+    
 
-<!-- Scripts
-================================================== -->
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
 
-<script src="/assets/js/mediumish.js"></script>
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Paulovich.NET. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
 
 
 
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
 
 
 
-</body>
+
+
+
+
+  </body>
 </html>

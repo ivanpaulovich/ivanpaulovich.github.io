@@ -1,480 +1,455 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-<link rel="icon" href="/assets/images/logo.png">
+<!-- begin _includes/seo.html --><title>Check out these awesome Hexagonal and Clean Architectures implementations! - Paulovich.NET</title>
+<meta name="description" content="Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios.">
 
-<title>Architecture Templates for dotnet new | Paulovich.NET</title>
 
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Architecture Templates for dotnet new | Software Architecture and .NET Development</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Architecture Templates for dotnet new" />
-<meta name="author" content="ivanpaulovich" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation." />
-<meta property="og:description" content="I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation." />
-<meta property="og:site_name" content="Software Architecture and .NET Development" />
-<meta property="og:image" content="/assets/images/17.jpg" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-05-22T04:12:52+00:00" />
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Paulovich.NET">
+<meta property="og:title" content="Check out these awesome Hexagonal and Clean Architectures implementations!">
+<meta property="og:url" content="/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/">
+
+
+  <meta property="og:description" content="Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-04-05T06:12:52+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/">
+
+
+
+
 <script type="application/ld+json">
-{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"ivanpaulovich"},"url":"/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/","headline":"Architecture Templates for dotnet new","dateModified":"2018-05-22T04:12:52+00:00","datePublished":"2018-05-22T04:12:52+00:00","author":{"@type":"Person","name":"ivanpaulovich"},"description":"I am releasing an new version of my Architecture Templates for dotnet new. We are working on testing, compatibility and documentation.","image":"/assets/images/17.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/"},"@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {
+    "@context": "https://schema.org",
     
-<link href="/assets/css/screen.css" rel="stylesheet">
-
-<link href="/assets/css/main.css" rel="stylesheet">
-
-<script src="/assets/js/jquery.min.js"></script>
-
-</head>
-
-<!-- change your GA id in _config.yml -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-27176166-2', 'auto');
-ga('send', 'pageview');
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
 </script>
 
 
-<body class="layout-post">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
 
 
-<!-- Begin Menu Navigation
-================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-
-    <div class="container pr-0">
-
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.png" alt="Paulovich.NET">
-    </a>
-    <!-- End Logo -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMediumish">
-
-        <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
-                
-                <li class="nav-item">
-                
-                <a class="nav-link" href="/index.html">Blog</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/about-ivan-paulovich">About</a>
-                </li>
-
-                <script src="/assets/js/lunr.js"></script>
 
 
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
+
+<!-- end _includes/seo.html -->
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
-</form>
 
-<div id="lunrsearchresults">
-    <ul></ul>
-</div>
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Paulovich.NET Feed">
 
-<script src="/assets/js/lunrsearchengine.js"></script>
 
-            </ul>
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- End Menu -->
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
 
-    </div>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-    </div>
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
 </nav>
-<!-- End Navigation
-================================================== -->
 
-<div class="site-content">
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
 
-<div class="container">
-
-<!-- Site Title
-================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">Paulovich.NET</h1>
-    <p class="lead">
-        Software Architecture and .NET Development
-    </p>
-</div>
-
-<!-- Content
-================================================== -->
-<div class="main-content">
-    <!-- Begin Article
-================================================== -->
-<div class="container">
-    <div class="row">
-
-        <!-- Post Share -->
-        <div class="col-md-2 pl-0">
-            <div class="share sticky-top sticky-top-offset">
-    <p>
-        Share
-    </p>
-    <ul>
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Architecture Templates for dotnet new&url=https://paulovich.net/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </li>
-
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=https://paulovich.net/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </li>
-
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://paulovich.net/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/" onclick="window.open(this.href, 'width=550,height=435');return false;">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-        </li>
-
-    </ul>
     
-    <div class="sep">
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Paulovich.NET
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about-ivan-paulovich">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
     </div>
-    <ul>
-        <li>
-        <a class="small smoothscroll" href="#disqus_thread"></a>
-        </li>
-    </ul>
-    
+  </div>
 </div>
 
-        </div>
 
-        <!-- Post -->
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Check out these awesome Hexagonal and Clean Architectures implementations!">
+    <meta itemprop="description" content="Filipe Augusto and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios.">
+    <meta itemprop="datePublished" content="2018-04-05T06:12:52+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Check out these awesome Hexagonal and Clean Architectures implementations!
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><a href="https://www.linkedin.com/in/filipe-augusto-lima-de-souza-95a16833/">Filipe Augusto</a> and I have been designing architectures and adapting legacy systems to more sophisticated market standards for a few years. Software Architecture is not a snapshot, it is a living thing and after several proofs of concept in real world systems, we come to some implementations that cover different scenarios.</p>
+
+<p>To illustrate, we published on GitHub three projects with architecture practices for highly testable, framework and database independent softwares<strong>.</strong></p>
+
+<p>The first one is the <a href="https://github.com/ivanpaulovich/acerola/">Acerola Project</a>, which follows the Hexagonal Architecture (in the center there’s a Domain plus the Application and externally Ports and Adapters).</p>
+
+<p>The second one is the <a href="https://github.com/ivanpaulovich/manga/">Manga Project</a> that goes beyond the Hexagonal Architecture and uses the rules of dependencies and patterns of Clean Architecture. It places User Cases as first-class objects and dependencies must point only inward, toward high-level policies.</p>
+
+<p>The last one is <a href="https://github.com/ivanpaulovich/amora/">Amora Project</a>, an Angular frontend for the previous microservices.</p>
+
+<p>Everything we’ve published is fresh new and we are in the alpha releases. We’re planning to implement and explore new concepts in the future, as Fitness Functions and show by example integrations between few microservices via Broker and Mediator pattern.</p>
+
+<p>These projects were born in the DevOps, Cloud and Container era, they come with CI/CD, TDD, Docker, .NET Core and Azure! Feedback and pull requests are welcome!</p>
+
+<p>Check out the projects. Worth it!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
         
 
-        <div class="col-md-9 flex-first flex-md-unordered">
-            <div class="mainheading">
 
-                <!-- Author Box -->
-                
-                <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                        
-                    </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="https://paulovich.net">Ivan Paulovich</a><a target="_blank" href="https://twitter.com/ivanpaulovich" class="btn follow">Follow</a>
-                        <span class="author-description">Agile .NET developer focused on Clean architecture. I enjoy implementing solutions based on use cases and decoupled from technology details.</span>
-                    </div>
-                </div>
-                
+        
 
-                <!-- Post Title -->
-                <h1 class="posttitle">Architecture Templates for dotnet new</h1>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-04-05T06:12:52+02:00">April 5, 2018</time></p>
 
-            </div>
 
-            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
-            
-            <!-- End Adsense -->
+      </footer>
 
-            <!-- Post Featured Image -->
-            
+      <section class="page__share">
+  
 
-            
-            <img class="featured-image img-fluid" src="/assets/images/17.jpg" alt="Architecture Templates for dotnet new">
-            
+  <a href="https://twitter.com/intent/tweet?text=Check+out+these+awesome+Hexagonal+and+Clean+Architectures+implementations%21%20%2Fcheck-out-these-awesome-hexagonal-and-clean-architectures-implementations%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-            
-            <!-- End Featured Image -->
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fcheck-out-these-awesome-hexagonal-and-clean-architectures-implementations%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-            <!-- Post Content -->
-            <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>I am releasing an new version of my <a href="https://dotnetnew.azurewebsites.net/pack/Paulovich.Caju">Architecture Templates for dotnet new</a>. We are working on testing, compatibility and documentation.</p>
-
-<h2 id="paulovichcaju-040-release-notes">Paulovich.Caju 0.4.0 Release notes</h2>
-
-<ul>
-  <li>New architecture tips for each layer in Clean Architecture template. Check out the <a href="https://paulovich.net/clean-architecture-for-net-applications/">blog post</a>.</li>
-  <li>Command line breaking changes. See the topic below.</li>
-</ul>
-
-<h2 id="how-to-install-the-latest-version">How to install the latest version</h2>
-
-<p>To install the latest version use:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>dotnet new -i Paulovich.Caju
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Then run <strong>dotnet new</strong> and check the templates list:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Templates</th>
-      <th>Short Name</th>
-      <th>Language</th>
-      <th>Tags</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Hexagonal Architecture for .NET Applications!</td>
-      <td>hexagonal</td>
-      <td>[C#]</td>
-      <td>Common/Library/Web API</td>
-    </tr>
-    <tr>
-      <td>Event-Sourcing for .NET Applications!</td>
-      <td>eventsourcing</td>
-      <td>[C#]</td>
-      <td>Common/Library/Web API</td>
-    </tr>
-    <tr>
-      <td>Clean Architecture for .NET Applications!</td>
-      <td>clean</td>
-      <td>[C#]</td>
-      <td>Common/Library/Web API</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="command-line-changes">Command Line Changes</h2>
-
-<p>I changed the short name <strong>caju</strong> to three more specifics commands <strong>hexagonal</strong>, <strong>eventsourcing</strong>and <strong>clean</strong>.</p>
-
-<p>The old commands were:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>dotnet new caju --architecture-style hexagonal
-dotnet new caju --architecture-style eventsourcing
-dotnet new caju --architecture-style clean
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>The <strong>new commands</strong> in Paulovich.Caju 0.4.0 package are:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>dotnet new hexagonal
-dotnet new eventsourcing
-dotnet new clean
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Much more clear now! Remember that each template has slight differences, so add the <strong>–help</strong> for details.</p>
-
-<p>This templates segregation are required to speed up the updates.</p>
-
-            </div>
-
-            <!-- Rating -->
-            
-
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="2018-05-22">22 May 2018</time></span>           
-                
-                </small>
-            </p>
-
-            <!-- Post Categories -->
-            <div class="after-post-cats">
-                <ul class="tags mb-4">
-                    
-                    
-                    <li>
-                        <a class="smoothscroll" href="/categories#cleanarchitecture">cleanarchitecture</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <!-- End Categories -->
-
-            <!-- Post Tags -->
-            <div class="after-post-tags">
-                <ul class="tags">
-                    
-                    
-                </ul>
-            </div>
-            <!-- End Tags -->
-
-            <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-            
-            <a class="prev d-block col-md-6" href="//clean-architecture-for-net-applications/"> &laquo; Clean Architecture for .NET Applications</a>
-            
-            
-            <a class="next d-block col-md-6 text-lg-right" href="//hexagonal-architecture-dot-net/">Hexagonal Architecture with .NET &raquo; </a>
-            
-            <div class="clearfix"></div>
-            </div>
-            <!-- End Categories -->
-
-        </div>
-        <!-- End Post -->
-
-    </div>
-</div>
-<!-- End Article
-================================================== -->
-
-<!-- Begin Comments
-================================================== -->
-
-    <div class="container">
-        <div id="comments" class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                <section class="disqus">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'paulovichdotnet'; 
-        var disqus_developer = 0;
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fcheck-out-these-awesome-hexagonal-and-clean-architectures-implementations%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
-            </div>
-        </div>
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/clean-architecture-for-net-applications/" class="pagination--pager" title="Clean Architecture for .NET Applications
+">Next</a>
+    
+  </nav>
+
     </div>
-
-<!--End Comments
-================================================== -->
-
-<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
-https://search.google.com/structured-data/testing-tool/u/0/
-================================================== -->
-
-</div>
-
-
-<!-- Bottom Alert Bar
-================================================== -->
-<div class="alertbar">
-	<div class="container text-center">
-		<span><img src="/assets/images/logo.png" alt="Software Architecture and .NET Development"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
-        <form action="https://paulovich.us3.list-manage.com/subscribe/post?u=3908a479dc89ce5adc26cc8c5&amp;id=9275121da4" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
-            <div class="mc-field-group">
-            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="heart">
-            </div>
-        </form>
-	</div>
-</div>
 
     
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-essentials/" rel="permalink">Clean Architecture Essentials
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The “Software Architecture”
+</p>
+  </article>
 </div>
 
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-            </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            
-            
-                
-                    <a class="mt-1 mb-1" href="/category/cleanarchitecture">cleanarchitecture (14)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/ddd">ddd (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/video">video (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/tdd">tdd (4)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/validation">validation (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/hexagonalarchitecture">hexagonalarchitecture (1)</a>
-                
-            
-            
-		</div>
-	</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-implementation-sample-dotnet/" rel="permalink">Clean Architecture Implementation Sample With .NET
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! 
+The use cases are about a Todo List App an...</p>
+  </article>
 </div>
 
-<!-- Begin Footer
-================================================== -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2020 Paulovich.NET 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
-            </div>
-        </div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/architecture-templates-for-dotnet-new/" rel="permalink">Clean Architecture and TDD
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM cere...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" rel="permalink">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics...</p>
+  </article>
+</div>
+
+        
+      </div>
     </div>
-</footer>
-<!-- End Footer
-================================================== -->
+  
+  
+</div>
 
-</div> <!-- /.site-content -->
+    </div>
 
-<!-- Scripts
-================================================== -->
+    
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
 
-<script src="/assets/js/mediumish.js"></script>
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Paulovich.NET. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
 
 
 
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
 
 
-<script id="dsq-count-scr" src="//paulovichdotnet.disqus.com/count.js"></script>
 
 
-</body>
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "/check-out-these-awesome-hexagonal-and-clean-architectures-implementations/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/check-out-these-awesome-hexagonal-and-clean-architectures-implementations"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://paulovichdotnet.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
 </html>

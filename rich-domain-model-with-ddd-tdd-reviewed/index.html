@@ -1,230 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-<link rel="icon" href="/assets/images/logo.png">
+<!-- begin _includes/seo.html --><title>Rich Domain Model with DDD/TDD (Reviewed) - Paulovich.NET</title>
+<meta name="description" content="Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.">
 
-<title>Rich Domain Model with DDD/TDD (Reviewed) | Paulovich.NET</title>
 
-<!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Rich Domain Model with DDD/TDD (Reviewed) | Software Architecture and .NET Development</title>
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Rich Domain Model with DDD/TDD (Reviewed)" />
-<meta name="author" content="ivanpaulovich" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems." />
-<meta property="og:description" content="Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems." />
-<meta property="og:site_name" content="Software Architecture and .NET Development" />
-<meta property="og:image" content="/assets/img/photo-1518133835878-5a93cc3f89e5.jpeg" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-29T04:12:52+00:00" />
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Paulovich.NET">
+<meta property="og:title" content="Rich Domain Model with DDD/TDD (Reviewed)">
+<meta property="og:url" content="/rich-domain-model-with-ddd-tdd-reviewed/">
+
+
+  <meta property="og:description" content="Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-07-29T06:12:52+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/rich-domain-model-with-ddd-tdd-reviewed/">
+
+
+
+
 <script type="application/ld+json">
-{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"},"name":"ivanpaulovich"},"url":"/rich-domain-model-with-ddd-tdd-reviewed/","headline":"Rich Domain Model with DDD/TDD (Reviewed)","dateModified":"2018-07-29T04:12:52+00:00","datePublished":"2018-07-29T04:12:52+00:00","author":{"@type":"Person","name":"ivanpaulovich"},"description":"Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.","image":"/assets/img/photo-1518133835878-5a93cc3f89e5.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"/rich-domain-model-with-ddd-tdd-reviewed/"},"@context":"http://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {
+    "@context": "https://schema.org",
     
-<link href="/assets/css/screen.css" rel="stylesheet">
-
-<link href="/assets/css/main.css" rel="stylesheet">
-
-<script src="/assets/js/jquery.min.js"></script>
-
-</head>
-
-<!-- change your GA id in _config.yml -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-27176166-2', 'auto');
-ga('send', 'pageview');
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
 </script>
 
 
-<body class="layout-post">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
 
 
-<!-- Begin Menu Navigation
-================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-
-    <div class="container pr-0">
-
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="/">
-    <img src="/assets/images/logo.png" alt="Paulovich.NET">
-    </a>
-    <!-- End Logo -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMediumish">
-
-        <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
-                
-                <li class="nav-item">
-                
-                <a class="nav-link" href="/index.html">Blog</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/about-ivan-paulovich">About</a>
-                </li>
-
-                <script src="/assets/js/lunr.js"></script>
 
 
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
+
+<!-- end _includes/seo.html -->
 
 
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
-</form>
 
-<div id="lunrsearchresults">
-    <ul></ul>
-</div>
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Paulovich.NET Feed">
 
-<script src="/assets/js/lunrsearchengine.js"></script>
 
-            </ul>
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- End Menu -->
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
 
-    </div>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-    </div>
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
 </nav>
-<!-- End Navigation
-================================================== -->
 
-<div class="site-content">
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
 
-<div class="container">
-
-<!-- Site Title
-================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">Paulovich.NET</h1>
-    <p class="lead">
-        Software Architecture and .NET Development
-    </p>
-</div>
-
-<!-- Content
-================================================== -->
-<div class="main-content">
-    <!-- Begin Article
-================================================== -->
-<div class="container">
-    <div class="row">
-
-        <!-- Post Share -->
-        <div class="col-md-2 pl-0">
-            <div class="share sticky-top sticky-top-offset">
-    <p>
-        Share
-    </p>
-    <ul>
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Rich Domain Model with DDD/TDD (Reviewed)&url=https://paulovich.net/rich-domain-model-with-ddd-tdd-reviewed/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </li>
-
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=https://paulovich.net/rich-domain-model-with-ddd-tdd-reviewed/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </li>
-
-        <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://paulovich.net/rich-domain-model-with-ddd-tdd-reviewed/" onclick="window.open(this.href, 'width=550,height=435');return false;">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-        </li>
-
-    </ul>
     
-    <div class="sep">
-    </div>
-    <ul>
-        <li>
-        <a class="small smoothscroll" href="#disqus_thread"></a>
-        </li>
-    </ul>
-    
-</div>
 
-        </div>
-
-        <!-- Post -->
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
         
+        <a class="site-title" href="/">
+          Paulovich.NET
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about-ivan-paulovich">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
 
-        <div class="col-md-9 flex-first flex-md-unordered">
-            <div class="mainheading">
 
-                <!-- Author Box -->
-                
-                <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/8821ecd598e75afc5f9f33eac6cabb0d?s=250&d=mm&r=x" alt="Ivan Paulovich">
-                        
-                    </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="https://paulovich.net">Ivan Paulovich</a><a target="_blank" href="https://twitter.com/ivanpaulovich" class="btn follow">Follow</a>
-                        <span class="author-description">Agile .NET developer focused on Clean architecture. I enjoy implementing solutions based on use cases and decoupled from technology details.</span>
-                    </div>
-                </div>
-                
+    <div class="initial-content">
+      
 
-                <!-- Post Title -->
-                <h1 class="posttitle">Rich Domain Model with DDD/TDD (Reviewed)</h1>
 
-            </div>
 
-            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
-            
-            <!-- End Adsense -->
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
 
-            <!-- Post Featured Image -->
-            
 
-            
-            <img class="featured-image img-fluid" src="/assets/img/photo-1518133835878-5a93cc3f89e5.jpeg" alt="Rich Domain Model with DDD/TDD (Reviewed)">
-            
+<div itemscope itemtype="https://schema.org/Person">
 
-            
-            <!-- End Featured Image -->
+  
 
-            <!-- Post Content -->
-            <div class="article-post">
-                <!-- Toc if any -->
-                
-                <!-- End Toc -->
-                <p>Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an <em>IO device that our software requires</em> to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.</p>
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Rich Domain Model with DDD/TDD (Reviewed)">
+    <meta itemprop="description" content="Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an IO device that our software requires to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.">
+    <meta itemprop="datePublished" content="2018-07-29T06:12:52+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Rich Domain Model with DDD/TDD (Reviewed)
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Through my journey of building Domain Models I had good and bad experiences that today I share with you to save a few hours of your development time. These are opinionated approaches that I follow when building Rich Domain Models. A Rich Domain Model is the technical part when applying DDD, it envolves the building blocks like Entity, Value Objects and Aggregate Root. The goal is to build a ubiquitous language between developers and stakeholders using the a vocabulary that describes the business rules. What are the business rules? Its what’s make or save money, irrespective of whether they were implemented on a computer or manually. This kind of rules are simple to be described in words as they do not require a database, in fact the database is just an <em>IO device that our software requires</em> to persist state. We could say the same about the Web, it is only a delivery mechanism to present information to our users and has nothing to do with the business rules. Having that clear is my way of thinking but what I find in our industry is a spaghetti of business rules, persistence libraries and frameworks code. In the next few topics I’m going to expose code issues we want to avoid before you decide to invest time building rich domains models . The code issues I am referring to are known as code smells, and they are associated with architecture and development problems.</p>
 
 <h2 id="code-smells-to-avoid">Code Smells to Avoid</h2>
 
@@ -232,13 +246,7 @@ ga('send', 'pageview');
 
 <h3 id="feature-envy">Feature Envy</h3>
 
-<p>It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this:</p>
-
-<p><img src="/img/envy.png" alt="Envy" /></p>
-
-<p>The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details.</p>
-
-<p><img src="/img/feature-envy-fixed.png" alt="Feature Envy Fixed" /></p>
+<p>It’s the situation where a client class access the fields of another class more than it’s own data. In order to keep the policies of the second class consistent the consumer needs to validate and manipulate multiple fields together. This code smell is easy to find when “Application Services” or “Extension Methods” are envy of other Entities fields. These application services implement the policies that should be managed by the Entities classes. Just like this: <img src="/static/envy.png" alt="" /> The solution for this code smell is to move the envy method into the class that owns the data then hide the internal details. <img src="/static/feature-envy-fixed.png" alt="" /></p>
 
 <h3 id="primitive-obsession">Primitive Obsession</h3>
 
@@ -301,9 +309,7 @@ ga('send', 'pageview');
   <li>It’s required from the customer to fill Name, SSN and to deposit an initial amount when registering.</li>
 </ol>
 
-<p>We could identify the following DDD patterns for these business:</p>
-
-<p><img src="/img/model.png" alt="Model" /></p>
+<p>We could identify the following DDD patterns for these business: <a href="/static/model.png"><img src="/static/model.png" alt="" /></a></p>
 
 <ul>
   <li><strong>Aggregate Roots:</strong> Customer and Account.</li>
@@ -352,13 +358,10 @@ ga('send', 'pageview');
 
 <p>There are more examples of Rich Domain in my GitHub repository. You can find the Aggregates, Entities and the Values objects. Also everything is covered by Unit Tests. The source code is available on GitHub <a href="https://github.com/ivanpaulovich/ddd-tdd-rich-domain">DDD/TDD Rich Domain</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ivanpaulovich/ddd-tdd-rich-domain.git
 cd ddd-tdd-rich-domain
 ./build.sh
-</pre></td></tr></tbody></table></code></pre></div></div>
+</code></pre></div></div>
 
 <p>Give it a stargazer, fork it if you like.</p>
 
@@ -366,179 +369,203 @@ cd ddd-tdd-rich-domain
 
 <p>Building rich domains is not an easy task, in fact it requires much more effort to implement the business requirements and how to hide the internal details. Fortunately we can leverage on TDD practices to validate the API usage, and to ensure it’s correctness. The DDD patterns help us understand how the components should work together. We highlight that the principles of high cohesion and low coupling are required to lower the complexity of the code base. Have you implemented a Rich Domain Model? How was your experience? Leave your feedback.</p>
 
-            </div>
+        
+      </section>
 
-            <!-- Rating -->
-            
+      <footer class="page__meta">
+        
+        
 
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="2018-07-29">29 Jul 2018</time></span>           
-                
-                </small>
-            </p>
 
-            <!-- Post Categories -->
-            <div class="after-post-cats">
-                <ul class="tags mb-4">
-                    
-                    
-                    <li>
-                        <a class="smoothscroll" href="/categories#ddd">ddd</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <!-- End Categories -->
+        
 
-            <!-- Post Tags -->
-            <div class="after-post-tags">
-                <ul class="tags">
-                    
-                    
-                </ul>
-            </div>
-            <!-- End Tags -->
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-07-29T06:12:52+02:00">July 29, 2018</time></p>
 
-            <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-            
-            <a class="prev d-block col-md-6" href="//hexagonal-architectural-in-2-minutes/"> &laquo; Hexagonal Architectural in 2 minutes</a>
-            
-            
-            <a class="next d-block col-md-6 text-lg-right" href="//hexagonal-and-clean-architecture-styles-with-net-core-reviewed/">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed) &raquo; </a>
-            
-            <div class="clearfix"></div>
-            </div>
-            <!-- End Categories -->
 
-        </div>
-        <!-- End Post -->
+      </footer>
 
-    </div>
-</div>
-<!-- End Article
-================================================== -->
+      <section class="page__share">
+  
 
-<!-- Begin Comments
-================================================== -->
+  <a href="https://twitter.com/intent/tweet?text=Rich+Domain+Model+with+DDD%2FTDD+%28Reviewed%29%20%2Frich-domain-model-with-ddd-tdd-reviewed%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-    <div class="container">
-        <div id="comments" class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                <section class="disqus">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'paulovichdotnet'; 
-        var disqus_developer = 0;
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Frich-domain-model-with-ddd-tdd-reviewed%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Frich-domain-model-with-ddd-tdd-reviewed%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
-            </div>
-        </div>
+
+      
+  <nav class="pagination">
+    
+      <a href="/guidelines-to-enrich-anemic-domain-models-tdd-ddd/" class="pagination--pager" title="Guidelines to Enrich Anemic Domain Models with TDD/DDD
+">Previous</a>
+    
+    
+      <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" class="pagination--pager" title="Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+">Next</a>
+    
+  </nav>
+
     </div>
-
-<!--End Comments
-================================================== -->
-
-<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
-https://search.google.com/structured-data/testing-tool/u/0/
-================================================== -->
-
-</div>
-
-
-<!-- Bottom Alert Bar
-================================================== -->
-<div class="alertbar">
-	<div class="container text-center">
-		<span><img src="/assets/images/logo.png" alt="Software Architecture and .NET Development"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
-        <form action="https://paulovich.us3.list-manage.com/subscribe/post?u=3908a479dc89ce5adc26cc8c5&amp;id=9275121da4" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
-            <div class="mc-field-group">
-            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="heart">
-            </div>
-        </form>
-	</div>
-</div>
 
     
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-essentials/" rel="permalink">Clean Architecture Essentials
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">The “Software Architecture”
+</p>
+  </article>
 </div>
 
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-            </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            
-            
-                
-                    <a class="mt-1 mb-1" href="/category/cleanarchitecture">cleanarchitecture (14)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/ddd">ddd (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/video">video (3)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/tdd">tdd (4)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/validation">validation (1)</a>
-                
-                    <a class="mt-1 mb-1" href="/category/hexagonalarchitecture">hexagonalarchitecture (1)</a>
-                
-            
-            
-		</div>
-	</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/clean-architecture-implementation-sample-dotnet/" rel="permalink">Clean Architecture Implementation Sample With .NET
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Hi all, I started a new open source project about Clean Architecture with .NET and I invite you all to check out! 
+The use cases are about a Todo List App an...</p>
+  </article>
 </div>
 
-<!-- Begin Footer
-================================================== -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © 2020 Paulovich.NET 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
-            </div>
-        </div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/architecture-templates-for-dotnet-new/" rel="permalink">Clean Architecture and TDD
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Nowadays all software development companies are self-titled Agile (if you are not Agile you are not cool right?). Most companies are following the SCRUM cere...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hexagonal-and-clean-architecture-styles-with-net-core-reviewed/" rel="permalink">Hexagonal and Clean Architecture Styles with .NET Core (Reviewed)
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Unfortunately remain very common that applications are built on top of frameworks and databases. I see that developers usually implement software that mimics...</p>
+  </article>
+</div>
+
+        
+      </div>
     </div>
-</footer>
-<!-- End Footer
-================================================== -->
+  
+  
+</div>
 
-</div> <!-- /.site-content -->
+    </div>
 
-<!-- Scripts
-================================================== -->
+    
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
 
-<script src="/assets/js/mediumish.js"></script>
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Paulovich.NET. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
 
 
 
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
 
 
-<script id="dsq-count-scr" src="//paulovichdotnet.disqus.com/count.js"></script>
 
 
-</body>
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "/rich-domain-model-with-ddd-tdd-reviewed/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/rich-domain-model-with-ddd-tdd-reviewed"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://paulovichdotnet.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
 </html>
